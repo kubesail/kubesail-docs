@@ -1,0 +1,8 @@
+site_name: KubeSail Docs
+theme: readthedocs
+repo_url: https://github.com/kubesail/docs
+nav:
+  - Home: index.md
+  - About: about.md
+extra_css:
+  - extra.css
