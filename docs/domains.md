@@ -40,3 +40,26 @@ spec:
     app: nginx
   type: ClusterIP
 ```
+
+## HTTPS for certificates
+
+KubeSail users automatically get free HTTPS when exposing an application to the internet. For custom domains, you'll need to define which `hosts` the HTTPS certificate is valid for:
+
+```yml
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: domain-ingress
+spec:
+  rules:
+  - host: test.mywebsite.com
+    http:
+      paths:
+      - backend:
+          serviceName: my-test-service
+          servicePort: 8080
+  tls:
+  - hosts:
+    - test.mywebsite.com
+    secretName: testsecret-tls
+```
