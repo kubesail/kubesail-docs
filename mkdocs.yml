@@ -8,6 +8,7 @@ nav:
     - 'Deploy your app': deploy.md
   - Advanced Topics: 
     - 'Custom domains': domains.md
+    - 'Exposing your app': exposing.md
   - Contributing: contributing.md
 extra_css:
   - extra.css

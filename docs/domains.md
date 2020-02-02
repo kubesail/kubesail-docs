@@ -4,7 +4,7 @@ You can expose your running containers under your own hostname, such as `example
 
 ## Exposing via the UI
 
-Once your domain is verified, you'll find the domain you just added as an option when you click the **Expose to Internet (HTTPS)** button within the **Ports** tab of your Deployment. You may expose any subdomain of the domain you verified, so in the example below, we will expose `api.stuffbydan.com` even though we've only needed to verify the root domain, `stuffbydan.com`.
+Once your domain is verified, you'll find the domain you just added as an option when you click the **Expose to Internet (HTTPS)** button within the **Ports** tab of your deployment. You may expose any subdomain of the domain you verified, so in the example below, we will expose `api.stuffbydan.com` even though we've only needed to verify the root domain, `stuffbydan.com`.
 
 ![[expose via UI](https://kubesail.com/blog-images/custom-domains-ports.png)](https://kubesail.com/blog-images/custom-domains-ports.png)
 
