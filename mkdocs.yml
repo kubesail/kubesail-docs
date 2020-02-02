@@ -4,8 +4,8 @@ repo_url: https://github.com/kubesail/docs
 nav:
   - Home: README.md
   - Getting Started: 
-      'Set up a namespace': namespace.md
-      'Deploy your app': deploy.md
+      - 'Set up a namespace': namespace.md
+      - 'Deploy your app': deploy.md
   - Contributing: contributing.md
 extra_css:
   - extra.css
