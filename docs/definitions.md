@@ -181,7 +181,7 @@ spec:
 
 An **Ingress** is a Kubernetes object which tells the cluster how to send external traffic to a particular **Service**.
 
-![[ingress](https://kubesail.com/blog-images/blog-tls-1.png)](https://kubesail.com/blog-images/blog-tls-1.png)
+<img src="https://kubesail.com/blog-images/blog-tls-1.png" style="width: 400px; margin: 30px auto;" />
 
 Here is an example Kubernetes **Ingress** Object:
 

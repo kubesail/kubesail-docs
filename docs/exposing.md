@@ -6,7 +6,7 @@ KubeSail provides access to vanilla Kubernetes objects, like **Ingress** and **C
 
 An **Ingress** is a Kubernetes object which tells the cluster how to send external traffic to a particular **Service**.
 
-![[ingress](https://kubesail.com/blog-images/blog-tls-1.png)](https://kubesail.com/blog-images/blog-tls-1.png)
+<img src="https://kubesail.com/blog-images/blog-tls-1.png" style="width: 400px; margin: 30px auto;" />
 
 An **Ingress** can serve either TCP or HTTP traffic - for HTTP services it typically includes three pieces of information:
 
