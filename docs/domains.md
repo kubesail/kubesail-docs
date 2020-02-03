@@ -10,26 +10,14 @@ Once your domain is verified, you'll find the domain you just added as an option
 
 ## Exposing via kubectl
 
-KubeSail currently uses [Ambassador](https://www.getambassador.io/) which allows you to create standard Kubernetes **Services** to route traffic based on hostname. To do this, you'll need to add an ambassador annotation to the **Service**'s metadata, as seen in the below example. Modify the yaml to suit your deployment and hostname, and apply.
+KubeSail allows you to create standard Kubernetes **Services** to route traffic based on hostname. Modify the yaml to suit your deployment and hostname, and apply.
 
 ```yml
+#?filename=domain-svc.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  # Name must be the same as in
-  # the Ambassador mapping below
-  name: nginx-http
-  annotations:
-    getambassador.io/config: |
-      ---
-      apiVersion: ambassador/v1
-      kind: Mapping
-      name: nginx-http.loopdelicious
-      prefix: "/"
-      service: http://nginx-http.loopdelicious:8080
-      host: api.stuffbydan.com
-      timeout_ms: 30000
-      use_websocket: true
+  name: my-app
 spec:
   ports:
   - name: tcp
@@ -46,6 +34,7 @@ spec:
 KubeSail users automatically get free HTTPS when exposing an application to the internet. For custom domains, you'll need to define which `hosts` the HTTPS certificate is valid for:
 
 ```yml
+#?filename=domain-svc.yaml
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
@@ -56,7 +45,7 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: my-test-service
+          serviceName: my-app
           servicePort: 8080
   tls:
   - hosts:

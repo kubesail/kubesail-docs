@@ -23,6 +23,7 @@ Certificates use the [cert-manager](https://github.com/jetstack/cert-manager) pr
 Here is a basic **Ingress** object which creates a web-accessible site using your free `*.kubesail.io` domain:
 
 ```yml
+#?filename=basic-ingress.yaml
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:

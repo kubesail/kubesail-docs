@@ -91,9 +91,10 @@ docker push username/your-image-name
 
 ## Deploy your app to KubeSail
 
-Once you've built your image and pushed to Docker Hub, you can deploy your app to KubeSail. Update the **`image`** section of the config below, and then hit **apply**.
+Once you've built your image and pushed to Docker Hub, you can deploy your app to KubeSail. Update the **`image`** section of the config below, and then **apply** your updates using kubectl.
 
 ```yml
+#?filename=sample-app.yaml
 ---
 apiVersion: apps/v1
 kind: Deployment
