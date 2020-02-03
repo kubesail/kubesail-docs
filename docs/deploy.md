@@ -95,7 +95,6 @@ Once you've built your image and pushed to Docker Hub, you can deploy your app t
 
 ```yml
 #?filename=sample-app.yaml
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:

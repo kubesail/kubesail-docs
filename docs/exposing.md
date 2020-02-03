@@ -10,7 +10,7 @@ An **Ingress** is a Kubernetes object which tells the cluster how to send extern
 
 An **Ingress** can serve either TCP or HTTP traffic - for HTTP services it typically includes three pieces of information:
 
-- The Hostname which identifies this traffic
+- The _Hostname_ which identifies this traffic
 - The **Service** name and port which traffic will be sent to
 - For HTTPS, a **Certificate** for encryption
 

@@ -9,6 +9,7 @@ nav:
   - Advanced Topics: 
     - 'Custom domains': domains.md
     - 'Exposing your app': exposing.md
+  - Definitions: 'definitions.md'
   - Contributing: contributing.md
 extra_css:
   - extra.css
