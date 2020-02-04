@@ -4,9 +4,10 @@ KubeSail is a hosted Kubernetes provider whose mission is to make the benefits o
 
 ## Commands
 
-- `npx deploy-node-app` - Deploy an existing Node application to any Kubernetes cluster.
-- [`create-node-app`](https://github.com/create-node/create-node-app) - Build a new directory with presets for a Node API and a front-end built by `create-react-app`.
-- [`deploy-node-app`](https://github.com/kubesail/deploy-node-app) - Generate all the boilerplate required for container-based deployments on Kubernetes or Docker.
+Generate all the boilerplate required for container-based deployments on Kubernetes or Docker.
+
+- `npx deploy-node-app` - [this utility](https://github.com/kubesail/deploy-node-app) deploys an existing Node application to any Kubernetes cluster
+- `npx create-node-app` - [this utility](https://github.com/create-node/create-node-app) builds a new directory with presets for a Node API and a front-end built by `create-react-app`
 
 ## Definitions
 

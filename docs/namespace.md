@@ -6,7 +6,4 @@ On the [KubeSail homepage](https://kubesail.com/), click **Start for Free**. You
 
 You will be redirected back to KubeSail. Now when you navigate to **Namespace**, you can review details about your free, managed namespace.
 
-<video width="620" height="380" controls autoplay>
-  <source src="https://i.imgur.com/PkD5ksL.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bxBHnc9hSDU?&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
