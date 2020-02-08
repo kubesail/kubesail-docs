@@ -13,7 +13,7 @@ Please include as much detail as you can. If the problem is visual (for example 
 
 ## Installing for Development
 
-The KubeSail documentation is written in Markdown and processed and deployed using MkDocs. You'll need [Python] installed on your system, as well as the Python package manager, [pip]. Then, install [MkDocs].
+The KubeSail documentation is written in Markdown and processed and deployed using MkDocs. You'll need [Python] installed on your system, as well as the Python package manager, [pip]. Then, [install MkDocs].
 
 After that, fork and clone the repository.
 
@@ -33,7 +33,7 @@ mkdocs serve
 
 Updates to the navigation can be made in the YML configuration file. Other content can be updated in the Markdown files.
 
-```
+```yml
 mkdocs.yml    # The configuration file.
 docs/
     README.md  # The documentation homepage.
@@ -43,8 +43,8 @@ docs/
 ## Submitting Pull Requests
 
 Once you are happy with your changes or you are ready for some feedback, push
-it to your fork and send a pull request. 
+it to your fork and send a pull request.
 
 [Python]: https://www.python.org/
 [pip]: https://pip.readthedocs.io/en/stable/installing/
-[MkDocs]: https://www.mkdocs.org/#installation
+[install MkDocs]: https://www.mkdocs.org/#installation

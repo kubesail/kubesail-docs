@@ -10,7 +10,11 @@ Learn how to deploy [Node.js](#nodejs), [Python](#python), and [Ruby on Rails](#
 
 KubeSail created **[`deploy-node-app`](https://kubesail.com/blog/deploy-node-app)** as a migration tool to deploy your existing Node.js application onto any Kubernetes cluster. By running **`npx deploy-node-app`** inside your app's directory, this utility will generate a Dockerfile, build and push deployment images, generate Kubernetes configurations files, and trigger a deployment on your Kubernetes cluster.
 
-This tool generates all the boilerplate required for container-based deployments on **Kubernetes** or **Docker**.
+```bash
+npx deploy-node-app
+```
+
+This tool generates all the boilerplate required for container-based deployments on **Kubernetes** or **Docker**. If you don't have an existing Kubernetes cluster, **`deploy-node-app`** will prompt you to create one. You can also deploy to KubeSail on the [KubeSail free tier](https://kubesail.com/pricing/).
 
 - Create a Dockerfile if none exists
 - Create a Kubernetes Deployment or **`docker-compose.yaml`** file
@@ -18,18 +22,12 @@ This tool generates all the boilerplate required for container-based deployments
 - Build and push your Docker image
 - Deploy your app on any Kubernetes cluster
 
-```bash
-npx deploy-node-app
-```
-
-If you don't have an existing Kubernetes cluster, **`deploy-node-app`** will prompt you to create one. You can also deploy to KubeSail on the [KubeSail free tier](https://kubesail.com/pricing/).
-
 ![[deploy-node-app](https://github.com/kubesail/deploy-node-app/raw/master/docs/terminal-example-1.svg?sanitize=true)](https://github.com/kubesail/deploy-node-app/raw/master/docs/terminal-example-1.svg?sanitize=true)
 
 If you don't have an existing Node app, KubeSail created **[`create-node-app`](https://github.com/create-node/create-node-app)** as an easy way to bootstrap a new app with React, Express, Postgres, and Redis.
 
 ```bash
-npx create-node-app myapp
+npx create-node-app my-node-app
 ```
 
 ![[create-node-app](https://kubesail.com/blog-images/deploy-node-app-cna1.svg)](https://kubesail.com/blog-images/deploy-node-app-cna1.svg)
