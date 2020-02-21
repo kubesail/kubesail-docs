@@ -44,11 +44,11 @@ Kubernetes is widely agreed to be the premier infrastructure API and is expected
 
 ## FAQ
 
-1.  Why isnt my ssl certificate being generated?
+1.  **Why isnt my ssl certificate being generated?**
     1.  Check your resources usage. Often times the cert-manager pod that gets created does not have enough resources to spin up. The resources it needs are:
         `req.cpu=10m`, `req.mem=64Mi`, `lim.cpu=100m`, `lim.mem=64Mi`
     1.  Check that your DNS points to the correct location so Lets Encrypt can reach the cluster (_this is only applicable to external domains you've added_)
-1.  I'm getting a 503 error and can't access my deployment.
+1.  **I'm getting a 503 error and can't access my deployment.**
     1.  Check that your service's label selectors and ports match what is defined in your deployment
-1.  My `kubectl` commands are timing out.
+1.  **My `kubectl` commands are timing out.**
     1.  Try [upgrading / installing kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) manually -- You may have an version of `kubectl` that ships with docker-desktop for osx which is broken
