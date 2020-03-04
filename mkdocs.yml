@@ -3,13 +3,14 @@ theme: readthedocs
 repo_url: https://github.com/kubesail/docs
 nav:
   - Home: README.md
-  - Getting Started: 
-    - 'Set up a namespace': namespace.md
-    - 'Deploy your app': deploy.md
-  - Advanced Topics: 
-    - 'Custom domains': domains.md
-    - 'Exposing your app': exposing.md
+  - Getting Started:
+      - 'Set up a namespace': namespace.md
+      - 'Deploy your app': deploy.md
+  - Advanced Topics:
+      - 'Custom domains': domains.md
+      - 'Exposing your app': exposing.md
   - Definitions: 'definitions.md'
+  - Bring Your Own Cluster: 'byoc.md'
   - Contributing: contributing.md
 extra_css:
   - extra.css
