@@ -1,0 +1,447 @@
+{
+	"info": {
+		"_postman_id": "36c7e028-3bf9-4e06-8832-84df90553678",
+		"name": "staticTests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Performance",
+			"item": [
+				{
+					"name": "Response time",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ee0e17da-2b8a-4854-9504-d22ac3e31a93",
+								"exec": [
+									"var responseTime = parseInt(pm.environment.get('max_response_time'), 10) || 1000;",
+									"",
+									"pm.test('Response time should be less than ' + responseTime  + 'ms', function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(responseTime);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						},
+						"description": "This is the time it took for a client to receive the complete response (HTML in this case) after making the request. We can set maximum response time threshold."
+					},
+					"response": []
+				},
+				{
+					"name": "Response size",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ee0e17da-2b8a-4854-9504-d22ac3e31a93",
+								"exec": [
+									"var maxResponseSize = parseInt(pm.environment.get('max_response_size'), 10) || 100000;",
+									"",
+									"pm.test(\"Response size is less than 35KB\", function () {",
+									"    pm.expect(pm.response.responseSize).to.be.below(maxResponseSize);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						},
+						"description": "The actual size of your first response (HTML page)."
+					},
+					"response": []
+				},
+				{
+					"name": "PageSpeed Insights API",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7f2b3514-c256-4ddf-ba4b-afc25cf3ca48",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "d4cacc95-2929-4a49-9321-eb24725ea662",
+								"exec": [
+									"var minLighthouseScore = parseInt(pm.environment.get('min_lighthouse_score'), 10);",
+									"",
+									"if (minLighthouseScore) {",
+									"    pm.test('PageSpeed score should be between 90 and 100', function () {",
+									"        var res = pm.response.json();",
+									"        var score = res.lighthouseResult.categories.performance.score * 100;",
+									"    ",
+									"        pm.expect(score).to.be.within(minLighthouseScore, 100);    ",
+									"    });",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url={{url}}",
+							"protocol": "https",
+							"host": [
+								"www",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"pagespeedonline",
+								"v5",
+								"runPagespeed"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "{{url}}"
+								}
+							]
+						},
+						"description": "Google provides a feature rich PageSpeed API to evaluate the performance of any webpage. You can call the API from Postman and assert on the results to set benchmarks for your UI."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Functionality",
+			"item": [
+				{
+					"name": "Status code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d9708dbd-fdc0-41ab-bbf0-0689011c29b7",
+								"exec": [
+									"pm.test('Response status code should be 200', function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						},
+						"description": "Response status is the most basic test for uptime. If the server returns an unexpected status code, your web page might not be working correctly."
+					},
+					"response": []
+				},
+				{
+					"name": "Page structure",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "175501b7-2dcb-4d84-8331-0f12f4a47c78",
+								"exec": [
+									"var cheerio = require('cheerio');",
+									"var $ = cheerio.load(pm.response.text());",
+									"var pageTitle = pm.environment.get('page_title');",
+									"",
+									"if (pageTitle) {",
+									"    pm.test('Page title should be ' + pageTitle, function () {",
+									"        pm.expect($('title').text()).to.equal(pageTitle); ",
+									"    });   ",
+									"}",
+									"",
+									"pm.test('Page should have header and footer tags', function () {",
+									"    pm.expect($('header')).to.exist;",
+									"    pm.expect($('footer')).to.exist;",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						},
+						"description": "You can evaluate the response markup for sanity checks using cheerio library. These can check for presence of necessary tags and critical elements."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Link checker",
+			"item": [
+				{
+					"name": "Initialize",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "113e4a1c-1457-455f-8c62-845f63692dcd",
+								"exec": [
+									"const postmanEnvironment = pm.environment.toObject();",
+									"",
+									"// Make sure environment values look like URLs",
+									"const urlRegex = /^https?:\\/\\//;",
+									"pm.expect(postmanEnvironment.startUrl, 'startUrl does not match URL pattern').to.match(urlRegex);",
+									"pm.expect(postmanEnvironment.rootUrl, 'rootUrl does not match URL pattern').to.match(urlRegex);",
+									"",
+									"// Set global variables to default values",
+									"// BEST PRACTICE: Use global variables for temporary state in your collections that needs",
+									"// to be shared between requests. Use environment variables for configuration values.",
+									"pm.globals.set(\"links\", \"[]\");",
+									"pm.globals.set(\"url\", postmanEnvironment.startUrl);",
+									"pm.globals.set(\"index\", -1);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{startUrl}}",
+							"host": [
+								"{{startUrl}}"
+							]
+						},
+						"description": "Under the **Tests** tab, we will set a few more environment variables that will be used in the subsequent request, using the `setEnvironmentVariable()` method.\n\n  [![setEnvironmentVariable](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/linkSetEnv.png)](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/linkSetEnv.png)\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Check URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"// Tests and custom scripts can be written in JavaScript",
+									"",
+									"// Get environment variables",
+									"const startUrl = pm.environment.get(\"startUrl\");",
+									"const rootUrl = pm.environment.get(\"rootUrl\");",
+									"",
+									"// Get global variables",
+									"// BEST PRACTICE: Use global variables for temporary state in your collections that needs",
+									"// to be shared between requests. Use environment variables for configuration values.",
+									"const links = JSON.parse(pm.globals.get(\"links\"));",
+									"const currentUrl = pm.globals.get(\"url\");",
+									"const currentIndex = parseInt(pm.globals.get(\"index\"));",
+									"",
+									"// Test if a link works",
+									"pm.test(`Link to \"${currentUrl}\" works`, function () {",
+									"    try {",
+									"        // Check that the response code is a non-error code",
+									"        pm.response.to.not.be.error;",
+									"    }",
+									"    catch (error) {",
+									"        // We got an error response, so log more details to help with debugging",
+									"        console.log(`FAILED :: ${currentUrl}`);",
+									"        console.log(`FAILED :: status code is ${pm.response.code}`);",
+									"        ",
+									"        // Rethrow the error to fail the test",
+									"        throw error;",
+									"    }",
+									"});",
+									"",
+									"if (currentUrl.includes(startUrl)) {",
+									"    // This is an internal link and we should crawl it for more links",
+									"    // Load the response body as HTML using cheerio",
+									"    const $ = cheerio.load(pm.response.text());",
+									"    ",
+									"    // Get the links from all the <a> tags",
+									"    $(\"a\").each(function () {",
+									"        const newLink = $(this).attr(\"href\");",
+									"        ",
+									"        // Add links to the links array if not already in there",
+									"        // NOTE: Links only need to be checked once, so repeated links are excluded. If you wanted to exclude",
+									"        // some other link types (for example, ads), you could add the appropriate exclusion criteria here.",
+									"        if (!links.includes(newLink)) {",
+									"            links.push(newLink);",
+									"        }",
+									"    });",
+									"}",
+									"",
+									"// Check the next link url",
+									"const [nextUrl, nextIndex] = getNextUrlAndIndex(links, currentIndex);",
+									"",
+									"if (nextUrl) {",
+									"    // Update global variables before the next iteration",
+									"    pm.globals.set(\"links\", JSON.stringify(links));",
+									"    pm.globals.set(\"url\", nextUrl);",
+									"    pm.globals.set(\"index\", nextIndex);",
+									"    ",
+									"    // Continue calling the same request until all links are checked",
+									"    // CAREFUL! This causes the request to loop until there is no nextUrl",
+									"    postman.setNextRequest(\"Check URL\");",
+									"}",
+									"else {",
+									"    // We've gone through all the links",
+									"    console.log(\"No more links to check!\");",
+									"    ",
+									"    // Clear global variables used by link checker",
+									"    pm.globals.clear(\"links\");",
+									"    pm.globals.clear(\"url\");",
+									"    pm.globals.clear(\"index\");",
+									"    ",
+									"    // End of loop",
+									"    postman.setNextRequest(null);",
+									"}",
+									"",
+									"/**",
+									" * Get the indexed link from an array of links and handle relative links.",
+									" */",
+									"function getNextUrlAndIndex (links = [], index = 0) {",
+									"    const nextIndex = index + 1;",
+									"    ",
+									"    if (links.length - 1 === nextIndex) {",
+									"        // There is no next link",
+									"        return [];",
+									"    }",
+									"    ",
+									"    const linkUrl = links[nextIndex];",
+									"    ",
+									"    // NOTE: You can use a similar check to skip other categories of links,",
+									"    // such as download links or external links.",
+									"    if (!linkUrl) {",
+									"        // Skip null links",
+									"        console.log('WARNING :: encountered a null link.');",
+									"        ",
+									"        // Recursively try to get the next link",
+									"        return getNextUrlAndIndex(links, nextIndex);",
+									"    }",
+									"    ",
+									"    if (/^https?:\\/\\//.test(linkUrl)) {",
+									"        // This isn't a relative link, so return it",
+									"        return [linkUrl, nextIndex];",
+									"    }",
+									"    ",
+									"    // If the link is relative, prepend with rootUrl",
+									"    const cleanedRoot = rootUrl.replace(/\\/$/, '');",
+									"    const cleanedPath = linkUrl.replace(/^[\\.\\/]+/, '');",
+									"    ",
+									"    return [[cleanedRoot, cleanedPath].join('/'), nextIndex];",
+									"}",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						},
+						"description": "This request will crawl internal links and check all links for a healthy HTTP status code that is less than 400. \n\n**HTML scraping**\n\nFinding all the links on a page requires scraping HTML. The Postman Sandbox supports **cheerio** as a library for scraping HTML elements. Read more about [using the Postman Sandbox](https://www.getpostman.com/docs/postman/scripts/postman_sandbox) and other libraries and utilities supported in the pre-request and scripts sections.\n\n[![Cheerio HTML scraping](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/scrapeLinks.png)](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/scrapeLinks.png)\n\n**Building workflows**\n\nThe `setNextRequest()` method accepts a request name or id within the same collection as a parameter. Use this method to establish a workflow sequence and designate which request in the same collection to run next, instead of defaulting to the linear execution. Read more about [building workflows](https://www.getpostman.com/docs/postman/collection_runs/building_workflows).\n\nIn this example, we will continue calling the same request until all links are checked.\n\n[![setNextRequest method](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/linkSetNextRequest.png)](https://s3.amazonaws.com/postman-static-getpostman-com/postman-docs/linkSetNextRequest.png)"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Integrity",
+			"item": [
+				{
+					"name": "Valid Links",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0444e4dc-c631-49b4-b82e-2130bd7f3a98",
+								"exec": [
+									"var cheerio = require('cheerio');",
+									"var $ = cheerio.load(pm.response.text());",
+									"",
+									"pm.test('All links on the page should be valid', function () {",
+									"    $('a').each(function(i, elem) {",
+									"        var originalPath = $(elem).attr('href');",
+									"        var path = originalPath;",
+									"        ",
+									"        if (path && path[0] === '/') {",
+									"            path = pm.environment.get('url') + path;       ",
+									"        }",
+									"        ",
+									"        pm.sendRequest(path, function (err, res) {",
+									"            pm.test('Link with href \"' + originalPath + '\" should be valid', function () {",
+									"                pm.expect(err).to.equal(null);",
+									"                pm.expect(res).to.have.property('code', 200);",
+									"                pm.expect(res).to.have.property('status', 'OK');",
+									"            });",
+									"        });",
+									"    }); ",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						},
+						"description": "Often you want to verify that all links in your page are valid and that they don't lead the user to a webpage which is unavailable. The following script finds all the links in your webpage and checks if they exist (i.e. making a `GET` request returns a `200` status code). We make use of the `pm.sendRequest` method here.\n\n\n```\nvar cheerio = require('cheerio');\nvar $ = cheerio.load(pm.response.text());\npm.test(\"All links on the page should be valid\", function () {\n    $('a').each(function(i, elem) {\n        var originalPath = $(elem).attr('href');\n        var path = originalPath;\n        \n        if (path && path[0] === '/') {\n            path = pm.environment.get('url') + path;       \n        }\n        \n        pm.sendRequest(path, function (err, res) {\n            pm.test('Link with href \"' + originalPath + '\" should be valid', function () {\n                pm.expect(err).to.equal(null);\n                pm.expect(res).to.have.property('code', 200);\n                pm.expect(res).to.have.property('status', 'OK');\n            });\n        });\n    }); \n});\n```"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
