@@ -146,5 +146,8 @@ Here is how to [set up K3s on a Raspberry Pi 4](https://kubesail.com/blog/k3s-ra
 
 ## Kubernetes the Hard Way
 
-https://github.com/kelseyhightower/kubernetes-the-hard-way
+[Kubernetes the Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way) is a tutorial for someone planning to support a production Kubernetes cluster and wants to understand how everything fits together. The example uses Google Cloud Platform, but the lessons can be applied to other platforms.
 
+> Kubernetes The Hard Way is optimized for learning, which means taking the long route to ensure you understand each task required to bootstrap a Kubernetes cluster.
+>
+> -- Kelsey Hightower
