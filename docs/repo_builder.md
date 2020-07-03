@@ -13,7 +13,7 @@ There's a few options to set up and run a Kubernetes cluster. You can run Kubern
 Depending on where you choose to run Kubernetes, the steps to set it up is different.
 
 ### Managed cloud services
-Running Kubernetes on a managed cloud service is ideal for a **production environment**. These services come with Kubernetes pre-installed.
+Running Kubernetes on a managed cloud service is ideal for a **production environment**. These services come with Kubernetes pre-installed. There's several options for provisioning a cluster.
 
 - KubeSail
 - EKS
@@ -31,14 +31,14 @@ Installing Kubernetes on your own machine, a dedicated computer, or Raspberry Pi
 
 ## Step 2: Link your cluster to KubeSail
 
-Install the KubeSail agent to enable two main functions:
+Install the KubeSail agent on your cluster to enable two main functions:
 
 - Manage apps on your cluster
-- Expose apps to internet
+- Expose apps to the internet
 
-From the KubeSail dashboard, click **+ Add Cluster**.
+From the KubeSail dashboard under [**Clusters**](https://kubesail.com/clusters/), click **+ Add Cluster**.
 
-[screenshot]
+![[add new cluster](img/clusters-add-cluster.png)](img/clusters-add-cluster.png)
 
 To add your cluster to KubeSail, apply the configuration file to your cluster using `kubectl`:
 
@@ -46,16 +46,14 @@ To add your cluster to KubeSail, apply the configuration file to your cluster us
 
 ## Step 3: Deploy from GitHub repository
 
-From the KubeSail dashboard, click **Connect New Repository**, and select which repo you want to install the KubeSail Deploy Bot. You can grant access to selected repositories within the user or organization's account.
+From the KubeSail dashboard under [**Repos**](https://kubesail.com/repos), click **Connect New Repository**, and select which repo you want to install the KubeSail DeployBot. You can grant access to selected repositories within the user or organization's account.
 
-[Permissions screenshot]
+![[give deploybot permissions](img/deployboy-permissions.png)](img/deployboy-permissions.png)
 
 Once you grant KubeSail access to a GitHub repository, it appears under **Repos** within the KubeSail dashboard. 
 
 Select the newly added repository to view the suggested pipeline. Pick a branch to build and a Kubernetes context from the dropdowns, and then click **Build Now**. You can view the build logs beneath your pipeline. 
 
-[dropdown screenshot]
+![[build pipeline](img/repos-pipeline-build.png)](img/repos-pipeline-build.png)
 
 Once your app successfully builds and deploys, it appears under **Apps** within the KubeSail dashboard.
-
-Update environment variables.
