@@ -1,14 +1,13 @@
-FROM python:3.8.1-alpine3.11
+FROM python:3
 
 WORKDIR /usr/src/app
-
-COPY ./docs /app/docs
-COPY ./mkdocs.yml requirements.txt /app/
-
+COPY requirements.txt /app/
 WORKDIR /app
 
-RUN pip install --no-cache-dir -r requirements.txt && \
-    mkdocs build
+RUN pip install --no-cache-dir -r requirements.txt
+COPY ./mkdocs.yml /app/
+COPY ./docs /app/docs
+RUN mkdocs build
 
 # Start development server by default
 FROM nginx
