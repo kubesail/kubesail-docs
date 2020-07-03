@@ -78,9 +78,71 @@ Here is how to [set up Microk8s on a Raspberry Pi 4](https://kubesail.com/blog/m
         NAME     STATUS   ROLES    AGE   VERSION
         ubuntu   Ready    <none>   95m   v1.17.0
 
-    The Raspberry Pi is now running as a single-node cluster.
+    A `Ready` status means that Kubernetes is up and running - ready to deploy any software. The Raspberry Pi is now running as a single-node cluster. 
+    
+    Next, [link your cluster to KubeSail](/repo_builder/#step-2-link-your-cluster-to-kubesail) to manage the apps on your cluster.
 
 ## K3s
+
+[K3s](https://k3s.io/) is another lightweight version of Kubernetes designed for IOT and remote computing on a Linux operating system. Once again, you can set up K3s on a Raspberry Pi to run a single-node cluster.
+
+1. Prepare an SD card
+1. Set up the WiFi
+1. Log into the Raspberry Pi
+
+Here is how to [set up K3s on a Raspberry Pi 4](https://kubesail.com/blog/k3s-raspberry-pi).
+
+1. **Prepare an SD card**
+
+    If you don't already have an operating system on your SD card, download [the Raspberry Pi Imager](https://www.raspberrypi.org/downloads/) to your computer. Select **Raspberry Pi OS Lite**, and hit "write". This process takes about 5 minutes. 
+
+    Before removing the SD card from your computer, place an empty file in the root of the drive called `ssh`. This will enable the SSH server so you can login to the Pi from your network.
+
+        touch /Volumes/boot/ssh
+
+    **NOTE**: If you are connecting your Pi via Ethernet, insert the SD card into the Pi, power it on, and skip the WiFi section. Otherwise don't remove your SD card from your computer yet.
+
+1. **Set up the WiFi**
+
+    Configure these network details on the SD card before you power on the Pi. Create a file called `wpa_supplicant.conf` on the root of the drive. Add your network's SSID and password to the `network` section and save the file.
+
+    Your file should look like this, for example, if your network is named `My WiFi Network`:
+
+        country=US
+        ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+        update_config=1
+
+        network={
+            ssid="NETWORK-NAME"
+            psk="NETWORK-PASSWORD"
+        }
+    
+    Take your SD card out, insert into the Pi, and power it on.
+
+1. **Log into the Raspberry Pi**
+
+    The Pi should register its hostname with your router, so secure shell into the server.
+
+        ssh ubuntu@ubuntu
+
+    If that fails with an error like `Could not resolve hostname ubuntu`, then log into your router and find the IP of your Pi. In that case, log in via `ssh pi@<YOUR_PI_IP_ADDRESS>`.
+
+    The initial password is `raspberry`, which you'll need to change on first login by running `passwd` to keep out others on your network. There are multiple ways to [install K3s](https://rancher.com/docs/k3s/latest/en/installation/install-options/#options-for-installation-with-script), but the simplest is via the installation script:
+
+        curl -sfL https://get.k3s.io | sh -
+
+    Wait for the Pi to reboot, and then secure shell back into the machine. See which machines are in our cluster:
+
+        sudo k3s kubectl get nodes
+
+    This may take a minute while the Pi starts up all the software that powers Kubernetes. Eventually you should see:
+
+        NAME          STATUS   ROLES    AGE   VERSION
+        raspberrypi   Ready    master   2m    v1.18.4+k3s1
+
+    A `Ready` status means that Kubernetes is up and running - ready to deploy any software. The Raspberry Pi is now running as a single-node cluster. 
+    
+    Next, [link your cluster to KubeSail](/repo_builder/#step-2-link-your-cluster-to-kubesail) to manage the apps on your cluster.
 
 ## Kubernetes the Hard Way
 

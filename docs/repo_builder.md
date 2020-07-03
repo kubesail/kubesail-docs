@@ -24,10 +24,10 @@ Running Kubernetes on a managed cloud service is ideal for a **production enviro
 
 Installing Kubernetes on your own machine, a dedicated computer, or Raspberry Pi is ideal for a **learning environment**. There's several options for running Kubernetes locally.
 
-- Docker Desktop
+- [Docker Desktop](/install_kubernetes/#docker-desktop)
 - [Microk8s](/install_kubernetes/#microk8s)
-- K3s
-- Kubernetes the Hard Way
+- [K3s](/install_kubernetes/#k3s)
+- [Kubernetes the Hard Way](/install_kubernetes/#kubernetes-the-hard-way)
 
 ## Step 2: Link your cluster to KubeSail
 
