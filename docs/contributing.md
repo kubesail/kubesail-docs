@@ -25,7 +25,7 @@ Change into the new directory, install your dependencies, and run the project lo
 
 ```bash
 cd kubesail-docs
-pip install
+pip install -r requirements.txt
 mkdocs serve
 ```
 
