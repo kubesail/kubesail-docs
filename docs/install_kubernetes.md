@@ -9,9 +9,26 @@ If you're working with a managed cloud provider like KubeSail, EKS, GKE, or Digi
 
 ## Docker Desktop
 
-For Mac and Windows
-Install Docker
-Run Kubernetes
+[Docker Desktop](https://www.docker.com/products/docker-desktop) is an application for MacOS and Windows machines for the building and sharing of containerized applications. It includes a standalone Kubernetes server and client. 
+
+The Kubernetes server runs locally within your Docker instance, is not configurable, and is a single-node cluster. This is ideal for learning and local testing.
+
+1. **Install and run Docker Desktop** 
+
+    Download and install Docker Desktop for your machine's operating system.
+
+    - [Install for MacOS](https://docs.docker.com/docker-for-mac/install/)
+    - [Install for Windows](https://docs.docker.com/docker-for-windows/install/)
+
+    Docker Desktop does not start automatically after installation, so search for the app and start it. A whale icon displays in the status bar when Docker Desktop is running and accessible from a terminal.
+
+1. **Enable Kubernetes**
+
+    Open the Docker Desktop menu by clicking the Docker icon in the status bar. To configure Docker settings, find **Preferences** for Mac and **Settings** for Windows. Under the **Kubernetes** tab, check **Enable Kubernetes** to run a Kubernetes single-node cluster when starting Docker Desktop.
+
+    ![[docker desktop preferences](img/docker-desktop-preferences.png)](img/docker-desktop-preferences.png)
+
+    Next, [link your cluster to KubeSail](/repo_builder/#step-2-link-your-cluster-to-kubesail) to manage the apps on your cluster.
 
 ## Microk8s
 
