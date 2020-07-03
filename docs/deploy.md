@@ -1,4 +1,4 @@
-# Deploy your app
+# Deployment options
 
 Learn how to deploy [Node.js](#nodejs), [Python](#python), and [Ruby on Rails](#ruby-on-rails) apps onto Kubernetes.
 
