@@ -5,10 +5,13 @@ nav:
   - Home: README.md
   - Getting Started:
       - 'Set up a namespace': namespace.md
-      - 'Deploy your app': deploy.md
+      - 'Deploy your app': repo_builder.md
   - Advanced Topics:
+      #- 'Provision a cluster': provision_cluster.md
+      - 'Install Kubernetes': install_kubernetes.md
       - 'Custom domains': domains.md
       - 'Exposing your app': exposing.md
+      - 'Deployment options': deploy.md
   - Definitions: 'definitions.md'
   - Bring Your Own Cluster: 'byoc.md'
   - Contributing: contributing.md

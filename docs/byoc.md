@@ -69,8 +69,8 @@ You can use `kubectl --insecure-skip-tls-verify=true` for now, but please drop u
 
 # Technical overview:
 
-<img src="./img/gateway-overview.png" />
+![[gateway overview](img/gateway-overview.png)](img/gateway-overview.png)
 
 # Request flow:
 
-<img src="./img/byoc-request-flow.png" />
+![[byoc request flow](img/byoc-request-flow.png)](img/byoc-request-flow.png)
