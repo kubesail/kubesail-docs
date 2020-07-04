@@ -6,19 +6,13 @@ Once you have a running Kubernetes cluster, you can deploy your containerized ap
 1. [Link your cluster to KubeSail](#step-2-link-your-cluster-to-kubesail)
 1. [Deploy from GitHub repository](#step-3-deploy-from-github-repository)
 
+![[deploy from repo](img/deploy-from-repo.png)](img/deploy-from-repo.png)
+
 ## Step 1: Set up a Kubernetes cluster
 
 There's a few options to set up and run a Kubernetes cluster. You can run Kubernetes on a local machine, cloud, or managed Kubernetes cluster. This allows you to create a Kubernetes solution in either a learning or production environment.
 
 Depending on where you choose to run Kubernetes, the steps to set it up is different.
-
-### Managed cloud services
-Running Kubernetes on a managed cloud service is ideal for a **production environment**. These services come with Kubernetes pre-installed. There's several options for provisioning a cluster.
-
-- KubeSail
-- EKS
-- GKE
-- Digital Ocean
 
 ### Managing your own cluster
 
@@ -28,6 +22,14 @@ Installing Kubernetes on your own machine, a dedicated computer, or Raspberry Pi
 - [Microk8s](/install_kubernetes/#microk8s)
 - [K3s](/install_kubernetes/#k3s)
 - [Kubernetes the Hard Way](/install_kubernetes/#kubernetes-the-hard-way)
+
+### Managed cloud services
+Running Kubernetes on a managed cloud service is ideal for a **production environment**. These services come with Kubernetes pre-installed. There's several options for provisioning a cluster.
+
+- KubeSail
+- EKS
+- GKE
+- Digital Ocean
 
 ## Step 2: Link your cluster to KubeSail
 

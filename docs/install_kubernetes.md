@@ -40,7 +40,6 @@ The Kubernetes server runs locally within your Docker instance, is not configura
 
 Here is how to [set up Microk8s on a Raspberry Pi 4](https://kubesail.com/blog/microk8s-raspberry-pi).
 
-
 1. **Prepare an SD card**
 
     If you don't already have an operating system on your SD card, download [the Raspberry Pi Imager](https://www.raspberrypi.org/downloads/) to your computer, select **Ubuntu 64-bit**, and hit "write". Get the latest version of Ubuntu. This process takes about 5 minutes. 
