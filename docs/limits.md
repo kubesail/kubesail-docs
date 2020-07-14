@@ -12,4 +12,4 @@ This section documents the limits of both shared cluster hosting and BYOC.
 <br>
 #### Notes
 
-The **Private Docker Image** limit refers to private repository images created by KubeSail's [Deploy-From-Git](/repo_builder/#step-3-deploy-from-github-repository) pipeline. Regardless of plan, there is no limit to the number of private images you may host if they are pulled from an external registry.
+The **Private Docker Image** limit refers to private repository images created by KubeSail's [Deploy-From-Git](/repo_builder/#step-3-deploy-from-github-repository) pipeline. Regardless of plan, there is no limit to the number of private images you may host if they are pulled from an external registry. Refer to the [Kubernetes Docs](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/) to to learn how to use images from an external registry.
