@@ -1,6 +1,9 @@
 # Welcome to the KubeSail Docs
 
-KubeSail is a hosted Kubernetes provider whose mission is to make the benefits of Kubernetes more accessible to all developers. KubeSail offers a **free managed namespace** with Kubernetes development tools and tutorials making it easy to deploy and host applications.
+KubeSail builds tools helps you deploy and manage your applications on Kubernetes. KubeSail offers both:
+
+-   A [free managed namespace](namespace) on one of our shared clusters. This is the quickest way to get your app up and running.
+-   The ability to [Bring Your Own Cluster](/byoc).
 
 ## Commands
 

@@ -10,33 +10,32 @@ Once you have a running Kubernetes cluster, you can deploy your containerized ap
 
 ## Step 1: Set up a Kubernetes cluster
 
-There's a few options to set up and run a Kubernetes cluster. You can run Kubernetes on a local machine, cloud, or managed Kubernetes cluster. This allows you to create a Kubernetes solution in either a learning or production environment.
-
-Depending on where you choose to run Kubernetes, the steps to set it up is different.
+There's a few options to set up and run a Kubernetes cluster. You can either run Kubernetes on a local machine, or use a managed Kubernetes provider. Depending on where you choose to run Kubernetes, the setup steps are different.
 
 ### Managing your own cluster
 
 Installing Kubernetes on your own machine, a dedicated computer, or Raspberry Pi is ideal for a **learning environment**. There's several options for running Kubernetes locally.
 
-- [Docker Desktop](/install_kubernetes/#docker-desktop)
-- [Microk8s](/install_kubernetes/#microk8s)
-- [K3s](/install_kubernetes/#k3s)
-- [Kubernetes the Hard Way](/install_kubernetes/#kubernetes-the-hard-way)
+-   [Docker Desktop](/install_kubernetes/#docker-desktop)
+-   [Microk8s](/install_kubernetes/#microk8s)
+-   [K3s](/install_kubernetes/#k3s)
+-   [Kubernetes the Hard Way](/install_kubernetes/#kubernetes-the-hard-way)
 
 ### Managed cloud services
+
 Running Kubernetes on a managed cloud service is ideal for a **production environment**. These services come with Kubernetes pre-installed. There's several options for provisioning a cluster.
 
-- KubeSail
-- EKS
-- GKE
-- Digital Ocean
+-   KubeSail (learn how to [set up your namespace](/namespace))
+-   EKS
+-   GKE
+-   Digital Ocean
 
 ## Step 2: Link your cluster to KubeSail
 
 Install the KubeSail agent on your cluster to enable two main functions:
 
-- Manage apps on your cluster
-- Expose apps to the internet
+-   Manage apps on your cluster
+-   Expose apps to the internet
 
 From the KubeSail dashboard under [**Clusters**](https://kubesail.com/clusters/), click **+ Add Cluster**.
 
@@ -52,9 +51,9 @@ From the KubeSail dashboard under [**Repos**](https://kubesail.com/repos), click
 
 ![[give deploybot permissions](img/deployboy-permissions.png)](img/deployboy-permissions.png)
 
-Once you grant KubeSail access to a GitHub repository, it appears under **Repos** within the KubeSail dashboard. 
+Once you grant KubeSail access to a GitHub repository, it appears under **Repos** within the KubeSail dashboard.
 
-Select the newly added repository to view the suggested pipeline. Pick a branch to build and a Kubernetes context from the dropdowns, and then click **Build Now**. You can view the build logs beneath your pipeline. 
+Select the newly added repository to view the suggested pipeline. Pick a branch to build and a Kubernetes context from the dropdowns, and then click **Build Now**. You can view the build logs beneath your pipeline.
 
 ![[build pipeline](img/repos-pipeline-build.png)](img/repos-pipeline-build.png)
 

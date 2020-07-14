@@ -1,13 +1,13 @@
 :root {
-  --fontFamily: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
-  --colorKsDarkGray: #495057;
-  --colorKsInputBorder: #e9ecef;
-  --colorKsInputBorderActive: #c6c7c9;
+    --fontFamily: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+        sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    --colorKsDarkGray: #495057;
+    --colorKsInputBorder: #e9ecef;
+    --colorKsInputBorderActive: #c6c7c9;
 }
 
 body {
-  font-family: var(--fontFamily);
+    font-family: var(--fontFamily);
 }
 
 h1,
@@ -17,49 +17,61 @@ h4,
 h5,
 h6,
 legend {
-  font-family: var(--fontFamily);
-  color: var(--colorKsDarkGray);
-  font-weight: 600;
+    font-family: var(--fontFamily);
+    color: var(--colorKsDarkGray);
+    font-weight: 600;
 }
 
+.icon.icon-home {
+    color: white;
+    font-size: 24px;
+}
+
+.wy-nav-top {
+    background-color: #343131;
+}
 .wy-side-nav-search {
-  background-color: white;
+    background-color: #343131;
 }
 .wy-side-nav-search > a,
 .wy-side-nav-search .wy-dropdown > a {
-  color: #1f8cb4;
-}
-
-.wy-nav-side {
-  background: white;
+    color: #1f8cb4;
 }
 
 .wy-menu-vertical li.current a {
-  border-right: none;
+    border-right: none;
 }
 
 .wy-nav-content {
-  background: white;
-  max-width: unset;
+    background: white;
+    max-width: unset;
 }
 
-.wy-side-nav-search input[type='text'] {
-  border: 1px solid var(--colorKsInputBorderActive);
-  border-radius: 8px;
-  box-shadow: none;
+.wy-side-nav-search input[type="text"] {
+    border: 1px solid var(--colorKsInputBorderActive);
+    border-radius: 8px;
+    box-shadow: none;
 }
 
 .hljs {
-  padding: 1em;
-  border-radius: 8px;
+    padding: 1em;
+    border-radius: 8px;
 }
 
 code {
-  border-radius: 3px;
+    border-radius: 3px;
+}
+
+.rst-content img {
+    max-width: 800px;
+}
+
+.wy-menu ul {
+    margin-left: 10px;
 }
 
 @media screen and (min-width: 1400px) {
-  .wy-nav-content-wrap {
-    background: white;
-  }
+    .wy-nav-content-wrap {
+        background: white;
+    }
 }
