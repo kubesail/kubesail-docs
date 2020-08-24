@@ -13,6 +13,7 @@ nav:
       - "Custom domains": domains.md
       - "Exposing your app": exposing.md
       - "Deployment options": deploy.md
+      - "Exposing TCP Services": tcp.md
   - Miscellaneous:
       - Definitions: "definitions.md"
       - Bring Your Own Cluster: "byoc.md"
