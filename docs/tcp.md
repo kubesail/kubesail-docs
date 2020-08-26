@@ -24,4 +24,4 @@ The editor will load in the the updated resource's YAML from Kubernetes. Note th
 
 ![Editor](img/tcp-service-editor.png)
 
-For example, if my Service contained `nodePort: 45502`, then I would access my service at `ext-a.kubesail.io:45502`
+For example, if my Service contained `nodePort: 45502`, then I would access my service at `ext-a.kubesail.io:45502`.
