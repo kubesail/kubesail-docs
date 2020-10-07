@@ -1,12 +1,15 @@
 # Bring Your Own Cluster
 
-Bring Your Own Cluster (BYOC) allows you to attach a Kubernetes cluster to KubeSail.com. You can attach any cluster, anywhere - from a Raspberry Pi at home, to a thousand-node cluster on AWS. Attaching a Cluster is accomplished by installing the [KubeSail Agent](https://github.com/kubesail/kubesail-agent), which is a small open-source application.
+Bring Your Own Cluster (BYOC) allows you to attach a Kubernetes cluster to KubeSail.com. You can attach any cluster, anywhere - from a Raspberry Pi at home, to a thousand-node cluster on AWS. Attaching a Cluster is accomplished by installing the KubeSail Agent, which is a small open-source application.
 
 Once a cluster is attached to KubeSail.com, you can use it just like you use our Shared clusters - [deploy templates](https://kubesail.com/templates), [attach Repos](https://kubesail.com/repos), and [invite friends and coworkers](https://kubesail.com/clusters) to be either admins or namespaced users.
 
 KubeSail.com can also forward kube-api and Ingress traffic to your cluster! This allows you to host internet-facing applications on your cluster, even if it does not have a reliable static IP address, and without having to forward ports. HTTPS traffic is kept secure and encrypted from the internet all the way to your cluster's applications - it's never decrypted by KubeSail (or the KubeSail agent).
 
 Read more about [KubeSail Agent](https://github.com/kubesail/kubesail-agent) here, or take a look at a few overview diagrams at the bottom of this page.
+
+# QuickStart
+Create a free kubesail.com account by signing in with GitHub, then head to the [Clusters](https://kubesail.com/clusters/) section of the dashboard. Click the "Add Cluster" button at the top of the page, and follow the instructions. You will get a 1-line command to install the kubesail agent. Once installed, just click the "Verify Cluster" button. You can now manage applications, install templates, and easily expose HTTP traffic on your cluster.
 
 # Using Kubectl with a BYOC cluster
 
