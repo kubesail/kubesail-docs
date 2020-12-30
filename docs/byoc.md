@@ -11,6 +11,35 @@ Read more about [KubeSail Agent](https://github.com/kubesail/kubesail-agent) her
 # QuickStart
 Create a kubesail.com account by signing in with GitHub, then head to the [Clusters](https://kubesail.com/clusters/) section of the dashboard. Click the "Add Cluster" button at the top of the page, and follow the instructions. You will get a 1-line command to install the kubesail agent. Once installed, just click the "Verify Cluster" button. You can now manage applications, install templates, and easily expose HTTP traffic on your cluster.
 
+### Managing your own cluster
+
+Installing Kubernetes on your own machine, a dedicated computer, or Raspberry Pi is ideal for a **learning environment**. There's several options for running Kubernetes locally.
+
+-   [Docker Desktop](/install_kubernetes/#docker-desktop)
+-   [Microk8s](/install_kubernetes/#microk8s)
+-   [K3s](/install_kubernetes/#k3s)
+-   [Hetzner](https://kubesail.com/blog/dedicated-kubernetes-on-hetzner)
+-   [Kubernetes the Hard Way](/install_kubernetes/#kubernetes-the-hard-way)
+
+### Managed cloud services
+
+Running Kubernetes on a managed cloud service is ideal for a **production environment**. These services come with Kubernetes pre-installed. There's several options for provisioning a cluster.
+
+-   EKS
+-   GKE
+-   Digital Ocean
+-   [Chat with us about managed options](https://kubesail.typeform.com/to/lFZF2r)
+
+## Step 2: Link your cluster to KubeSail
+
+Wherever and whatever your cluster is, you can link it to KubeSail from the dashboard under [**Clusters**](https://kubesail.com/clusters/), click **+ Add Cluster**.
+
+![[add new cluster](img/clusters-add-cluster.png)](img/clusters-add-cluster.png)
+
+To add your cluster to KubeSail, apply the configuration file to your cluster using `kubectl`:
+
+    kubectl apply -f https://byoc.kubesail.com/<your-kubesail-username>.yaml
+
 # Using Kubectl with a BYOC cluster
 
 You can fetch a Kubernetes configuration file from https://kubesail.com/config just like with any other cluster. You may need to use `kubectl --insecure-skip-tls-verify=true` or configure your cluster to be valid for your KubeSail cluster address.
