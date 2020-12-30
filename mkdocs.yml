@@ -4,7 +4,6 @@ repo_url: https://github.com/kubesail/docs
 nav:
   - Home: README.md
   - Getting Started:
-      - "Set up a namespace": namespace.md
       - "Deploy your app": repo_builder.md
       - "Troubleshooting": troubleshooting.md
   - Advanced Topics:
@@ -18,7 +17,6 @@ nav:
       - Definitions: "definitions.md"
       - Bring Your Own Cluster: "byoc.md"
       - Contributing: contributing.md
-      - Limits: limits.md
 extra_css:
   - extra.css
 google_analytics: ["UA-131519845-2", "docs.kubesail.com"]
