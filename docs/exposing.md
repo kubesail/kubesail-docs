@@ -20,7 +20,7 @@ KubeSail enables the vanilla Kubernetes API, so most guides for creating an **In
 
 Certificates use the [cert-manager](https://github.com/jetstack/cert-manager) project to automatically issue free certificates from [Let's Encrypt](https://letsencrypt.org/). Because KubeSail uses the [NGINX Ingress Controller](https://github.com/kubernetes/ingress-nginx), creating an [**Ingress**](/definitions/#ingress) object in your namespace also automatically creates a [**Certificate**](/definitions/#certificate) object and associated [**Secret**](/definitions/#secret) if they don't already exist.
 
-Here is a basic **Ingress** object which creates a web-accessible site using your free `*.kubesail.io` domain:
+Here is a basic **Ingress** object which creates a web-accessible site:
 
 ```yml
 #?filename=basic-ingress.yaml
@@ -33,8 +33,15 @@ spec:
   - http:
       paths:
       - backend:
-          serviceName: my-test-service
-          servicePort: 8080
+          service:
+            name: my-test-service
+            port:
+              name: 8080
+        pathType: ImplementationSpecific
+    tls:
+    - hosts:
+      - new.my-cluster.my-user.usw1.k8g8.com
+      secretName: new-ingress
 ```
 
 Check your **Certificates** with `kubectl get certificates`. This certificate will automatically be used and HTTPS should "just work".

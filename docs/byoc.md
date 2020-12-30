@@ -9,7 +9,7 @@ KubeSail.com can also forward kube-api and Ingress traffic to your cluster! This
 Read more about [KubeSail Agent](https://github.com/kubesail/kubesail-agent) here, or take a look at a few overview diagrams at the bottom of this page.
 
 # QuickStart
-Create a free kubesail.com account by signing in with GitHub, then head to the [Clusters](https://kubesail.com/clusters/) section of the dashboard. Click the "Add Cluster" button at the top of the page, and follow the instructions. You will get a 1-line command to install the kubesail agent. Once installed, just click the "Verify Cluster" button. You can now manage applications, install templates, and easily expose HTTP traffic on your cluster.
+Create a kubesail.com account by signing in with GitHub, then head to the [Clusters](https://kubesail.com/clusters/) section of the dashboard. Click the "Add Cluster" button at the top of the page, and follow the instructions. You will get a 1-line command to install the kubesail agent. Once installed, just click the "Verify Cluster" button. You can now manage applications, install templates, and easily expose HTTP traffic on your cluster.
 
 # Using Kubectl with a BYOC cluster
 

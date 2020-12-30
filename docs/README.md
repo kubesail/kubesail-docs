@@ -1,18 +1,37 @@
 # Welcome to the KubeSail Docs
 
-KubeSail builds tools helps you deploy and manage your applications on Kubernetes. KubeSail offers both:
+KubeSail makes it easy to Host apps at home (or anywhere!)
 
--   A [free managed namespace](namespace) on one of our shared clusters. This is the quickest way to get your app up and running.
--   The ability to [Bring Your Own Cluster](/byoc).
+When you attach a cluster to KubeSail, you can:
 
-## Commands
+- Forward traffic from the internet to your Apps, bypassing firewalls and avoiding dynamic DNS issues!
+- Install templates: Install, build and share templates for useful home hosting applications
+- Manage your apps: stream logs, update and re-deploy
+- Manage your servers: backup data, backup configurations, SSH into nodes and more!
+- Invite friends and co-workers to manage your servers as well!
 
-Generate all the boilerplate required for container-based deployments on Kubernetes or Docker.
+KubeSail is powered by Kubernetes - for experts this means you'll be right at home, with complete control. For beginners, this means you'll be learning useful, re-usable knowledge, not our special KubeSail(tm) knowledge!
 
--   `npx deploy-node-app` - [this utility](https://github.com/kubesail/deploy-node-app) deploys an existing Node application to any Kubernetes cluster
--   `npx create-node-app my-node-app` - [this utility](https://github.com/create-node/create-node-app) builds a new directory with presets for a Node API and a front end
+The best place to start is to setup a Cluster!
 
-## Definitions
+If you already have a cluster, you can add the KubeSail Agent with the following:
+
+    kubectl create -f https://byoc.kubesail.com/USERNAME.yaml
+
+We have guides for: [MicroK8s](https://kubesail.com/blog/microk8s-raspberry-pi), [k3s](https://kubesail.com/blog/k3s-raspberry-pi), and [Hetzner](https://kubesail.com/blog/dedicated-kubernetes-on-hetzner), but have installed KubeSail Agent on just about any kind of machine you can imagine! [Join us in chat](https://gitter.im/KubeSail/community) and we'd love to talk about building something awesome!
+
+
+## Deploying apps
+
+We're building [deploy-node-app](https://github.com/kubesail/deploy-node-app), which you can use like `npx deploy-node-app`, which steps through the process of creating a deployable image from any common Node.js application - it works with other languages and static-sites too!
+
+We're also working hard on making our template editor easy-to-use, and we'd love your feedback! Please join us in our [Gitter chat](https://gitter.im/KubeSail/community) if have any feedback for us!
+
+## Cluster Management
+
+We offer custom cluster management as well - particularly with Edge hosting! Some of our clients have dozens of clusters shipping out to users each month! We'd love to chat with you about what we can do for your buisiness - please reach out to sales@kubesail.com or [fill out this form](https://kubesail.typeform.com/to/lFZF2r) and we'll get back to you asap!
+
+## Kubernetes Definitions
 
 -   [Certificate](/definitions#certificate)
 -   [Deployment](/definitions#deployment)
