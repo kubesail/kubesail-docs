@@ -85,7 +85,7 @@ You might have noticed `replicas: 1`, which gives a hint at some of the ways you
 
 ### Real-world Example
 
-Here is a real-world example of the API Deployment definition for `kubesail.com` - not every option in the Deployment API is used, but many of these options help us accomplish truly zero-downtime deployments. 
+Here is a real-world example of the API Deployment definition for `kubesail.com` - not every option in the Deployment API is used, but many of these options help us accomplish truly zero-downtime deployments.
 
 ```yaml
 #?filename=production-deployment.yaml
@@ -213,9 +213,7 @@ An **Ingress** can serve either TCP or HTTP traffic. For HTTP services, an **Ing
 
 ## Namespace
 
-A **Namespace** is a logical group for application environments - staging, qa, production. A **Namespace** isolates containers within it from containers outside. You can think of a **Namespace** a bit like an IP network, in that applications typically have access to other resources within their same **Namespace**. 
-
-KubeSail provides you with a **Namespace** on a shared cluster, and is one of the ways we isolate your applications from those of other users.
+A **Namespace** is a logical group for application environments - staging, qa, production. A **Namespace** isolates containers within it from containers outside. You can think of a **Namespace** a bit like an IP network, in that applications typically have access to other resources within their same **Namespace**.
 
 There isn't typically much to a **Namespace** definition, simply a name:
 

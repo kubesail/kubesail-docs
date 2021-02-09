@@ -2,6 +2,12 @@
 
 KubeSail provides access to vanilla Kubernetes objects, like **Ingress** and **Certificate** objects.
 
+## Domains
+You'll have a number of built-in KubeSail domains to use.
+
+- Domains that end with **k8g8.com** are "tunneled" addresses, which use our Gateway/Agent system to proxy traffic to you. Tunneling currently only works with HTTP and HTTPS traffic.
+- Domains that end with **ksdns.io** are "Dynamic DNS" addresses, which point at your Public IP address. This may require Port-Forwarding and other firewall changes on your local network - this can be used with any kind of traffic, but is most useful for non HTTP, such as SSH or games servers.
+
 ## Ingress
 
 An [**Ingress**](/definitions/#ingress) is a Kubernetes object which tells the cluster how to send external traffic to a particular [**Service**](/definitions/#service).
