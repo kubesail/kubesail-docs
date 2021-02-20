@@ -2,6 +2,12 @@
 
 KubeSail provides access to vanilla Kubernetes objects, like **Ingress** and **Certificate** objects.
 
+## Domains
+You'll have a number of built-in KubeSail domains to use.
+
+- Domains that end with **k8g8.com** are "tunneled" addresses, which use our Gateway/Agent system to proxy traffic to you. Tunneling currently only works with HTTP and HTTPS traffic.
+- Domains that end with **ksdns.io** are "Dynamic DNS" addresses, which point at your Public IP address. This may require Port-Forwarding and other firewall changes on your local network - this can be used with any kind of traffic, but is most useful for non HTTP, such as SSH or games servers.
+
 ## Ingress
 
 An [**Ingress**](/definitions/#ingress) is a Kubernetes object which tells the cluster how to send external traffic to a particular [**Service**](/definitions/#service).
@@ -20,7 +26,7 @@ KubeSail enables the vanilla Kubernetes API, so most guides for creating an **In
 
 Certificates use the [cert-manager](https://github.com/jetstack/cert-manager) project to automatically issue free certificates from [Let's Encrypt](https://letsencrypt.org/). Because KubeSail uses the [NGINX Ingress Controller](https://github.com/kubernetes/ingress-nginx), creating an [**Ingress**](/definitions/#ingress) object in your namespace also automatically creates a [**Certificate**](/definitions/#certificate) object and associated [**Secret**](/definitions/#secret) if they don't already exist.
 
-Here is a basic **Ingress** object which creates a web-accessible site using your free `*.kubesail.io` domain:
+Here is a basic **Ingress** object which creates a web-accessible site:
 
 ```yml
 #?filename=basic-ingress.yaml
@@ -33,8 +39,15 @@ spec:
   - http:
       paths:
       - backend:
-          serviceName: my-test-service
-          servicePort: 8080
+          service:
+            name: my-test-service
+            port:
+              name: 8080
+        pathType: ImplementationSpecific
+    tls:
+    - hosts:
+      - new.my-cluster.my-user.usw1.k8g8.com
+      secretName: new-ingress
 ```
 
 Check your **Certificates** with `kubectl get certificates`. This certificate will automatically be used and HTTPS should "just work".

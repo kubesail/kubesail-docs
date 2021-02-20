@@ -31,7 +31,7 @@ spec:
 
 ## HTTPS for certificates
 
-KubeSail users automatically get free HTTPS when exposing an application to the internet. For custom domains, you'll need to define the HTTPS certificate is valid for which `hosts`.
+KubeSail Managed-Cluster users automatically get free HTTPS when exposing an application to the internet. Otherwise, for BYOC, you'll need to make sure you've installed [cert-manager](https://cert-manager.io/docs/). For custom domains, you'll need to define the HTTPS certificate is valid for which `hosts`.
 
 ```yml
 #?filename=domain-svc.yaml
