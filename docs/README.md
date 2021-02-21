@@ -19,7 +19,7 @@ If you already have a cluster, you can add the KubeSail Agent with the following
 
 If you don't have a cluster, Kubernetes can be installed on almost any kind of system. It works best with a spare machine you don't mind leaving on, such as an old PC or a Raspberry PI.
 
-We have guides for: [MicroK8s](https://kubesail.com/blog/microk8s-raspberry-pi), [k3s](https://kubesail.com/blog/k3s-raspberry-pi), and [Hetzner](https://kubesail.com/blog/dedicated-kubernetes-on-hetzner). [Join us in chat](https://gitter.im/KubeSail/community) and we'd love to help build something awesome!
+We have guides for: [MicroK8s](https://kubesail.com/blog/microk8s-raspberry-pi), [k3s](https://kubesail.com/blog/k3s-raspberry-pi), and [Hetzner](https://kubesail.com/blog/dedicated-kubernetes-on-hetzner). [Join us in chat](https://discord.gg/N3zNdp7jHc) and we'd love to help build something awesome!
 
 
 ## Deploying apps
