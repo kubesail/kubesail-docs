@@ -10,6 +10,7 @@ The benefits of installing the KubeSail agent are:
 - **Backups**: Once connected, you can backup your Volumes to our cloud, highly encrypted and secure!
 - **Repo Builder**: You can select a GitHub repository which will be automatically built and deployed on-commit, on your own hardware!
 - **Cluster Features**: We'll assist with critical cluster features such as Metrics, Certificates, Ingress systems and more!
+- **Platform**: Allows you to create billing portals which lets your customers pay for software to be provisioned. Turn your  cluster into a PaaS in minutes!
 
 ## Getting Started
 
