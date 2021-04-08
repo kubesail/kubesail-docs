@@ -2,7 +2,7 @@
 
 The KubeSail Templates help you quickly install and share Kubernetes applications.
 
-Templates can be shared with others, re-used on your clusters, and used to create a KubeSail Platform feature to re-sell yout software!
+Templates can be shared with others, re-used on your clusters, and used to create a KubeSail Platform feature to resell your software!
 
 - [View our Official templates](https://kubesail.com/templates?official=1)
 - [View public templates](https://kubesail.com/templates)
@@ -35,7 +35,7 @@ You can use the YAML editor on the right to create any custom resource you'd lik
 
 ![[Left-hand editor](img/templates-lefthand.png)](img/templates-lefthand.png)
 
-## Variables
+## Template Variables:
 
 You can create special variables that will require user-input before launching. This is very useful for configuration that will need to be different for each user who installs this template. Variables are formatted like `"{{ VARIABLE_NAME }}"`. Variables must be quoted, and can only be strings.
 
