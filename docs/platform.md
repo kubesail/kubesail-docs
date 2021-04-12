@@ -1,12 +1,8 @@
-# KubeSail Platform
-
-The KubeSail **Platform** feature allows you to turn a container image or Kubernetes YAML into a business in just a few minutes, turning your self-hosted projects into a PaaS!
+**Platform** allows you to turn a container image or Kubernetes YAML into a business in just a few minutes, turning your self-hosted projects into a PaaS!
 
 By connecting a [Stripe](https://stripe.com/) account and choosing a [Template](/templates), your Platform will be able to accept user payments, spin up resources for customers, and allow those users to manage certain settings such as Environment Variables. With easy upgrades and payment processing options, KubeSail Platform is the fastest and easiest way to go from a container image to a business.
 
-# Guide
-
-## Create a new Platform:
+## Create a new Platform
 
 <img src="/img/platform-new.png" width="60%" title="Create new Platform" />
 
@@ -14,7 +10,7 @@ Click "New Platform" and enter a name. Note that must be unique across all of Ku
 <br />
 <br />
 
-## Step 1: Connect your Stripe Account
+## Step 1: Connect Stripe
 
 <img src="/img/platform-stripe.png" width="60%" title="Connect Stripe Account" />
 
@@ -30,13 +26,13 @@ Upload your logo, which will be visible on the [Customer Billing Portal](https:/
 <br />
 <br />
 
-## Step 3: Set a price for your first Plan
+## Step 3: Setting a price
 
 <img src="/img/platform-price.png" width="60%" title="Set a Price" />
 
 Set a name and a monthly price for this Plan. This will be displayed to your customers in the [Customer Billing Portal](https://github.com/kubesail/kubesail-customer-platform).
 
-## Step 4: Choose where to deploy your customers
+## Step 4: Where to deploy
 
 When customers make a payment, their resources will need to be provisioned somewhere! KubeSail Platform makes this flexible and powerful, by allowing you a number of options:
 
@@ -56,9 +52,9 @@ For options **2**, **3** and **4**, we strongly recommend reaching out to us at 
 
 When a user completes a Payment, a Template will be launched in a namespace created for that user. Note that customers will only be able to access their resources if an **Ingress** Object is defined in the template.
 
-## Step 6: Defining Template Variable requirements:
+## Step 6: Template Variables
 
-<img src="/img/platform-templatevars.png" width="60%" title="Choose Templates" />
+<img src="/img/platform-templatevars.png" width="40%" title="Choose Templates" />
 
 Variables from your [Template](/templates) are visible here, and can be modified to be **Visible** or **Required**, as well as setting a default Value.
 
