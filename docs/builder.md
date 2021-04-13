@@ -1,4 +1,6 @@
-# Deploy from GitHub
+# Builder
+
+### Deploy from GitHub
 
 From the KubeSail dashboard under [**Repos**](https://kubesail.com/repos), click **Connect New Repository**, and select which repo you want to install the KubeSail DeployBot. You can grant access to selected repositories within the user or organization's account.
 
@@ -12,11 +14,11 @@ Select the newly added repository to view the suggested pipeline. Pick a branch 
 
 Once your app successfully builds and deploys, it appears under **Apps** within the KubeSail dashboard.
 
-# What does Builder build?
+### What does Builder build?
 
 The Builder uses [deploy-node-app](https://github.com/kubesail/deploy-node-app) under the hood, our tool for deploying projects to Kubernetes. The repo builder will prompt you a number of times during the first build to answer some questions about how to build your project. For the simplest use-case, simply create a `Dockerfile`!
 
-# Deployment options
+### Deployment options
 
 Learn how to deploy [simple HTML](#html), [Node.js](#nodejs), [Python](#python), and [Ruby on Rails](#ruby-on-rails) apps onto Kubernetes.
 
@@ -24,12 +26,12 @@ Learn how to deploy [simple HTML](#html), [Node.js](#nodejs), [Python](#python),
 - Build and push your Docker image
 - Deploy your app on any Kubernetes cluster
 
-## A static site
+### A static site
 
 If **`npx deploy-node-app`** is called in a directory with nothing but an "index.html" file, it will still work! An Nginx server with your static site will be generated and ready in a few seconds.
 
 
-## Node.js
+### Node.js
 
 **`npx deploy-node-app`** will generate (if missing) a Dockerfile, build and push deployment images, generate Kubernetes configurations files, and trigger a deployment on your Kubernetes cluster.
 
@@ -53,9 +55,9 @@ npx create-node-app my-node-app
 
 ![[create-node-app](https://kubesail.com/blog-images/deploy-node-app-cna1.svg)](https://kubesail.com/blog-images/deploy-node-app-cna1.svg)
 
-## Python
+### Python
 
-### Create a Dockerfile for Python
+#### Create a Dockerfile for Python
 
 - Create an image containing your Python application by placing a file called **`Dockerfile`** in the root of your project.
 - Update the line with **`your-daemon-or-script.py`**.
@@ -75,9 +77,9 @@ CMD [ "python", "./your-daemon-or-script.py" ]
 
 Then, continue on to build and push your Docker image.
 
-## Ruby on Rails
+### Ruby on Rails
 
-### Create a Dockerfile for Rails
+#### Create a Dockerfile for Rails
 
 - Create an image containing your Ruby on Rails application by placing a file called **`Dockerfile`** in the root of your project.
 
@@ -99,7 +101,7 @@ CMD ["rails", "server", "-b", "0.0.0.0"]
 
 Then, continue on to build and push your Docker image.
 
-## Build your Docker image
+### Build your Docker image
 
 Run the following command with **`username`** being your Docker Hub username.
 
@@ -108,7 +110,7 @@ docker build . -t username/your-image-name
 docker push username/your-image-name
 ```
 
-## Deploy your app to KubeSail
+### Deploy your app to KubeSail
 
 Once you've built your image and pushed to Docker Hub, you can deploy your app to KubeSail. Update the **`image`** section of the config below, and then **apply** your updates using kubectl.
 

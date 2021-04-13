@@ -1,8 +1,10 @@
+# Platform
+
 **Platform** allows you to turn a container image or Kubernetes YAML into a business in just a few minutes, turning your self-hosted projects into a PaaS!
 
 By connecting a [Stripe](https://stripe.com/) account and choosing a [Template](/templates), your Platform will be able to accept user payments, spin up resources for customers, and allow those users to manage certain settings such as Environment Variables. With easy upgrades and payment processing options, KubeSail Platform is the fastest and easiest way to go from a container image to a business.
 
-## Create a new Platform
+### Create a new Platform
 
 <img src="/img/platform-new.png" width="60%" title="Create new Platform" />
 
@@ -10,7 +12,7 @@ Click "New Platform" and enter a name. Note that must be unique across all of Ku
 <br />
 <br />
 
-## Step 1: Connect Stripe
+### Step 1: Connect Stripe
 
 <img src="/img/platform-stripe.png" width="60%" title="Connect Stripe Account" />
 
@@ -18,7 +20,7 @@ Customer's resources will be launched when they complete a payment. Payments are
 <br />
 <br />
 
-## Step 2: Upload a logo
+### Step 2: Upload a logo
 
 <img src="/img/platform-logo.png" width="60%" title="Upload a logo" />
 
@@ -26,13 +28,13 @@ Upload your logo, which will be visible on the [Customer Billing Portal](https:/
 <br />
 <br />
 
-## Step 3: Setting a price
+### Step 3: Setting a price
 
 <img src="/img/platform-price.png" width="60%" title="Set a Price" />
 
 Set a name and a monthly price for this Plan. This will be displayed to your customers in the [Customer Billing Portal](https://github.com/kubesail/kubesail-customer-platform).
 
-## Step 4: Where to deploy
+### Step 4: Where to deploy
 
 When customers make a payment, their resources will need to be provisioned somewhere! KubeSail Platform makes this flexible and powerful, by allowing you a number of options:
 
@@ -46,13 +48,13 @@ When customers make a payment, their resources will need to be provisioned somew
 
 For options **2**, **3** and **4**, we strongly recommend reaching out to us at support@kubesail.com so we can get things dialed in perfectly!
 
-## Step 5: Choose a Template
+### Step 5: Choose a Template
 
 <img src="/img/platform-template.png" width="60%" title="Choose Templates" />
 
 When a user completes a Payment, a Template will be launched in a namespace created for that user. Note that customers will only be able to access their resources if an **Ingress** Object is defined in the template.
 
-## Step 6: Template Variables
+### Step 6: Template Variables
 
 Variables from your [Template](/templates) are visible here, and can be modified to be **Visible** or **Required**, as well as setting a default Value.
 
@@ -64,6 +66,6 @@ Variables from your [Template](/templates) are visible here, and can be modified
 
 You can also set Default values, helper functions (like RANDOM to generate a random string), or human-friendly descriptions in your Template. See the [Template docs](/templates) for more information.
 
-# Customer Portal
+### Customer Portal
 
 You can set the "Portal Domain" in your Platform which is the domain where Customers can sign up. A pre-hosted Customer Portal will be registered for you at `PLATFORM_NAME.kubesail.app`, which is a hosted instance of [this repo](https://github.com/kubesail/kubesail-customer-platform). Feel free to fork and customize that repo if you'd like to customize your Customer sign up experience. We're working on API documentation for further customization as well - please drop us a message at support@kubesail.com if you're interested!

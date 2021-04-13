@@ -1,5 +1,11 @@
 site_name: KubeSail Docs
-theme: readthedocs
+theme:
+      name: readthedocs
+      highlightjs: true
+      hljs_languages:
+            - yaml
+      navigation_depth: 6
+      titles_only: false
 repo_url: https://github.com/kubesail/docs
 nav:
       - Home: README.md

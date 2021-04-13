@@ -1,6 +1,8 @@
+# Backups
+
 The KubeSail Agent can backup and restore your `Volumes`. Restore data between volumes easily! Backups are encrypted on your cluster and uploaded to our AWS S3-backed storage system.
 
-# New Backup
+### New Backup
 
 Under the [Resources](https://kubesail.com/resources) list, select the `PersistentVolumeClaim` you'd like to backup.
 
@@ -12,7 +14,7 @@ Click "Backup Now" to start a backup job:
 
 You can restore this backup to any other volume on any other attached cluster, or restore here by clicking "restore".
 
-# Pricing
+### Pricing
 
 The number of allows backups is based on the subscription level of the cluster. See [our Pricing page](https://kubesail.com/pricing) for details.
 

@@ -1,3 +1,5 @@
+# Templates
+
 **Templates** allow you to easily install and share applications.
 
 Templates can be shared with others, re-used on your clusters, and used to create a [Platform](/platform) to resell your software! Check out our [Official templates](https://kubesail.com/templates?official=1) or see all [public templates](https://kubesail.com/templates) to get started!
