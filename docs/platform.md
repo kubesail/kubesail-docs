@@ -2,7 +2,7 @@
 
 By connecting a [Stripe](https://stripe.com/) account and choosing a [Template](/templates), your Platform will be able to accept user payments, spin up resources for customers, and allow those users to manage certain settings such as Environment Variables. With easy upgrades and payment processing options, KubeSail Platform is the fastest and easiest way to go from a container image to a business.
 
-# Create a new Platform
+## Create a new Platform
 
 <img src="/img/platform-new.png" width="60%" title="Create new Platform" />
 
