@@ -2,7 +2,7 @@
 
 By connecting a [Stripe](https://stripe.com/) account and choosing a [Template](/templates), your Platform will be able to accept user payments, spin up resources for customers, and allow those users to manage certain settings such as Environment Variables. With easy upgrades and payment processing options, KubeSail Platform is the fastest and easiest way to go from a container image to a business.
 
-## Create a new Platform
+# Create a new Platform
 
 <img src="/img/platform-new.png" width="60%" title="Create new Platform" />
 
@@ -54,9 +54,9 @@ When a user completes a Payment, a Template will be launched in a namespace crea
 
 ## Step 6: Template Variables
 
-<img src="/img/platform-templatevars.png" width="40%" title="Choose Templates" />
-
 Variables from your [Template](/templates) are visible here, and can be modified to be **Visible** or **Required**, as well as setting a default Value.
+
+<img src="/img/platform-templatevars.png" width="40%" title="Choose Templates" />
 
 - **Visible** variables are displayed to your customers in the customer-portal as a settings portal. This allows customers to set their own
 

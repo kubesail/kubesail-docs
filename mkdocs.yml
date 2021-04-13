@@ -10,8 +10,6 @@ nav:
               - Builder: builder.md
               - Backups: backups.md
               - PiBox: pibox.md
-      - Common Issues: common-issues.md
-      - API Documentation: api.md
       - Changelog: https://kubesail.com/changelog
       - KubeSail Blog: https://kubesail.com/blog
       - Support Chat: https://discord.gg/N3zNdp7jHc
