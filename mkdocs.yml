@@ -3,21 +3,21 @@ theme: readthedocs
 repo_url: https://github.com/kubesail/docs
 nav:
       - Home: README.md
+      - Repos: repo_builder.md
+      - Clusters: "byoc.md"
+      - Domains: domains.md
       - Templates: templates.md
       - Platform: platform.md
-      - Repo Builder: repo_builder.md
       - Troubleshooting: troubleshooting.md
+      - PiBox: pibox.md
       - Advanced Topics:
               #- 'Provision a cluster': provision_cluster.md
               - Install Kubernetes: install_kubernetes.md
-              - Custom domains: domains.md
               - Exposing your app: exposing.md
               - Deployment options: deploy.md
               - Exposing TCP Services: tcp.md
               - Definitions: "definitions.md"
-              - Bring Your Own Cluster: "byoc.md"
               - Contributing: contributing.md
-      - PiBox: pibox.md
 extra_css:
       - extra.css
 google_analytics: ["UA-131519845-2", "docs.kubesail.com"]
