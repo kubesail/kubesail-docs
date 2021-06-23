@@ -11,3 +11,5 @@ The PiBox uses a [Raspberry PI Compute Module 4](https://www.raspberrypi.org/pro
 The compact, modular design allows for either 2 or 5 standard-sized SSDs.
 
 PiBoxes can also be shipped directly to your customers via the KubeSail Platform. A customer can pay, receive a PiBox in the mail, plug the device in, and instantly get an on-prem copy of your software on-line, with no additional configuration!
+
+Checkout [PiBox.io](https://pibox.io) to learn more!

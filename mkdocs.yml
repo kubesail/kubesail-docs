@@ -1,23 +1,24 @@
 site_name: KubeSail Docs
-theme: readthedocs
+theme:
+      name: readthedocs
+      highlightjs: true
+      hljs_languages:
+            - yaml
+      navigation_depth: 6
+      titles_only: false
 repo_url: https://github.com/kubesail/docs
 nav:
       - Home: README.md
-      - Repos: repo_builder.md
-      - Clusters: "byoc.md"
-      - Domains: domains.md
-      - Templates: templates.md
-      - Platform: platform.md
-      - Troubleshooting: troubleshooting.md
-      - PiBox: pibox.md
-      - Advanced Topics:
-              #- 'Provision a cluster': provision_cluster.md
-              - Install Kubernetes: install_kubernetes.md
-              - Exposing your app: exposing.md
-              - Deployment options: deploy.md
-              - Exposing TCP Services: tcp.md
-              - Definitions: "definitions.md"
-              - Contributing: contributing.md
+      - Features:
+              - Templates: templates.md
+              - Tunneling & DNS: tunneling.md
+              - Platform: platform.md
+              - Builder: builder.md
+              - Backups: backups.md
+              - PiBox: pibox.md
+      - Changelog: https://kubesail.com/changelog
+      - KubeSail Blog: https://kubesail.com/blog
+      - Support Chat: https://discord.gg/N3zNdp7jHc
 extra_css:
       - extra.css
 google_analytics: ["UA-131519845-2", "docs.kubesail.com"]

@@ -20,6 +20,16 @@ legend {
     font-family: var(--fontFamily);
     color: var(--colorKsDarkGray);
     font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+h1 {
+    margin-top: 3rem;
+    margin-bottom: 0.75rem;
+}
+
+p {
+    margin-bottom: 16px;
 }
 
 .icon.icon-home {
@@ -44,7 +54,7 @@ legend {
 
 .wy-nav-content {
     background: white;
-    max-width: unset;
+    max-width: 850px;
 }
 
 .wy-side-nav-search input[type="text"] {
@@ -66,8 +76,9 @@ code {
     max-width: 800px;
 }
 
-.wy-menu ul {
-    margin-left: 10px;
+code,
+.rst-content tt {
+    font-size: 100%;
 }
 
 @media screen and (min-width: 1400px) {
