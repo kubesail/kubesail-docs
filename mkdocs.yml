@@ -16,6 +16,10 @@ nav:
               - Builder: builder.md
               - Backups: backups.md
               - PiBox: pibox.md
+      - Getting a Cluster:
+              - Digital Ocean: guides/digital-ocean.md
+              - Google Cloud: guides/gke.md
+              - Amazon Web Services: guides/aws.md
       - Changelog: https://kubesail.com/changelog
       - KubeSail Blog: https://kubesail.com/blog
       - Support Chat: https://discord.gg/N3zNdp7jHc
