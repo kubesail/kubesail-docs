@@ -4,7 +4,7 @@ KubeSail is designed to work with any Kubernetes cluster, including bare metal a
 
 ### PiBox
 
-Designed with simplicity in mind, KubeSail now ships a custom, low-cost cluster, pre-installed with Kubernetes and the KubeSail agent. The design is based on the Raspberry Pi 4 Compute Module, includes 2 expandable SATA SSD ports, and starts at $150. PiBox is ideal for home and small office use, and makes it simple to take advantage of 1-click installable KubeSail templates and backups.
+Designed with simplicity in mind, KubeSail now ships a custom low-cost cluster, pre-installed with Kubernetes and the KubeSail agent. The design is based on the Raspberry Pi 4 Compute Module, includes 2 expandable SATA SSD ports, and starts at $150. PiBox is ideal for home and small office use, and makes it simple to take advantage of 1-click installable KubeSail templates and backups.
 
 Learn more or order one at [pibox.io](https://pibox.io).
 
