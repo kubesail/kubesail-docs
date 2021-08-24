@@ -13,10 +13,10 @@ nav:
           - Builder: builder.md
           - Backups: backups.md
     - Getting a Cluster:
+          - Local / Bare Metal: guides/bare-metal.md
           - Digital Ocean: guides/digital-ocean.md
           - Google Cloud: guides/gke.md
           - Amazon Web Services: guides/aws.md
-          - Local / Bare Metal: guides/bare-metal.md
     - PiBox:
           - Overview: pibox.md
           - Flashing with rpiboot: guides/pibox/rpiboot.md
@@ -33,15 +33,23 @@ theme:
         - yaml
     navigation_depth: 6
     titles_only: false
-    favicon: static/favicon/favicon.ico
-    logo:
-        icon: "home"
+    favicon: /static/favicon.ico
+    logo: /static/logo.svg
+    features:
+        - navigation.tabs
+        - navigation.instant
     palette:
-        primary: "blue grey"
-        accent: "blue"
-    font:
-        text: "IBM Plex Serif"
-        code: "IBM Plex Mono"
+        - media: "(prefers-color-scheme: light)"
+          scheme: default
+          toggle:
+              icon: material/weather-sunny
+              name: Switch to dark mode
+        - media: "(prefers-color-scheme: dark)"
+          scheme: slate
+          primary: red
+          toggle:
+              icon: material/weather-night
+              name: Switch to light mode
 markdown_extensions:
     - toc:
           permalink: "#"
@@ -68,10 +76,10 @@ markdown_extensions:
     - fontawesome_markdown
 extra:
     social:
-        - type: "github"
+        - icon: fontawesome/brands/github
           link: "https://github.com/kubesail"
-        - type: "twitter"
+        - icon: fontawesome/brands/twitter
           link: "https://twitter.com/kubesail"
-        - type: "linkedin"
+        - icon: fontawesome/brands/linkedin
           link: "https://www.linkedin.com/company/kubesail"
     manifest: "static/favicon/site.webmanifest"
