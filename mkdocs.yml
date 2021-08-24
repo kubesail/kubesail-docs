@@ -30,6 +30,8 @@ theme:
     highlightjs: true
     hljs_languages:
         - yaml
+    icon:
+        repo: fontawesome/brands/github
     navigation_depth: 6
     titles_only: false
     favicon: /static/favicon.ico
