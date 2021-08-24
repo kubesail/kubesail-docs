@@ -17,7 +17,7 @@ Raspberry Pi maintains an excellent utility for flashing devices on every OS. Do
 
 ## Flashing the Image
 
-1. Open the PiBox using the two screws on the back. The top clamshell case slides back and lifts up to reveal the Carrier board (large horizontal PCB) and the Backplate (small vertical PCB in front)
+1. Open the PiBox using the two screws on the back. The top clamshell case slides back and lifts up to reveal the Carrier board (large horizontal PCB) and the Backplane (small vertical PCB in front)
 1. Disconnect the PiBox's Carrier board from the Backplane.
 1. Switch the "Boot Mode" switch on the Carrier to `rpiboot`.
 1. Connect a USB-C cable to the USB-C port on the backplane, and to your PC.
