@@ -5,7 +5,8 @@ repo_url: https://github.com/kubesail/docs
 repo_name: kubesail/docs
 google_analytics: ["UA-131519845-2", "docs.kubesail.com"]
 nav:
-    - Home: README.md
+    - Home:
+          - README.md
     - Features:
           - Templates: templates.md
           - Tunneling & DNS: tunneling.md
@@ -24,8 +25,6 @@ nav:
           - Changelog: https://kubesail.com/changelog
           - KubeSail Blog: https://kubesail.com/blog
           - Support Chat: https://discord.gg/N3zNdp7jHc
-extra_css:
-    - extra.css
 theme:
     name: material
     highlightjs: true
