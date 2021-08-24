@@ -1,6 +1,6 @@
 # Flashing your PiBox
 
-The PiBox is built around the [Raspberry Pi Compute Module 4](https://datasheets.raspberrypi.org/cm4/cm4-product-brief.pdf). The Compute Module has two options for boot storage: SD card or onboard flash (eMMC). You can use this guide to flash your Pi's eMMC.
+The PiBox is built around the [Raspberry Pi 4 Compute Module](https://datasheets.raspberrypi.org/cm4/cm4-product-brief.pdf). The Compute Module has two options for boot storage: SD card or onboard flash (eMMC). You can use this guide to flash your Pi's eMMC.
 
 > Note: Unless you ordered your PiBox with no Compute Module (advanced users), then you received a PiBox with eMMC, and will need to use this guide to re-flash it. We only ship modules with onboard flash due to its substantially faster performance.
 
