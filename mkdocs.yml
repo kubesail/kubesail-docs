@@ -4,76 +4,74 @@ site_url: https://kubesail.com
 repo_url: https://github.com/kubesail/docs
 repo_name: kubesail/docs
 google_analytics: ["UA-131519845-2", "docs.kubesail.com"]
+nav:
+    - Home: README.md
+    - Features:
+          - Templates: templates.md
+          - Tunneling & DNS: tunneling.md
+          - Platform: platform.md
+          - Builder: builder.md
+          - Backups: backups.md
+    - Getting a Cluster:
+          - Digital Ocean: guides/digital-ocean.md
+          - Google Cloud: guides/gke.md
+          - Amazon Web Services: guides/aws.md
+          - Local / Bare Metal: guides/bare-metal.md
+    - PiBox:
+          - Overview: pibox.md
+          - Flashing with rpiboot: guides/pibox/rpiboot.md
+    - Miscellaneous:
+          - Changelog: https://kubesail.com/changelog
+          - KubeSail Blog: https://kubesail.com/blog
+          - Support Chat: https://discord.gg/N3zNdp7jHc
+extra_css:
+    - extra.css
 theme:
-    name: readthedocs
+    name: material
     highlightjs: true
     hljs_languages:
         - yaml
     navigation_depth: 6
     titles_only: false
-nav:
-    - Home: README.md
-    - Features:
-        - Templates: templates.md
-        - Tunneling & DNS: tunneling.md
-        - Platform: platform.md
-        - Builder: builder.md
-        - Backups: backups.md
-    - Getting a Cluster:
-        - Digital Ocean: guides/digital-ocean.md
-        - Google Cloud: guides/gke.md
-        - Amazon Web Services: guides/aws.md
-        - Local / Bare Metal: guides/bare-metal.md
-    - PiBox:
-        - Overview: pibox.md
-        - Flashing with rpiboot: guides/pibox/rpiboot.md
-    - Miscellaneous:
-        - Changelog: https://kubesail.com/changelog
-        - KubeSail Blog: https://kubesail.com/blog
-        - Support Chat: https://discord.gg/N3zNdp7jHc
-extra_css:
-    - extra.css
-theme:
-  name: "material"
-  favicon: "static/favicon/favicon.ico"
-  logo:
-    icon: "home"
-  palette:
-    primary: "blue grey"
-    accent: "blue"
-  font:
-    text: "IBM Plex Serif"
-    code: "IBM Plex Mono"
+    favicon: static/favicon/favicon.ico
+    logo:
+        icon: "home"
+    palette:
+        primary: "blue grey"
+        accent: "blue"
+    font:
+        text: "IBM Plex Serif"
+        code: "IBM Plex Mono"
 markdown_extensions:
-  - toc:
-      permalink: "#"
-  - smarty
-  - admonition
-  - footnotes
-  - codehilite
-  - pymdownx.arithmatex
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.caret
-  - pymdownx.critic
-  - pymdownx.details
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
-  - pymdownx.inlinehilite
-  - pymdownx.magiclink
-  - pymdownx.mark
-  - pymdownx.smartsymbols
-  - pymdownx.superfences
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
-  - fontawesome_markdown
+    - toc:
+          permalink: "#"
+    - smarty
+    - admonition
+    - footnotes
+    - codehilite
+    - pymdownx.arithmatex
+    - pymdownx.betterem:
+          smart_enable: all
+    - pymdownx.caret
+    - pymdownx.critic
+    - pymdownx.details
+    - pymdownx.emoji:
+          emoji_generator: !!python/name:pymdownx.emoji.to_svg
+    - pymdownx.inlinehilite
+    - pymdownx.magiclink
+    - pymdownx.mark
+    - pymdownx.smartsymbols
+    - pymdownx.superfences
+    - pymdownx.tasklist:
+          custom_checkbox: true
+    - pymdownx.tilde
+    - fontawesome_markdown
 extra:
-  social:
-    - type: "github"
-      link: "https://github.com/kubesail"
-    - type: "twitter"
-      link: "https://twitter.com/kubesail"
-    - type: "linkedin"
-      link: "https://www.linkedin.com/company/kubesail"
-  manifest: "static/favicon/site.webmanifest"
+    social:
+        - type: "github"
+          link: "https://github.com/kubesail"
+        - type: "twitter"
+          link: "https://twitter.com/kubesail"
+        - type: "linkedin"
+          link: "https://www.linkedin.com/company/kubesail"
+    manifest: "static/favicon/site.webmanifest"
