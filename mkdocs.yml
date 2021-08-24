@@ -24,7 +24,8 @@ nav:
         - Google Cloud: guides/gke.md
         - Amazon Web Services: guides/aws.md
         - Local / Bare Metal: guides/bare-metal.md
-    - PiBox: pibox.md
+    - PiBox:
+        - Overview: pibox.md
         - Flashing with rpiboot: guides/rpiboot.md
     - Miscellaneous:
         - Changelog: https://kubesail.com/changelog
