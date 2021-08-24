@@ -26,7 +26,7 @@ nav:
         - Local / Bare Metal: guides/bare-metal.md
     - PiBox:
         - Overview: pibox.md
-        - Flashing with rpiboot: guides/rpiboot.md
+        - Flashing with rpiboot: guides/pibox/rpiboot.md
     - Miscellaneous:
         - Changelog: https://kubesail.com/changelog
         - KubeSail Blog: https://kubesail.com/blog

@@ -19,13 +19,15 @@ Raspberry Pi maintains an excellent utility for flashing devices on every OS. Do
 
 1. Open the PiBox using the two screws on the back. The top clamshell case slides back and lifts up to reveal the Carrier board (large horizontal PCB) and the Backplate (small vertical PCB in front)
 1. Disconnect the PiBox's Carrier board from the Backplane.
-1. Switch the "Boot Mode" switch on the Carrier to "rpiboot".
+1. Switch the "Boot Mode" switch on the Carrier to `rpiboot`.
 1. Connect a USB-C cable to the USB-C port on the backplane, and to your PC.
 1. Run `RPiBoot.exe` (Windows) or `sudo ./rpiboot` (Mac / Linux). This will turn your Pi's eMMC into a mass storage device, enabling your
 1. Open the Raspberry Pi Imager
     - Select an OS (we do most testing on Ubuntu 21.04, 64-bit).
     - Choose `RPi-MSD- 0001` as your storage location.
     - Click `Write`.
+1. Flip the "Boot Mode" switch on the Carrier back to `normal`
+1. Unplug the carrier from your PC and re-assemble the PiBox.
 
 > Warning: The USB port and / or cable you use are using may affect the ability to boot into `rpiboot` mode successfully. If rpiboot stalls or you seen an error code like `Failed to write correct length, returned -9`, then try plugging into a different port on your PC, or swapping out the cable you are using.
 
