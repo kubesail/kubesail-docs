@@ -1,0 +1,20 @@
+name: deploy
+
+on:
+    push:
+        branches:
+            - master
+            - main
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-python@v2
+              with:
+                  python-version: 3.x
+            - uses: abatilo/actions-poetry@v2.0.0
+            - name: Install dependencies
+              run: poetry install
+            - name: Build docs
+              run: mkdocs gh-deploy --force

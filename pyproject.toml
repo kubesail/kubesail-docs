@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "kubesail-docs"
+version = "0.1.0"
+description = "KubeSail Documentation"
+authors = ["Dan Pastusek <dan@hexial.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+mkdocs = "^1.2.2"
+fontawesome-markdown = "^0.2.6"
+mkdocs-material = "^7.2.4"
+pymdown-extensions = "^8.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
