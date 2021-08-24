@@ -31,12 +31,19 @@ Raspberry Pi maintains an excellent utility for flashing devices on every OS. Do
 
 > Warning: The USB port and / or cable you use are using may affect the ability to boot into `rpiboot` mode successfully. If rpiboot stalls or you seen an error code like `Failed to write correct length, returned -9`, then try plugging into a different port on your PC, or swapping out the cable you are using.
 
-## Enabling USB and SATA support
+## Enabling USB, SATA, and Display support
 
 If you aren't using one of our pre-built images, you will need to make some modifications to your installation to get full use out of the PiBox hardware.
 
-To enable the USB 2.0 ports on the Compute Module 4, you need to edit the boot config file at `/boot/config.txt` and add:
+-   To enable the USB 2.0 ports on the Compute Module 4, you need to edit the boot config file at `/boot/config.txt` and add:
 
-    dtoverlay=dwc2,dr_mode=host
+        dtoverlay=dwc2,dr_mode=host
 
-Enabling the SATA ports requires compiling the SATA modules into the kernel. Instructions for this can be found on Jeff Geerling's [PCI device guide on GitHub](https://github.com/geerlingguy/raspberry-pi-pcie-devices/issues/1#issuecomment-717578358)
+-   Enabling the SATA ports requires compiling the SATA modules into the kernel. Instructions for this can be found on Jeff Geerling's [PCI device guide on GitHub](https://github.com/geerlingguy/raspberry-pi-pcie-devices/issues/1#issuecomment-717578358)
+-   To enable the optional 1.3-inch display, SPI support needs to be turned on. Edit the boot config file at `/boot/config.txt` and add:
+
+        dtparam=spi=on
+
+    You can then use a Python library or install the kernel module in order to draw images to the display. Adafruit has a guide which is compatible with the display used in PiBox. https://learn.adafruit.com/adafruit-mini-pitft-135x240-color-tft-add-on-for-raspberry-pi/1-3-240x240-kernel-module-install
+
+After these changes, you will need to `sudo reboot`.
