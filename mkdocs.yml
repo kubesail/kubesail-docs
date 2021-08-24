@@ -1,28 +1,31 @@
 site_name: KubeSail Docs
 theme:
-      name: readthedocs
-      highlightjs: true
-      hljs_languages:
-            - yaml
-      navigation_depth: 6
-      titles_only: false
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - yaml
+    navigation_depth: 6
+    titles_only: false
 repo_url: https://github.com/kubesail/docs
 nav:
-      - Home: README.md
-      - Features:
-              - Templates: templates.md
-              - Tunneling & DNS: tunneling.md
-              - Platform: platform.md
-              - Builder: builder.md
-              - Backups: backups.md
-              - PiBox: pibox.md
-      - Getting a Cluster:
-              - Digital Ocean: guides/digital-ocean.md
-              - Google Cloud: guides/gke.md
-              - Amazon Web Services: guides/aws.md
-      - Changelog: https://kubesail.com/changelog
-      - KubeSail Blog: https://kubesail.com/blog
-      - Support Chat: https://discord.gg/N3zNdp7jHc
+    - Home: README.md
+    - Features:
+        - Templates: templates.md
+        - Tunneling & DNS: tunneling.md
+        - Platform: platform.md
+        - Builder: builder.md
+        - Backups: backups.md
+    - Getting a Cluster:
+        - Digital Ocean: guides/digital-ocean.md
+        - Google Cloud: guides/gke.md
+        - Amazon Web Services: guides/aws.md
+        - Local / Bare Metal: guides/bare-metal.md
+    - PiBox: pibox.md
+        - Flashing with rpiboot: guides/rpiboot.md
+    - Miscellaneous:
+        - Changelog: https://kubesail.com/changelog
+        - KubeSail Blog: https://kubesail.com/blog
+        - Support Chat: https://discord.gg/N3zNdp7jHc
 extra_css:
-      - extra.css
+    - extra.css
 google_analytics: ["UA-131519845-2", "docs.kubesail.com"]
