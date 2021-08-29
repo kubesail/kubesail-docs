@@ -85,4 +85,4 @@ extra:
           link: "https://twitter.com/kubesail"
         - icon: fontawesome/brands/linkedin
           link: "https://www.linkedin.com/company/kubesail"
-    manifest: "static/favicon/site.webmanifest"
+    manifest: "static/site.webmanifest"
