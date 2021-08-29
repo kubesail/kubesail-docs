@@ -21,6 +21,8 @@ nav:
     - PiBox:
           - Overview: pibox.md
           - Flashing with rpiboot: guides/pibox/rpiboot.md
+          - GPIO / LED Control: guides/pibox/gpio.md
+          - Operating System: guides/pibox/os.md
     - Miscellaneous:
           - Changelog: https://kubesail.com/changelog
           - KubeSail Blog: https://kubesail.com/blog
