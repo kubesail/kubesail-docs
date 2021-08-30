@@ -40,9 +40,9 @@ If you aren't using one of our pre-built images, you will need to make some modi
         dtoverlay=dwc2,dr_mode=host
 
 -   Enabling the SATA ports requires compiling the SATA modules into the kernel. Instructions for this can be found on Jeff Geerling's [PCI device guide on GitHub](https://github.com/geerlingguy/raspberry-pi-pcie-devices/issues/1#issuecomment-717578358)
--   To enable the optional 1.3-inch display, SPI support needs to be turned on. Edit the boot config file at `/boot/config.txt` and add:
+-   To enable the 1.3-inch display, the [SPI interface needs to be turned on](https://blog.stabel.family/raspberry-pi-4-multiple-spis-and-the-device-tree/). Edit the boot config file at `/boot/config.txt` and add:
 
-        dtparam=spi=on
+        dtoverlay=spi0-1cs
 
     You can then use a Python library or install the kernel module in order to draw images to the display. Adafruit has a guide which is compatible with the display used in PiBox. https://learn.adafruit.com/adafruit-mini-pitft-135x240-color-tft-add-on-for-raspberry-pi/1-3-240x240-kernel-module-install
 
