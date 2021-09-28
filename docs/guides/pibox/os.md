@@ -66,32 +66,49 @@ By default, container data will be saved to `/var/snap/microk8s`, which is on th
 
 KubeSail helps you manage software on your PiBox, or any other computer running Kubernetes. If you don't yet have a KubeSail account,
 
-    kubectl create -f https://byoc.kubesail.com/<YOUR_KUBESAIL_USERNAME>.yaml
+    kubectl create -f https://byoc.kubesail.com/<YOUR_KUBESAIL_USERNAME>.yaml?initialID=PiBox
 
 This will start the KubeSail agent within Kubernetes. After a few minutes, your cluster will appear in the [clusters](https://kubesail.com/clusters) tab of the KubeSail dashboard.
 
 > NOTE: When we ship the PiBox, we install a script that installs the KubeSail agent during boot if `/boot/kubesail-username.txt` is present. The instructions for installing that boot script are below, but are not necessary.
 
+    sudo mkdir /opt/kubesail/
+
 Save the following to `/opt/kubesail/init.sh`
 
 ```bash
+#!/bin/bash
+if [[ ! -f /boot/kubesail-username.txt ]]; then
+    echo "Not installing KubeSail agent: /boot/firmware/kubesail-username.txt file not found"
+    exit 0
+fi
+
+KUBESAIL_USERNAME=$(cat /boot/firmware/kubesail-username.txt)
+echo "Installing KubeSail agent with username: $KUBESAIL_USERNAME"
+
 microk8s.kubectl get namespace kubesail-agent || {
-    microk8s.refresh-certs
-    sleep 5
-    microk8s.kubectl create -f https://byoc.kubesail.com/$(cat /boot/kubesail-username.txt).yaml
+    #microk8s.refresh-certs
+    microk8s.kubectl create -f https://byoc.kubesail.com/$KUBESAIL_USERNAME.yaml?initialID=PiBox
 }
 ```
+
+Then make executable
+
+    sudo chmod +x /opt/kubesail/init.sh
 
 Save the following to `/etc/systemd/system/kubesail-init.service`
 
 ```bash
 [Unit]
 After=network.service
+After=snap.microk8s.daemon-apiserver
 [Service]
 ExecStart=/opt/kubesail/init.sh
 [Install]
 WantedBy=default.target
 ```
+
+Then to enable the script:
 
     sudo systemctl daemon-reload; sudo systemctl enable kubesail-init.service;
 
