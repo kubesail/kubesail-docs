@@ -9,6 +9,10 @@ The rest of this page contains the instructions for making those modifications y
 -   Display kernel modules, for the 1.3" front panel display
 -   Commonly used unix tools: curl, vim, git
 
+## Logging in via SSH
+
+If you ordered a PiBox from us and gave us your github username, we've automatically installed your public github keys into the `ubuntu` user. So after plugging your PiBox into your local network, you can find its local IP address and simply `ssh ubuntu@<LOCAL_IP_ADDRESS>`
+
 ## Install MicroK8s
 
 MicroK8s is our prefered Kubernetes distribution. Its maintained by Canonical, is updated regularly, and performs well on low-power devices, such as Raspberry Pis.
