@@ -1,24 +1,24 @@
 # GPIO / LED control
 
-The PiBox has 3 user-controllable LEDs on the front panel that can be controlled via the Pi's GPIO pins using a variety of languages. GPIO pin X can be used to turn off the system LEDs (panel left)
+The PiBox has 3 user-controllable LEDs on the front panel that can be controlled via the Pi's GPIO pins using a variety of languages. GPIO pin 16 can be used to turn off all of the system LEDs (the lower 3 LEDs on the front panel)
 
 ## Pinout
 
-| GPIO Pin    | Function               |
-| ----------- | ---------------------- |
-| GPIO 17     | blue LED (not working) |
-| GPIO 2      | green LED              |
-| GPIO 27     | red LED                |
-| ----------- | --------------------   |
-| GPIO X (OE) | Toggle System LEDs     |
+| GPIO Pin    | Function                           |
+| ----------- | ---------------------------------- |
+| GPIO 17     | Red LED                            |
+| GPIO 27     | Green LED                          |
+| GPIO 23     | Blue LED                           |
+| ----------- | --------------------               |
+| GPIO 16     | Toggle System LEDs (on by default) |
 
 ## Controlling with Bash
 
-The following example turns the blue LED on for 1 second, then off
+The following example turns the Red LED on for 1 second, then off
 
 ```bash
 # First make the GPIO pin accessible in user space
-echo "17" > /sys/class/gpio/export
+    echo "17" > /sys/class/gpio/export
 
 # Set the GPIO pin as an output
 echo "out" > /sys/class/gpio/gpio17/direction
