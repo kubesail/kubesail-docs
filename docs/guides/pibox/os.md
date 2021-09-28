@@ -11,7 +11,7 @@ The rest of this page contains the instructions for making those modifications y
 
 ## Logging in via SSH
 
-If you ordered a PiBox from us and gave us your github username, we've automatically installed your public github keys into the `ubuntu` user. So after plugging your PiBox into your local network, you can find its local IP address and simply `ssh ubuntu@<LOCAL_IP_ADDRESS>`
+If you ordered a PiBox from us and gave us your github username, we've automatically installed your public github keys into the `ubuntu` user. So after plugging your PiBox into your local network, you can find its local IP address on the front-panel display and simply `ssh ubuntu@<LOCAL_IP_ADDRESS>`
 
 ## Enabling the SATA Kernel Module
 
