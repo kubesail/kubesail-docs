@@ -18,7 +18,7 @@ The following example turns the Red LED on for 1 second, then off
 
 ```bash
 # First make the GPIO pin accessible in user space
-    echo "17" > /sys/class/gpio/export
+echo "17" > /sys/class/gpio/export
 
 # Set the GPIO pin as an output
 echo "out" > /sys/class/gpio/gpio17/direction
