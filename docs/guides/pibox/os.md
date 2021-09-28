@@ -58,15 +58,42 @@ MicroK8s is our prefered Kubernetes distribution. Its maintained by Canonical, i
     # Enable basics and stats
     sudo microk8s.enable dns storage prometheus
 
-By default, container data will be saved to `/var/snap/microk8s`, which is on the Pi's eMMC or SD card. This built in storage is slower and less resiliant than the SSDs. Mounting this directory on one of the SSDs allows you to build up containers.
+By default, container data will be saved to `/var/snap/microk8s`, which is on the Pi's eMMC or SD card. This built in storage is slower and less resiliant than the SSDs. Mounting this directory on one of the SSDs allows you to run containers faster and with more ephemeral storage.
 
     # TODO
 
 ## Install KubeSail
 
-MicroK8s is our prefered Kubernetes distribution. Its maintained by Canonical, is updated regularly, and performs well on low-power devices, such as Raspberry Pis.
+KubeSail helps you manage software on your PiBox, or any other computer running Kubernetes. If you don't yet have a KubeSail account,
 
-    sudo microk8s.kubectl enable
+    kubectl create -f https://byoc.kubesail.com/<YOUR_KUBESAIL_USERNAME>.yaml
+
+This will start the KubeSail agent within Kubernetes. After a few minutes, your cluster will appear in the [clusters](https://kubesail.com/clusters) tab of the KubeSail dashboard.
+
+> NOTE: When we ship the PiBox, we install a script that installs the KubeSail agent during boot if `/boot/kubesail-username.txt` is present. The instructions for installing that boot script are below, but are not necessary.
+
+Save the following to `/opt/kubesail/init.sh`
+
+```bash
+microk8s.kubectl get namespace kubesail-agent || {
+    microk8s.refresh-certs
+    sleep 5
+    microk8s.kubectl create -f https://byoc.kubesail.com/$(cat /boot/kubesail-username.txt).yaml
+}
+```
+
+Save the following to `/etc/systemd/system/kubesail-init.service`
+
+```bash
+[Unit]
+After=network.service
+[Service]
+ExecStart=/opt/kubesail/init.sh
+[Install]
+WantedBy=default.target
+```
+
+    sudo systemctl daemon-reload; sudo systemctl enable kubesail-init.service;
 
 ## Install commonly used tools
 
