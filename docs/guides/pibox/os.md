@@ -78,6 +78,23 @@ sudo cp arch/arm/boot/zImage /boot/$KERNEL.img
 
     Further detailed instructions and discussion can be found on Jeff Geerling's [PCI device guide on GitHub](https://github.com/geerlingguy/raspberry-pi-pcie-devices/issues/1#issuecomment-717578358)
 
+## Enabling PWM Fan Support
+
+To make the fan quiet and only spin as fast as necessary, we install a service that sends the correct signal to the fan using the Pi's hardware PWM controller. This code can be found in [our fork]() of `alwynallan`'s original gist on GitHub.
+
+```bash
+git clone https://github.com/kubesail/rpi-pwm-fan.git
+cd rpi-pwm-fan
+tar zxvf bcm2835-1.68.tar.gz
+cd bcm2835-1.68
+./configure
+make
+sudo make install
+cd ..
+make
+sudo make install
+```
+
 ## Enabling the 1.3" LCD display
 
 > NOTE: Raspberry Pi OS only. Ubuntu ships with the SPI interface enabled by default
