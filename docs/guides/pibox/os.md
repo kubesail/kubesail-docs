@@ -113,7 +113,10 @@ You can then use a Python library or install the kernel module in order to draw 
 
 ## Modifying the image / stats shown on the display
 
-Adafruit has [a guide](https://learn.adafruit.com/adafruit-mini-pitft-135x240-color-tft-add-on-for-raspberry-pi/1-3-240x240-kernel-module-install) which is compatible with the display used in PiBox.
+Adafruit has [a guide](https://learn.adafruit.com/adafruit-mini-pitft-135x240-color-tft-add-on-for-raspberry-pi/1-3-240x240-kernel-module-install) which is compatible with the display used in PiBox. We modified Adafruit's code in combination with prometheus-png to render stats to the display. This code lives in two repositories:
+
+-   Our fork of prometheus-png built for `arm64` arch: https://github.com/kubesail/prometheus-png
+-   Our python script to render the resulting PNGs to the display: https://github.com/kubesail/pibox-pnger
 
 > NOTE: In our testing, if you are trying the Python "easy way", and installing the `adafruit-circuitpython-rgb-display` library, you will need to install `RPi.GPIO` manually via pip3. Once installed, you can try installing the Adafruit library again.
 >
@@ -121,8 +124,3 @@ Adafruit has [a guide](https://learn.adafruit.com/adafruit-mini-pitft-135x240-co
 > export CFLAGS=-fcommon
 > pip3 install RPi.GPIO
 > ```
-
-We modified Adafruit's code in combination with prometheus-png to render stats to the display. This code lives in two repositories:
-
--   Our fork of prometheus-png built for `arm64` arch: https://github.com/kubesail/prometheus-png
--   Our python script to render the resulting PNGs to the display: https://github.com/kubesail/pibox-pnger
