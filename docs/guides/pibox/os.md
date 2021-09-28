@@ -80,11 +80,19 @@ sudo cp arch/arm/boot/zImage /boot/$KERNEL.img
 
 ## Enabling the 1.3" LCD display
 
+> NOTE: Raspberry Pi OS only. Ubuntu ships with the SPI interface enabled by default
+
 To enable the front-panel display, the [SPI interface needs to be turned on](https://blog.stabel.family/raspberry-pi-4-multiple-spis-and-the-device-tree/). Edit the boot config file at `/boot/config.txt` and add:
 
     dtoverlay=spi0-1cs
 
-You can then use a Python library or install the kernel module in order to draw images to the display. Adafruit has a guide which is compatible with the display used in PiBox. https://learn.adafruit.com/adafruit-mini-pitft-135x240-color-tft-add-on-for-raspberry-pi/1-3-240x240-kernel-module-install
+After these changes, you will need to `sudo reboot`.
+
+You can then use a Python library or install the kernel module in order to draw images to the display. See below for details.
+
+## Modifying the image / stats shown on the display
+
+Adafruit has [a guide](https://learn.adafruit.com/adafruit-mini-pitft-135x240-color-tft-add-on-for-raspberry-pi/1-3-240x240-kernel-module-install) which is compatible with the display used in PiBox.
 
 > NOTE: In our testing, if you are trying the Python "easy way", and installing the `adafruit-circuitpython-rgb-display` library, you will need to install `RPi.GPIO` manually via pip3. Once installed, you can try installing the Adafruit library again.
 >
@@ -93,4 +101,7 @@ You can then use a Python library or install the kernel module in order to draw 
 > pip3 install RPi.GPIO
 > ```
 
-After these changes, you will need to `sudo reboot`.
+We modified Adafruit's code in combination with prometheus-png to render stats to the display. This code lives in two repositories:
+
+-   Our fork of prometheus-png built for `arm64` arch: https://github.com/kubesail/prometheus-png
+-   Our python script to render the resulting PNGs to the display: https://github.com/kubesail/pibox-pnger
