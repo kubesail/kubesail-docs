@@ -13,41 +13,9 @@ The rest of this page contains the instructions for making those modifications y
 
 If you ordered a PiBox from us and gave us your github username, we've automatically installed your public github keys into the `ubuntu` user. So after plugging your PiBox into your local network, you can find its local IP address and simply `ssh ubuntu@<LOCAL_IP_ADDRESS>`
 
-## Install MicroK8s
-
-MicroK8s is our prefered Kubernetes distribution. Its maintained by Canonical, is updated regularly, and performs well on low-power devices, such as Raspberry Pis.
-
-    sudo snap install microk8s --classic
-    # Enable basics and stats
-    sudo microk8s.enable dns storage prometheus
-
-By default, container data will be saved to `/var/snap/microk8s`, which is on the Pi's eMMC or SD card. This built in storage is slower and less resiliant than the SSDs. Mounting this directory on one of the SSDs allows you to build up containers.
-
-    # TODO
-
-## Install KubeSail
-
-MicroK8s is our prefered Kubernetes distribution. Its maintained by Canonical, is updated regularly, and performs well on low-power devices, such as Raspberry Pis.
-
-    sudo microk8s.kubectl enable
-
-## Install commonly used tools
-
-This section is optional. These utilities make debugging and installing additional software easier
-
-```
-sudo apt install curl vim git
-```
-
-## Enable USB (Raspberry Pi OS only)
-
-If you are using Raspberry Pi OS, you will need to enable the USB 2.0 ports on the Compute Module 4. Edit the boot config file at `/boot/config.txt` and add:
-
-    dtoverlay=dwc2,dr_mode=host
-
 ## Enabling the SATA Kernel Module
 
-Enabling the SATA ports requires compiling the SATA modules into the kernel.
+Enabling the SATA ports requires compiling the SATA modules into the kernel. This step takes the longest, so you may want to start this and open another tab for the sections below while the kernel compiles.
 
 ```bash
 # Install dependencies
@@ -81,6 +49,38 @@ sudo cp arch/arm/boot/zImage /boot/$KERNEL.img
 ```
 
 Further detailed instructions and discussion can be found on Jeff Geerling's [PCI device guide on GitHub](https://github.com/geerlingguy/raspberry-pi-pcie-devices/issues/1#issuecomment-717578358)
+
+## Install MicroK8s
+
+MicroK8s is our prefered Kubernetes distribution. Its maintained by Canonical, is updated regularly, and performs well on low-power devices, such as Raspberry Pis.
+
+    sudo snap install microk8s --classic
+    # Enable basics and stats
+    sudo microk8s.enable dns storage prometheus
+
+By default, container data will be saved to `/var/snap/microk8s`, which is on the Pi's eMMC or SD card. This built in storage is slower and less resiliant than the SSDs. Mounting this directory on one of the SSDs allows you to build up containers.
+
+    # TODO
+
+## Install KubeSail
+
+MicroK8s is our prefered Kubernetes distribution. Its maintained by Canonical, is updated regularly, and performs well on low-power devices, such as Raspberry Pis.
+
+    sudo microk8s.kubectl enable
+
+## Install commonly used tools
+
+This section is optional. These utilities make debugging and installing additional software easier
+
+```
+sudo apt install curl vim git
+```
+
+## Enable USB (Raspberry Pi OS only)
+
+If you are using Raspberry Pi OS, you will need to enable the USB 2.0 ports on the Compute Module 4. Edit the boot config file at `/boot/config.txt` and add:
+
+    dtoverlay=dwc2,dr_mode=host
 
 ## Enabling PWM Fan Support
 
