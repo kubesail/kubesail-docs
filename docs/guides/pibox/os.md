@@ -40,7 +40,7 @@ nano .config
 # (edit CONFIG_LOCALVERSION and add a suffix that helps you identify your build)
 
 # Build the kernel and copy everything into place
-make -j4 zImage modules dtbs # 'Image' on 64-bit
+make -j4 Image modules dtbs # 'zImage' on 32-bit
 sudo make modules_install
 sudo cp arch/arm/boot/dts/*.dtb /boot/
 sudo cp arch/arm/boot/dts/overlays/*.dtb* /boot/overlays/
