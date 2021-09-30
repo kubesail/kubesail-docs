@@ -2,7 +2,7 @@
 
 We maintain and distribute a modified 64-bit Raspberry Pi OS image which adds some additional kernel modules. You can download it here: [TODO]
 
-The rest of this page contains the instructions for making those modifications yourself if you decide to reflash your PiBox. In general, the modifications we make are:
+The rest of this page contains the instructions for making those modifications yourself if you decide to [reflash your PiBox](/guides/pibox/rpiboot). In general, the modifications we make are:
 
 -   Kubernetes, which provides a consistent API for installing software via [templates](/templates), as well as the [KubeSail Agent](/#attaching-a-cluster)
 -   SATA Kernel modules (These are disabled by default in the base Raspberry Pi OS and Ubuntu images)
