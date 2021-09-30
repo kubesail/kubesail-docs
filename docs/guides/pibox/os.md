@@ -72,7 +72,7 @@ sudo usermod -a -G microk8s $USER
 sudo chown -f -R $USER ~/.kube
 ```
 
-MicroK8s has a bug where it will pick up on network changes and restart kubelite when it shouldn't. To fix this,
+MicroK8s [has a bug](https://github.com/ubuntu/microk8s/pull/2617) where it will pick up on network changes and restart kubelite when it shouldn't. To fix this,
 
 ```bash
 vim /var/snap/microk8s/current/args/kube-apiserver
