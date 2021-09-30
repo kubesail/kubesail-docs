@@ -36,7 +36,7 @@ theme:
         repo: fontawesome/brands/github
     navigation_depth: 6
     titles_only: false
-    favicon: /static/favicon.ico
+    favicon: /static/favicon.png
     logo: /static/logo.svg
     features:
         - navigation.tabs

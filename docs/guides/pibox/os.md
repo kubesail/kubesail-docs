@@ -42,10 +42,10 @@ nano .config
 # Build the kernel and copy everything into place
 make -j4 Image modules dtbs # 'zImage' on 32-bit
 sudo make modules_install
-sudo cp arch/arm/boot/dts/*.dtb /boot/
-sudo cp arch/arm/boot/dts/overlays/*.dtb* /boot/overlays/
-sudo cp arch/arm/boot/dts/overlays/README /boot/overlays/
-sudo cp arch/arm/boot/zImage /boot/$KERNEL.img
+# sudo cp arch/arm64/boot/dts/*.dtb /boot/
+sudo cp arch/arm64/boot/dts/overlays/*.dtb* /boot/firmware/overlays/
+sudo cp arch/arm64/boot/dts/overlays/README /boot/firmware/overlays/
+sudo cp arch/arm64/boot/Image /boot/$KERNEL.img
 ```
 
 Further detailed instructions and discussion can be found on Jeff Geerling's [PCI device guide on GitHub](https://github.com/geerlingguy/raspberry-pi-pcie-devices/issues/1#issuecomment-717578358)
