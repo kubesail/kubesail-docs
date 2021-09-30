@@ -57,13 +57,30 @@ Further detailed instructions and discussion can be found on Jeff Geerling's [PC
 
 MicroK8s is our prefered Kubernetes distribution. Its maintained by Canonical, is updated regularly, and performs well on low-power devices, such as Raspberry Pis.
 
+    # Install Snap
+    sudo apt update
+    sudo apt install snapd
+
+    # Install Microk8s
     sudo snap install microk8s --classic
     # Enable basics and stats
-    sudo microk8s.enable dns storage prometheus
+    sudo microk8s enable dns storage prometheus
+
+    # Allow the current user to run microk8s commands
+    sudo usermod -a -G microk8s $USER
+    sudo chown -f -R $USER ~/.kube
+
+MicroK8s has a bug where it will pick up on network changes and restart kubelite when it shouldn't. To fix this,
+
+    vim /var/snap/microk8s/current/args/kube-apiserver
+
+and update the line `--bind-address=0.0.0.0`
 
 By default, container data will be saved to `/var/snap/microk8s`, which is on the Pi's eMMC or SD card. This built in storage is slower and less resiliant than the SSDs. Mounting this directory on one of the SSDs allows you to run containers faster and with more ephemeral storage.
 
-    # TODO
+    vim /etc/fstab
+
+add `/dev/sda1 /var/snap ext4 defaults,nofail 0 0`
 
 ## Install KubeSail
 
