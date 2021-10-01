@@ -1,6 +1,6 @@
 # PiBox OS
 
-> Download the latest version [on GitHub](https://github.com/kubesail/pibox-os/releases)
+> Download the latest OS image [from GitHub](https://github.com/kubesail/pibox-os/releases)
 
 We maintain and distribute a modified 64-bit Raspberry Pi OS image which adds some additional kernel modules.
 
