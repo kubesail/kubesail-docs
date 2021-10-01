@@ -7,14 +7,13 @@ We maintain and distribute a modified 64-bit Raspberry Pi OS image which adds so
 The rest of this page contains the instructions for making those modifications yourself if you decide to [reflash your PiBox](/guides/pibox/rpiboot). In general, the modifications we make are:
 
 -   Kubernetes, which provides a consistent API for installing software via [templates](/templates), as well as the [KubeSail Agent](/#attaching-a-cluster)
--   SATA Kernel modules (These are disabled by default in the base Raspberry Pi OS and Ubuntu images)
+-   SATA Kernel modules (These are enabled by default in Raspberry Pi OS 64-bit. They need to be compiled for Raspberry Pi OS 32-bit and Ubuntu images)
 -   Display kernel modules, for the 1.3" front panel display
 -   PWM fan support using the Pi's hardware PWM controller
--   Commonly used unix tools: curl, vim, git, etc...
 
 ## Logging in via SSH
 
-If you ordered a PiBox from us and gave us your github username, we've automatically installed your public github keys into the `ubuntu` user. So after plugging your PiBox into your local network, you can find its local IP address on the front-panel display and simply `ssh ubuntu@<LOCAL_IP_ADDRESS>`
+If you ordered a PiBox from us and gave us your github username, we've automatically installed your public github keys into the `pi` user. So after plugging your PiBox into your local network, you can find its local IP address on the front-panel display and simply `ssh ubuntu@<LOCAL_IP_ADDRESS>`
 
 ## Enabling the SATA Kernel Module
 
@@ -31,7 +30,7 @@ git clone --depth=1 https://github.com/raspberrypi/linux
 
 # Apply default configuration
 cd linux
-export KERNEL=kernel8 # use kernel8 for 64-bit, or kernel7l for 32-bit
+export KERNEL=kernel7l # use kernel8 for 64-bit, or kernel7l for 32-bit
 make bcm2711_defconfig
 
 # Customize the .config further with menuconfig
@@ -45,11 +44,11 @@ nano .config
 # (edit CONFIG_LOCALVERSION and add a suffix that helps you identify your build)
 
 # Build the kernel and copy everything into place
-make -j4 Image modules dtbs # 'zImage' on 32-bit
+make -j4 zImage modules dtbs # 'Image' on 64-bit
 sudo make modules_install
-# sudo cp arch/arm64/boot/dts/*.dtb /boot/
-sudo cp arch/arm64/boot/dts/overlays/*.dtb* /boot/firmware/overlays/
-sudo cp arch/arm64/boot/dts/overlays/README /boot/firmware/overlays/
+sudo cp arch/arm64/boot/dts/*.dtb /boot/
+sudo cp arch/arm64/boot/dts/overlays/*.dtb* /boot/overlays/
+sudo cp arch/arm64/boot/dts/overlays/README /boot/overlays/
 sudo cp arch/arm64/boot/Image /boot/$KERNEL.img
 ```
 
@@ -112,14 +111,6 @@ curl -s https://raw.githubusercontent.com/kubesail/pibox-os/main/agent-installer
 
 After a few minutes, your cluster will appear in the [clusters](https://kubesail.com/clusters) tab of the KubeSail dashboard.
 
-## Install commonly used tools
-
-This section is optional. These utilities make debugging and installing additional software easier
-
-```
-sudo apt install curl vim git
-```
-
 ## Enable USB (Raspberry Pi OS only)
 
 If you are using Raspberry Pi OS, you will need to enable the USB 2.0 ports on the Compute Module 4. Edit the boot config file at `/boot/config.txt` and add:
@@ -131,8 +122,8 @@ If you are using Raspberry Pi OS, you will need to enable the USB 2.0 ports on t
 To make the fan quiet and only spin as fast as necessary, we install a service that sends the correct signal to the fan using the Pi's hardware PWM controller. This code can be found in [our fork]() of `alwynallan`'s original gist on GitHub.
 
 ```bash
-git clone https://github.com/kubesail/rpi-pwm-fan.git
-cd rpi-pwm-fan
+git clone https://github.com/kubesail/pibox-os.git
+cd pibox-os/rpi-pwm-fan
 tar zxvf bcm2835-1.68.tar.gz
 cd bcm2835-1.68
 ./configure
@@ -160,7 +151,7 @@ You can then use a Python library or install the kernel module in order to draw 
 Adafruit has [a guide](https://learn.adafruit.com/adafruit-mini-pitft-135x240-color-tft-add-on-for-raspberry-pi/1-3-240x240-kernel-module-install) which is compatible with the display used in PiBox. We modified Adafruit's code in combination with prometheus-png to render stats to the display. This code runs as containers within Kubernetes, installed via this [template](https://kubesail.com/template/erulabs/pibox-display-renderer), and the source code lives in two repositories:
 
 -   Our fork of prometheus-png built for `arm64` arch: https://github.com/kubesail/prometheus-png
--   Our python script to render the resulting PNGs to the display: https://github.com/kubesail/pibox-pnger
+-   Our python script to render the resulting PNGs to the display: https://github.com/kubesail/pibox-os/tree/main/lcd-display
 
 > NOTE: In our testing, if you are trying the Python "easy way", and installing the `adafruit-circuitpython-rgb-display` library, you will need to install `RPi.GPIO` manually via pip3. Once installed, you can try installing the Adafruit library again.
 >
