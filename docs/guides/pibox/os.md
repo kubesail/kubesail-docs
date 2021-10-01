@@ -129,7 +129,7 @@ To make the fan quiet and only spin as fast as necessary, we install a service t
 
 ```bash
 git clone https://github.com/kubesail/pibox-os.git
-cd pibox-os/rpi-pwm-fan
+cd pibox-os/pwm-fan
 tar zxvf bcm2835-1.68.tar.gz
 cd bcm2835-1.68
 ./configure
