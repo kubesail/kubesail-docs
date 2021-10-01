@@ -125,7 +125,7 @@ If you are using Raspberry Pi OS, you will need to enable the USB 2.0 ports on t
 
 ## Enabling PWM Fan Support
 
-To make the fan quiet and only spin as fast as necessary, we install a service that sends the correct signal to the fan using the Pi's hardware PWM controller. This code can be found in [our fork]() of `alwynallan`'s original gist on GitHub.
+To make the fan quiet and only spin as fast as necessary, we install a service that sends the correct signal to the fan using the Pi's hardware PWM controller. This code can be found in [our fork](https://github.com/kubesail/pibox-os/tree/main/pwm-fan) of `alwynallan`'s original gist on GitHub.
 
 ```bash
 git clone https://github.com/kubesail/pibox-os.git
