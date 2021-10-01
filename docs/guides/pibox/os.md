@@ -105,7 +105,7 @@ echo "YOUR_KUBESAIL_USERNAME" | sudo tee -a /boot/kubesail-username.txt
 Then install the KubeSail agent:
 
 ```bash
-curl -s https://raw.githubusercontent.com/kubesail/agent-installer/main/install.sh | sudo bash
+curl -s https://raw.githubusercontent.com/kubesail/pibox-os/main/agent-installer.sh | sudo bash
 ```
 
 After a few minutes, your cluster will appear in the [clusters](https://kubesail.com/clusters) tab of the KubeSail dashboard.
