@@ -1,6 +1,8 @@
 # PiBox OS
 
-We maintain and distribute a modified 64-bit Raspberry Pi OS image which adds some additional kernel modules. You can download it here: [TODO]
+> Download the latest version [on GitHub](https://github.com/kubesail/pibox-os/releases)
+
+We maintain and distribute a modified 64-bit Raspberry Pi OS image which adds some additional kernel modules.
 
 The rest of this page contains the instructions for making those modifications yourself if you decide to [reflash your PiBox](/guides/pibox/rpiboot). In general, the modifications we make are:
 
