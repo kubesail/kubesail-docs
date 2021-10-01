@@ -17,7 +17,7 @@ If you ordered a PiBox from us and gave us your github username, we've automatic
 
 ## Enabling the SATA Kernel Module
 
-> NOTE: These instructions apply to Raspberry Pi OS 32-bit only. 64-bit Pi OS now ships the SATA modules by default. Instructions for Compiling the Ubuntu-raspi kernel can be found at https://askubuntu.com/a/1242267 and cross-compilation instructions can be found at https://github.com/carlonluca/docker-rpi-ubuntu-kernel
+> NOTE: These instructions apply to Raspberry Pi OS 32-bit and Ubuntu only. 64-bit Pi OS now ships the SATA modules by default. Instructions for Compiling the Ubuntu-raspi kernel can be found at https://askubuntu.com/a/1242267 and cross-compilation instructions can be found at https://github.com/carlonluca/docker-rpi-ubuntu-kernel
 
 Enabling the SATA ports requires compiling the SATA modules into the kernel.
 
