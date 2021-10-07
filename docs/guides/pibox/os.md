@@ -23,8 +23,9 @@ sudo bash -c "echo YOUR_GITHUB_USERNAME > /boot/github-ssh-username.txt"
 
 ## Enabling the SATA Kernel Module
 
+<!-- prettier-ignore -->
 !!! important
-These instructions apply to Raspberry Pi OS 32-bit and Ubuntu only. 64-bit Pi OS now ships the SATA modules by default. Instructions for Compiling the Ubuntu-raspi kernel can be found at https://askubuntu.com/a/1242267 and cross-compilation instructions can be found at https://github.com/carlonluca/docker-rpi-ubuntu-kernel
+    These instructions apply to **Raspberry Pi OS 32-bit** and **Ubuntu** only. 64-bit Pi OS now ships the SATA modules by default. Instructions for Compiling the Ubuntu-raspi kernel can be found at https://askubuntu.com/a/1242267 and cross-compilation instructions can be found at https://github.com/carlonluca/docker-rpi-ubuntu-kernel
 
 Enabling the SATA ports requires compiling the SATA modules into the kernel.
 
@@ -143,7 +144,9 @@ sudo make install
 
 ## Enabling the 1.3" LCD display
 
-> NOTE: Raspberry Pi OS only. Ubuntu ships with the SPI interface enabled by default
+<!-- prettier-ignore -->
+!!! important
+    **Raspberry Pi OS** only. Ubuntu ships with the SPI interface enabled by default
 
 To enable the front-panel display, the [SPI interface needs to be turned on](https://blog.stabel.family/raspberry-pi-4-multiple-spis-and-the-device-tree/). Edit the boot config file at `/boot/config.txt` and add:
 
@@ -160,9 +163,11 @@ Adafruit has [a guide](https://learn.adafruit.com/adafruit-mini-pitft-135x240-co
 -   Our fork of prometheus-png built for `arm64` arch: https://github.com/kubesail/prometheus-png
 -   Our python script to render the resulting PNGs to the display: https://github.com/kubesail/pibox-os/tree/main/lcd-display
 
-> NOTE: In our testing, if you are trying the Python "easy way", and installing the `adafruit-circuitpython-rgb-display` library, you will need to install `RPi.GPIO` manually via pip3. Once installed, you can try installing the Adafruit library again.
->
-> ```bash
-> export CFLAGS=-fcommon
-> pip3 install RPi.GPIO
-> ```
+<!-- prettier-ignore -->
+!!! note
+    In our testing, if you are trying the Python "easy way", and installing the `adafruit-circuitpython-rgb-display` library, you will need to install `RPi.GPIO` manually via pip3. Once installed, you can try installing the Adafruit library again.
+
+    ```bash
+    export CFLAGS=-fcommon
+    pip3 install RPi.GPIO
+    ```
