@@ -18,7 +18,7 @@ If you ordered a PiBox from us and gave us your github username, we've automatic
 If you are reflashing your Pi with our PiBox OS image, a first-boot script will install your public SSH keys from GitHub and disable password login if you write your username to `/boot/github-ssh-username.txt`:
 
 ```bash
-echo "YOUR_GITHUB_USERNAME" | sudo tee -a /boot/github-ssh-username.txt
+sudo bash -c "echo YOUR_GITHUB_USERNAME > /boot/github-ssh-username.txt"
 ```
 
 ## Enabling the SATA Kernel Module
@@ -106,7 +106,7 @@ and add the line
 KubeSail helps you manage software on your PiBox, or any other computer running Kubernetes. If you don't yet have a KubeSail account, creating one is as easy as [signing up with GitHub](https://kubesail.com/). Once you've done that, simply replace your username in the following command and run it:
 
 ```bash
-echo "YOUR_KUBESAIL_USERNAME" | sudo tee -a /boot/kubesail-username.txt
+sudo bash -c "echo YOUR_KUBESAIL_USERNAME > /boot/kubesail-username.txt"
 ```
 
 Then install the KubeSail agent:
