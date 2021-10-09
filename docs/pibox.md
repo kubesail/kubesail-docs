@@ -10,15 +10,13 @@ The PiBox is a storage server that lets you use a standard operating system, can
 
 <img src="/img/pibox.png" width="60%" title="PiBox 2 Mini" />
 <br />
-The PiBox uses a [Raspberry PI Compute Module 4](https://www.raspberrypi.org/products/compute-module-4/) and can be customized with up to 8GB RAM!
-
-<img src="/img/pibox-ssd-removal.png" width="60%" title="PiBox SSD Removal" />
-
-<br />
-The compact, modular design has 2 SATA SSD slots giving it expandable storage. 5-bay and desktop HDD compatible models are under development and will be coming soon.
+### Totally Modular
+The PiBox uses a [Raspberry PI Compute Module 4](https://www.raspberrypi.org/products/compute-module-4/), giving you options of 1, 2, 4, or 8GB RAM, optional WiFi, and up to 32GB of onboard flash storage.
 
 <img src="/img/pibox-carrier-leaning.png" width="60%" title="PiBox Carrier" />
 
-PiBoxes can also be shipped directly to your customers via the KubeSail Platform. A customer can pay, receive a PiBox in the mail, plug the device in, and instantly get an on-prem copy of your software on-line, with no additional configuration!
+<br />
+The compact design includes 2 powered SATA SSD slots allowing for expandable storage. 5-bay and desktop HDD compatible models are under development and will be coming soon.
+<img src="/img/pibox-ssd-removal.png" width="60%" title="PiBox SSD Removal" />
 
 Checkout [PiBox.io](https://pibox.io) to learn more!
