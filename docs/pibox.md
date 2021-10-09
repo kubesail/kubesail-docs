@@ -16,7 +16,7 @@ The PiBox uses a [Raspberry PI Compute Module 4](https://www.raspberrypi.org/pro
 <img src="/img/pibox-carrier-leaning.png" width="60%" title="PiBox Carrier" />
 
 <br />
-The compact design includes 2 powered SATA SSD slots allowing for expandable storage. 5-bay and desktop HDD compatible models are under development and will be coming soon.
+The compact design includes 2 powered SATA SSD slots allowing for up to 16TB of expandable storage. 5-bay and desktop HDD compatible models are under development and will be coming soon.
 <img src="/img/pibox-ssd-removal.png" width="60%" title="PiBox SSD Removal" />
 
 Checkout [PiBox.io](https://pibox.io) to learn more!
