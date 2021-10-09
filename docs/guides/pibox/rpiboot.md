@@ -8,7 +8,7 @@ The PiBox is built around the [Raspberry Pi 4 Compute Module](https://datasheets
 
 In order to re-flash the boot disk on the pi (commonly called eMMC), you will need to install a utility called [`rpiboot`](https://github.com/raspberrypi/usbboot).
 
--   For Windows users, simply install the [`rpiboot` installer](https://github.com/raspberrypi/usbboot/raw/master/win32/rpiboot_setup.exe).
+-   For Windows users, install the [`rpiboot` installer](https://github.com/raspberrypi/usbboot/raw/master/win32/rpiboot_setup.exe).
 -   For Mac & Linux users, follow the [build instructions](https://github.com/raspberrypi/usbboot#building) and return to this page.
 
 ## Installing the Raspberry Pi Imager
@@ -19,17 +19,19 @@ Raspberry Pi maintains an excellent utility for flashing devices on every OS. Do
 
 1. Open the PiBox using the two screws on the back. The top clamshell case slides back and lifts up to reveal the Carrier board (large horizontal PCB) and the Backplane (small vertical PCB in front)
 1. Disconnect the PiBox's Carrier board from the Backplane.
-1. Switch the "Boot Mode" switch on the Carrier to `rpiboot`.
+1. Switch the "Boot Mode" switch on the Carrier to "**rpiboot**".
 1. Connect a USB-C cable to the USB-C port on the backplane, and to your PC.
-1. Run `RPiBoot.exe` (Windows) or `sudo ./rpiboot` (Mac / Linux). This will turn your Pi's eMMC into a mass storage device, enabling your
+1. Run `sudo ./rpiboot` (Mac / Linux) or the `RpiBoot` executable at `C:\Program Files (x86)\Raspberry Pi\RPiBoot.exe` (Windows). This will turn your Pi's eMMC into a mass storage device, enabling your
 1. Open the Raspberry Pi Imager
     - Select an OS
         - Download our latest OS image [from GitHub](https://github.com/kubesail/pibox-os/releases)
         - Or, flash your own OS. We recommend starting with Raspberry Pi OS 64-bit
     - Choose `RPi-MSD- 0001` as your storage location.
     - Click `Write`.
-1. Flip the "Boot Mode" switch on the Carrier back to `normal`
-1. Unplug the carrier from your PC and re-assemble the PiBox.
+    - You may want to touch the file `/boot/ssh` to enable SSH when the pibox boots - otherwise you will need a keyboard & monitor
+    - If using our image, you may also write your username to `/boot/github-ssh-username.txt`, and your GitHub SSH keys will be automatically copied for easier log-in.
+2. Flip the "Boot Mode" switch on the Carrier back to `normal`
+3. Unplug the carrier from your PC and re-assemble the PiBox.
 
 > Warning: The USB port and / or cable you use are using may affect the ability to boot into `rpiboot` mode successfully. If rpiboot stalls or you seen an error code like `Failed to write correct length, returned -9`, then try plugging into a different port on your PC, or swapping out the cable you are using.
 

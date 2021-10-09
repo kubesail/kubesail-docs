@@ -1,24 +1,28 @@
-# PiBox OS
+# Using a custom Linux OS on your PiBox
 
-> Download the latest OS image [from GitHub](https://github.com/kubesail/pibox-os/releases)
+We [maintain and distribute a modified 64-bit Raspberry Pi OS image](https://github.com/kubesail/pibox-os/releases) which is pre-configured to be perfect for the PiBox. The rest of this page contains the instructions for making those modifications yourself if you decide to [reflash your PiBox](/guides/pibox/rpiboot). In general, the modifications we make are:
 
-We maintain and distribute a modified 64-bit Raspberry Pi OS image which adds some additional kernel modules.
+-   Fan support (PWM) for quiet fan operation
+-   SATA Kernel modules
+-   Install Kubernetes (via [microk8s](https://microk8s.io/))
+-   Tweaks for stability and performance
+-   Display kernel modules for the 1.3" front panel display
 
-The rest of this page contains the instructions for making those modifications yourself if you decide to [reflash your PiBox](/guides/pibox/rpiboot). In general, the modifications we make are:
+If you're using our OS Image, this guide has already been completed for you!
 
--   Kubernetes, which provides a consistent API for installing software via [templates](/templates), as well as the [KubeSail Agent](/#attaching-a-cluster)
--   SATA Kernel modules (These are enabled by default in Raspberry Pi OS 64-bit. They need to be compiled for Raspberry Pi OS 32-bit and Ubuntu images)
--   Display kernel modules, for the 1.3" front panel display
--   PWM fan support using the Pi's hardware PWM controller
 
-## Logging in via SSH
+## Enabling PWM Fan Support
 
-If you ordered a PiBox from us and gave us your github username, we've automatically installed your public github keys into the `pi` user. So after plugging your PiBox into your local network, you can find its local IP address on the front-panel display and simply `ssh ubuntu@<LOCAL_IP_ADDRESS>`
-
-If you are reflashing your Pi with our PiBox OS image, a first-boot script will install your public SSH keys from GitHub and disable password login if you write your username to `/boot/github-ssh-username.txt`:
+To make the fan quiet and only spin as fast as necessary, we install a service that sends the correct signal to the fan using the Pi's hardware PWM controller. This code can be found in [our fork](https://github.com/kubesail/pibox-os/tree/main/pwm-fan) of `alwynallan`'s original gist on GitHub.
 
 ```bash
-sudo bash -c "echo YOUR_GITHUB_USERNAME > /boot/github-ssh-username.txt"
+git clone https://github.com/kubesail/pibox-os.git
+cd pibox-os/pwm-fan
+tar zxvf bcm2835-1.68.tar.gz
+cd bcm2835-1.68
+./configure && make && sudo make install
+cd ..
+make && sudo make install
 ```
 
 ## Enabling the SATA Kernel Module
@@ -58,15 +62,45 @@ sudo cp arch/arm64/boot/dts/*.dtb /boot/
 sudo cp arch/arm64/boot/dts/overlays/*.dtb* /boot/overlays/
 sudo cp arch/arm64/boot/dts/overlays/README /boot/overlays/
 sudo cp arch/arm64/boot/Image /boot/$KERNEL.img
+
+# Reboot the system
+reboot
 ```
 
 Further detailed instructions and discussion can be found on Jeff Geerling's [PCI device guide on GitHub](https://github.com/geerlingguy/raspberry-pi-pcie-devices/issues/1#issuecomment-717578358)
 
-## Install MicroK8s
-
-MicroK8s is our prefered Kubernetes distribution. Its maintained by Canonical, is updated regularly, and performs well on low-power devices, such as Raspberry Pis.
+## Dedicating an SSD to Kubernetes
+<!-- prettier-ignore -->
+!!! important
+    We recommend using one or more SSDs for your Kubernetes installation and storage. You'll want to format a disk and mount it at `/var/snap` before installing Kubernetes. This storage can then be used by Kubernetes for it's storage system. This piece is optional, but we strongly recommend it!
 
 ```bash
+# Format the entire /dev/sda disk (WARNING! This will wipe data!)
+sudo parted -a opt /dev/sda mkpart primary ext4 0% 100%
+
+# Format the partition
+sudo mkfs.ext4 -L kubernetesdata /dev/sda1
+
+# Mount the partition in place!
+sudo mkdir -p /var/snap
+sudo bash -c "echo '/dev/sda1 /var/snap ext4 defaults,nofail,noatime,discard,errors=remount-ro 0 0' >> /etc/fstab"
+```
+
+## Install MicroK8s
+
+
+MicroK8s is our preferred Kubernetes distribution. It's maintained by Canonical, is updated regularly, and performs well on low-power devices, such as Raspberry Pis. Other distributions of Kubernetes should work fine on the PiBox and with KubeSail.com, but this guide focuses on Microk8s.
+
+```bash
+# On Raspberry PI OS, the path is /boot/cmdline.txt, on Ubuntu it's /boot/firmware/cmdline.txt
+# TLDR: Add 'cgroup_enable=memory cgroup_memory=1' to that file and reboot
+sudo bash -c "grep -qxF 'cgroup_enable=memory cgroup_memory=1' /boot/cmdline.txt || sed 's/$/ cgroup_enable=memory cgroup_memory=1/' /boot/cmdline.txt"
+sudo reboot
+
+# Prevent dhcpcd from using internal Kubernetes network interfaces
+sudo bash -c "echo 'allowinterfaces eth0 wlan0' >> /etc/dhcpcd.conf"
+sudo service dhcpcd restart
+
 # Install Snap
 sudo apt update
 sudo apt install snapd
@@ -79,29 +113,8 @@ sudo microk8s enable dns storage prometheus
 # Allow the current user to run microk8s commands
 sudo usermod -a -G microk8s $USER
 sudo chown -f -R $USER ~/.kube
+newgrp microk8s
 ```
-
-MicroK8s [has a bug](https://github.com/ubuntu/microk8s/pull/2617) where it will pick up on network changes and restart kubelite when it shouldn't. To fix this,
-
-```bash
-vim /var/snap/microk8s/current/args/kube-apiserver
-```
-
-and add the line
-
-    --bind-address=0.0.0.0
-
-### Increasing Kubernetes performance
-
-By default, container data will be saved to `/var/snap/microk8s`, which is on the Pi's eMMC or SD card. This built in storage is slower and less resiliant than the external SATA SSDs. Mounting this directory on one of the SSDs allows you to run containers faster and with more ephemeral storage.
-
-```bash
-vim /etc/fstab
-```
-
-and add the line
-
-    /dev/sda1 /var/snap ext4 defaults,nofail 0 0
 
 ## Install KubeSail
 
@@ -124,23 +137,6 @@ After a few minutes, your cluster will appear in the [clusters](https://kubesail
 If you are using Raspberry Pi OS, you will need to enable the USB 2.0 ports on the Compute Module 4. Edit the boot config file at `/boot/config.txt` and add:
 
     dtoverlay=dwc2,dr_mode=host
-
-## Enabling PWM Fan Support
-
-To make the fan quiet and only spin as fast as necessary, we install a service that sends the correct signal to the fan using the Pi's hardware PWM controller. This code can be found in [our fork](https://github.com/kubesail/pibox-os/tree/main/pwm-fan) of `alwynallan`'s original gist on GitHub.
-
-```bash
-git clone https://github.com/kubesail/pibox-os.git
-cd pibox-os/pwm-fan
-tar zxvf bcm2835-1.68.tar.gz
-cd bcm2835-1.68
-./configure
-make
-sudo make install
-cd ..
-make
-sudo make install
-```
 
 ## Enabling the 1.3" LCD display
 
@@ -168,6 +164,5 @@ Adafruit has [a guide](https://learn.adafruit.com/adafruit-mini-pitft-135x240-co
     In our testing, if you are trying the Python "easy way", and installing the `adafruit-circuitpython-rgb-display` library, you will need to install `RPi.GPIO` manually via pip3. Once installed, you can try installing the Adafruit library again.
 
     ```bash
-    export CFLAGS=-fcommon
-    pip3 install RPi.GPIO
+    CFLAGS=-fcommon pip3 install RPi.GPIO
     ```
