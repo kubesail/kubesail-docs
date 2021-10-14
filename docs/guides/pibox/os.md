@@ -10,7 +10,6 @@ We [maintain and distribute a modified 64-bit Raspberry Pi OS image](https://git
 
 If you're using our OS Image, this guide has already been completed for you!
 
-
 ## Enabling PWM Fan Support
 
 To make the fan quiet and only spin as fast as necessary, we install a service that sends the correct signal to the fan using the Pi's hardware PWM controller. This code can be found in [our fork](https://github.com/kubesail/pibox-os/tree/main/pwm-fan) of `alwynallan`'s original gist on GitHub.
@@ -70,6 +69,7 @@ reboot
 Further detailed instructions and discussion can be found on Jeff Geerling's [PCI device guide on GitHub](https://github.com/geerlingguy/raspberry-pi-pcie-devices/issues/1#issuecomment-717578358)
 
 ## Dedicating an SSD to Kubernetes
+
 <!-- prettier-ignore -->
 !!! important
     We recommend using one or more SSDs for your Kubernetes installation and storage. You'll want to format a disk and mount it at `/var/snap` before installing Kubernetes. This storage can then be used by Kubernetes for it's storage system. This piece is optional, but we strongly recommend it!
@@ -88,7 +88,6 @@ sudo bash -c "echo '/dev/sda1 /var/snap ext4 defaults,nofail,noatime,discard,err
 
 ## Install MicroK8s
 
-
 MicroK8s is our preferred Kubernetes distribution. It's maintained by Canonical, is updated regularly, and performs well on low-power devices, such as Raspberry Pis. Other distributions of Kubernetes should work fine on the PiBox and with KubeSail.com, but this guide focuses on Microk8s.
 
 ```bash
@@ -106,7 +105,8 @@ sudo apt update
 sudo apt install snapd
 
 # Install Microk8s
-sudo snap install microk8s --classic
+sudo snap install microk8s --classic --channel=latest/edge
+
 # Enable basics and stats
 sudo microk8s enable dns storage prometheus
 
