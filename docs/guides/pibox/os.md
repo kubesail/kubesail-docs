@@ -108,13 +108,13 @@ sudo apt install snapd
 # Use "edge" channel until https://github.com/ubuntu/microk8s/pull/2617 is merged into stable
 sudo snap install microk8s --classic --channel=latest/edge
 
-# Enable basics and stats
-sudo microk8s enable dns storage prometheus
-
 # Allow the current user to run microk8s commands
 sudo usermod -a -G microk8s $USER
 sudo chown -f -R $USER ~/.kube
 newgrp microk8s
+
+# Enable basics and stats
+microk8s enable dns storage prometheus
 ```
 
 ## Install KubeSail
