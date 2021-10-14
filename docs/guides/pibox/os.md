@@ -93,7 +93,7 @@ MicroK8s is our preferred Kubernetes distribution. It's maintained by Canonical,
 ```bash
 # On Raspberry PI OS, the path is /boot/cmdline.txt, on Ubuntu it's /boot/firmware/cmdline.txt
 # TLDR: Add 'cgroup_enable=memory cgroup_memory=1' to that file and reboot
-sudo bash -c "grep -qxF 'cgroup_enable=memory cgroup_memory=1' /boot/cmdline.txt || sed 's/$/ cgroup_enable=memory cgroup_memory=1/' /boot/cmdline.txt"
+sudo bash -c "grep -qxF 'cgroup_enable=memory cgroup_memory=1' /boot/cmdline.txt || sed -i 's/$/ cgroup_enable=memory cgroup_memory=1/' /boot/cmdline.txt"
 sudo reboot
 
 # Prevent dhcpcd from using internal Kubernetes network interfaces
