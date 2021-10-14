@@ -105,6 +105,7 @@ sudo apt update
 sudo apt install snapd
 
 # Install Microk8s
+# Use "edge" channel until https://github.com/ubuntu/microk8s/pull/2617 is merged into stable
 sudo snap install microk8s --classic --channel=latest/edge
 
 # Enable basics and stats
