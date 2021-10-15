@@ -74,6 +74,10 @@ Further detailed instructions and discussion can be found on Jeff Geerling's [PC
 !!! important
     We recommend using one or more SSDs for your Kubernetes installation and storage. You'll want to format a disk and mount it at `/var/snap` before installing Kubernetes. This storage can then be used by Kubernetes for it's storage system. This piece is optional, but we strongly recommend it!
 
+<!-- prettier-ignore -->
+!!! danger
+    If you've already installed microk8s, please first uninstall with `microk8s.stop && sudo snap remove microk8s`
+
 ```bash
 # Format the entire /dev/sda disk (WARNING! This will wipe data!)
 sudo parted -a opt /dev/sda mkpart primary ext4 0% 100%
@@ -114,7 +118,7 @@ sudo chown -f -R $USER ~/.kube
 newgrp microk8s
 
 # Enable basics and stats
-microk8s enable dns storage prometheus
+microk8s enable dns storage prometheus ingress
 ```
 
 ## Install KubeSail
