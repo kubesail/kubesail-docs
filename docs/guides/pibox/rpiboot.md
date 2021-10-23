@@ -2,7 +2,9 @@
 
 The PiBox is built around the [Raspberry Pi 4 Compute Module](https://datasheets.raspberrypi.org/cm4/cm4-product-brief.pdf). The Compute Module has two options for boot storage: SD card or onboard flash (eMMC). You can use this guide to flash your Pi's eMMC.
 
-> Note: Unless you ordered your PiBox with no Compute Module (advanced users), then you received a PiBox with eMMC, and will need to use this guide to re-flash it. We only ship modules with onboard flash due to its substantially faster performance.
+<!-- prettier-ignore -->
+!!! note
+    Unless you ordered your PiBox with no Compute Module (advanced users), then you received a PiBox with eMMC, and will need to use this guide to re-flash it. We only ship modules with onboard flash due to its substantially faster performance.
 
 ## Installing the `rpiboot` tool
 
@@ -30,10 +32,12 @@ Raspberry Pi maintains an excellent utility for flashing devices on every OS. Do
     - Click `Write`.
     - You may want to touch the file `/boot/ssh` to enable SSH when the pibox boots - otherwise you will need a keyboard & monitor
     - If using our image, you may also write your username to `/boot/github-ssh-username.txt`, and your GitHub SSH keys will be automatically copied for easier log-in.
-2. Flip the "Boot Mode" switch on the Carrier back to `normal`
-3. Unplug the carrier from your PC and re-assemble the PiBox.
+1. Flip the "Boot Mode" switch on the Carrier back to `normal`
+1. Unplug the carrier from your PC and re-assemble the PiBox.
 
-> Warning: The USB port and / or cable you use are using may affect the ability to boot into `rpiboot` mode successfully. If rpiboot stalls or you seen an error code like `Failed to write correct length, returned -9`, then try plugging into a different port on your PC, or swapping out the cable you are using.
+<!-- prettier-ignore -->
+!!! warning
+    The USB port and / or cable you use are using may affect the ability to boot into `rpiboot` mode successfully. If rpiboot stalls or you seen an error code like `Failed to write correct length, returned -9`, then try plugging into a different port on your PC, or swapping out the cable you are using.
 
 ## Enabling USB, SATA, and Display support
 
