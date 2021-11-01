@@ -28,7 +28,7 @@ make && sudo make install
 
 <!-- prettier-ignore -->
 !!! important
-    These instructions apply to **Raspberry Pi OS 32-bit** and **Ubuntu** only. 64-bit Pi OS now ships the SATA modules by default. Instructions for Compiling the Ubuntu-raspi kernel can be found at https://askubuntu.com/a/1242267 and cross-compilation instructions can be found at https://github.com/carlonluca/docker-rpi-ubuntu-kernel
+    64-bit Pi OS will soon ship the SATA modules by default. You may want to see if your disks are already detected (`lsblk | fgrep disk`) before building these modules, which can take some time. Instructions for Compiling the Ubuntu-raspi kernel can be found at https://askubuntu.com/a/1242267 and cross-compilation instructions can be found at https://github.com/carlonluca/docker-rpi-ubuntu-kernel
 
 Enabling the SATA ports requires compiling the SATA modules into the kernel.
 
@@ -41,7 +41,7 @@ git clone --depth=1 https://github.com/raspberrypi/linux
 
 # Apply default configuration
 cd linux
-export KERNEL=kernel7l # use kernel8 for 64-bit, or kernel7l for 32-bit
+export KERNEL=kernel8 # use kernel8 for 64-bit, or kernel7l for 32-bit
 make bcm2711_defconfig
 
 # Customize the .config further with menuconfig
@@ -55,7 +55,7 @@ nano .config
 # (edit CONFIG_LOCALVERSION and add a suffix that helps you identify your build)
 
 # Build the kernel and copy everything into place
-make -j4 zImage modules dtbs # 'Image' on 64-bit
+make -j4 Image modules dtbs # 'zImage' on 32-bit
 sudo make modules_install
 sudo cp arch/arm64/boot/dts/*.dtb /boot/
 sudo cp arch/arm64/boot/dts/overlays/*.dtb* /boot/overlays/
