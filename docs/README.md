@@ -37,5 +37,5 @@ We specialize in managing Kubernetes clusters and offering expert DevOps support
 
 #### Local, embedded or development cluster guides
 
-- [**MicroK8s**](https://kubesail.com/blog/microk8s-raspberry-pi)
 - [**k3s**](https://kubesail.com/blog/k3s-raspberry-pi)
+- [**MicroK8s**](https://kubesail.com/blog/microk8s-raspberry-pi)

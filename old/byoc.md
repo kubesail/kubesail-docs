@@ -15,9 +15,9 @@ Create a kubesail.com account by signing in with GitHub, then head to the [Clust
 
 There are several options for getting a Kubernetes cluster running on any system:
 
--   [Docker Desktop](/install_kubernetes/#docker-desktop)
+-   [Docker Desktop](/install_kubernetes/#docker-desktop) (Recommended for OSX, Windows)
+-   [K3s](/install_kubernetes/#k3s) (Recommended for Linux development)
 -   [Microk8s](/install_kubernetes/#microk8s)
--   [K3s](/install_kubernetes/#k3s)
 -   [Hetzner](https://kubesail.com/blog/dedicated-kubernetes-on-hetzner)
 -   [Kubernetes the Hard Way](/install_kubernetes/#kubernetes-the-hard-way)
 
@@ -58,6 +58,9 @@ KubeSail Gateway will forward traffic that it recieves to any connected Agent wh
 ```
 
 ## MicroK8s
+
+### Resource Usage
+Unfortunately, Microk8s is primarily focused on Kubernetes development, in the sense of working on Kubernetes itself. As such, microk8s is very powerful, but requires far more resources than other options, like K3s. On PiBoxes and smaller systems, we recommend K3S!
 
 ### Common issues
 Make sure to enable a few essential addons that are not enabled by default on Microk8s:

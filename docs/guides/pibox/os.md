@@ -4,7 +4,7 @@ We [maintain and distribute a modified 64-bit Raspberry Pi OS image](https://git
 
 -   Fan support (PWM) for quiet fan operation
 -   SATA Kernel modules
--   Install Kubernetes (via [microk8s](https://microk8s.io/))
+-   Install Kubernetes (via [k3s](https://k3s.io/))
 -   Tweaks for stability and performance
 -   Display kernel modules for the 1.3" front panel display
 
@@ -76,7 +76,7 @@ Further detailed instructions and discussion can be found on Jeff Geerling's [PC
 
 <!-- prettier-ignore -->
 !!! danger
-    If you've already installed microk8s, please first uninstall with `microk8s.stop && sudo snap remove microk8s`
+    If you've already installed k3s, please first uninstall with `/usr/local/bin/k3s-uninstall.sh`
 
 ```bash
 # Format the entire /dev/sda disk (WARNING! This will wipe data!)
@@ -85,14 +85,14 @@ sudo parted -a opt /dev/sda mkpart primary ext4 0% 100%
 # Format the partition
 sudo mkfs.ext4 -L kubernetesdata /dev/sda1
 
-# Mount the partition in place!
-sudo mkdir -p /var/snap
-sudo bash -c "echo '/dev/sda1 /var/snap ext4 defaults,nofail,noatime,discard,errors=remount-ro 0 0' >> /etc/fstab"
+# Mount the partition in place! K3s usually lives at "/var/lib/rancher", whereas microk8s uses "/var/snap"
+sudo mkdir -p /var/lib/rancher
+sudo bash -c "echo '/dev/sda1 /var/lib/rancher ext4 defaults,nofail,noatime,discard,errors=remount-ro 0 0' >> /etc/fstab"
 ```
 
-## Install MicroK8s
+## Install K3S
 
-MicroK8s is our preferred Kubernetes distribution. It's maintained by Canonical, is updated regularly, and performs well on low-power devices, such as Raspberry Pis. Other distributions of Kubernetes should work fine on the PiBox and with KubeSail.com, but this guide focuses on Microk8s.
+[K3S](https://k3s.io/) is our preferred Kubernetes distribution. It's maintained by Rancher, is updated regularly, and performs well on low-power devices, such as Raspberry Pis. Other distributions of Kubernetes should work fine on the PiBox and with KubeSail.com, but this guide focuses on k3s. We recommend k3s over Microk8s because of its dramatically reduced resource requirements as of the time of writing (11/1/2021)
 
 ```bash
 # On Raspberry PI OS, the path is /boot/cmdline.txt, on Ubuntu it's /boot/firmware/cmdline.txt
@@ -100,25 +100,8 @@ MicroK8s is our preferred Kubernetes distribution. It's maintained by Canonical,
 sudo bash -c "grep -qxF 'cgroup_enable=memory cgroup_memory=1' /boot/cmdline.txt || sed -i 's/$/ cgroup_enable=memory cgroup_memory=1/' /boot/cmdline.txt"
 sudo reboot
 
-# Prevent dhcpcd from using internal Kubernetes network interfaces
-sudo bash -c "echo 'allowinterfaces eth0 wlan0' >> /etc/dhcpcd.conf"
-sudo service dhcpcd restart
-
-# Install Snap
-sudo apt update
-sudo apt install snapd
-
-# Install Microk8s
-# Use "edge" channel until https://github.com/ubuntu/microk8s/pull/2617 is merged into stable
-sudo snap install microk8s --classic --channel=latest/edge
-
-# Allow the current user to run microk8s commands
-sudo usermod -a -G microk8s $USER
-sudo chown -f -R $USER ~/.kube
-newgrp microk8s
-
-# Enable basics and stats
-microk8s enable dns storage prometheus ingress
+# Install k3s - see https://k3s.io/ for more
+curl -sfL https://get.k3s.io | sh -
 ```
 
 ## Install KubeSail

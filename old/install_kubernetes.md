@@ -2,18 +2,18 @@
 
 If you're working with a managed cloud provider like KubeSail, EKS, GKE, or Digital Ocean, Kubernetes comes pre-installed. If you're working with a local machine, here are some guides to install Kubernetes.
 
-- [Docker Desktop](#docker-desktop) (easiest)
+- [Docker Desktop](#docker-desktop) (recommended for OSX, Windows users)
+- [K3s](#k3s) (recommended for Linux users)
 - [Microk8s](#microk8s)
-- [K3s](#k3s)
 - [Kubernetes the Hard Way](#kubernetes-the-hard-way)
 
 ## Docker Desktop
 
-[Docker Desktop](https://www.docker.com/products/docker-desktop) is an application for MacOS and Windows machines for the building and sharing of containerized applications. It includes a standalone Kubernetes server and client. 
+[Docker Desktop](https://www.docker.com/products/docker-desktop) is an application for MacOS and Windows machines for the building and sharing of containerized applications. It includes a standalone Kubernetes server and client.
 
 The Kubernetes server runs locally within your Docker instance, is not configurable, and is a single-node cluster. This is ideal for learning and local testing.
 
-1. **Install and run Docker Desktop** 
+1. **Install and run Docker Desktop**
 
     Download and install Docker Desktop for your machine's operating system.
 
@@ -42,7 +42,7 @@ Here is how to [set up Microk8s on a Raspberry Pi 4](https://kubesail.com/blog/m
 
 1. **Prepare an SD card**
 
-    If you don't already have an operating system on your SD card, download [the Raspberry Pi Imager](https://www.raspberrypi.org/downloads/) to your computer, select **Ubuntu 64-bit**, and hit "write". Get the latest version of Ubuntu. This process takes about 5 minutes. 
+    If you don't already have an operating system on your SD card, download [the Raspberry Pi Imager](https://www.raspberrypi.org/downloads/) to your computer, select **Ubuntu 64-bit**, and hit "write". Get the latest version of Ubuntu. This process takes about 5 minutes.
 
     **NOTE**: If you are connecting your Pi via Ethernet, insert the SD card into the Pi, power it on, and skip the WiFi section. Otherwise don't remove your SD card from your computer yet.
 
@@ -94,8 +94,8 @@ Here is how to [set up Microk8s on a Raspberry Pi 4](https://kubesail.com/blog/m
         NAME     STATUS   ROLES    AGE   VERSION
         ubuntu   Ready    <none>   95m   v1.17.0
 
-    A `Ready` status means that Kubernetes is up and running - ready to deploy any software. The Raspberry Pi is now running as a single-node cluster. 
-    
+    A `Ready` status means that Kubernetes is up and running - ready to deploy any software. The Raspberry Pi is now running as a single-node cluster.
+
     Next, [link your cluster to KubeSail](/repo_builder/#step-2-link-your-cluster-to-kubesail) to manage the apps on your cluster.
 
 ## K3s
@@ -110,7 +110,7 @@ Here is how to [set up K3s on a Raspberry Pi 4](https://kubesail.com/blog/k3s-ra
 
 1. **Prepare an SD card**
 
-    If you don't already have an operating system on your SD card, download [the Raspberry Pi Imager](https://www.raspberrypi.org/downloads/) to your computer. Select **Raspberry Pi OS Lite**, and hit "write". This process takes about 5 minutes. 
+    If you don't already have an operating system on your SD card, download [the Raspberry Pi Imager](https://www.raspberrypi.org/downloads/) to your computer. Select **Raspberry Pi OS Lite**, and hit "write". This process takes about 5 minutes.
 
     Before removing the SD card from your computer, place an empty file in the root of the drive called `ssh`. This will enable the SSH server so you can login to the Pi from your network.
 
@@ -132,7 +132,7 @@ Here is how to [set up K3s on a Raspberry Pi 4](https://kubesail.com/blog/k3s-ra
             ssid="NETWORK-NAME"
             psk="NETWORK-PASSWORD"
         }
-    
+
     Take your SD card out, insert into the Pi, and power it on.
 
 1. **Log into the Raspberry Pi**
@@ -156,8 +156,8 @@ Here is how to [set up K3s on a Raspberry Pi 4](https://kubesail.com/blog/k3s-ra
         NAME          STATUS   ROLES    AGE   VERSION
         raspberrypi   Ready    master   2m    v1.18.4+k3s1
 
-    A `Ready` status means that Kubernetes is up and running - ready to deploy any software. The Raspberry Pi is now running as a single-node cluster. 
-    
+    A `Ready` status means that Kubernetes is up and running - ready to deploy any software. The Raspberry Pi is now running as a single-node cluster.
+
     Next, [link your cluster to KubeSail](/repo_builder/#step-2-link-your-cluster-to-kubesail) to manage the apps on your cluster.
 
 ## Kubernetes the Hard Way
