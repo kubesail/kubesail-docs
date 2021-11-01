@@ -10,64 +10,6 @@ We [maintain and distribute a modified 64-bit Raspberry Pi OS image](https://git
 
 If you're using our OS Image, this guide has already been completed for you!
 
-## Enabling PWM Fan Support
-
-To make the fan quiet and only spin as fast as necessary, we install a service that sends the correct signal to the fan using the Pi's hardware PWM controller. This code can be found in [our fork](https://github.com/kubesail/pibox-os/tree/main/pwm-fan) of `alwynallan`'s original gist on GitHub.
-
-```bash
-git clone https://github.com/kubesail/pibox-os.git
-cd pibox-os/pwm-fan
-tar zxvf bcm2835-1.68.tar.gz
-cd bcm2835-1.68
-./configure && make && sudo make install
-cd ..
-make && sudo make install
-```
-
-## Enabling the SATA Kernel Module
-
-<!-- prettier-ignore -->
-!!! important
-    64-bit Pi OS will soon ship the SATA modules by default. You may want to see if your disks are already detected (`lsblk | fgrep disk`) before building these modules, which can take some time. Instructions for Compiling the Ubuntu-raspi kernel can be found at https://askubuntu.com/a/1242267 and cross-compilation instructions can be found at https://github.com/carlonluca/docker-rpi-ubuntu-kernel
-
-Enabling the SATA ports requires compiling the SATA modules into the kernel.
-
-```bash
-# Install dependencies
-sudo apt install -y git bc bison flex libssl-dev make libncurses5-dev
-
-# Clone source
-git clone --depth=1 https://github.com/raspberrypi/linux
-
-# Apply default configuration
-cd linux
-export KERNEL=kernel8 # use kernel8 for 64-bit, or kernel7l for 32-bit
-make bcm2711_defconfig
-
-# Customize the .config further with menuconfig
-make menuconfig
-# Enable the following:
-# Device Drivers:
-#   -> Serial ATA and Parallel ATA drivers (libata)
-#     -> AHCI SATA support
-
-nano .config
-# (edit CONFIG_LOCALVERSION and add a suffix that helps you identify your build)
-
-# Build the kernel and copy everything into place
-make -j4 Image modules dtbs # 'zImage' on 32-bit
-sudo make modules_install
-sudo cp arch/arm64/boot/dts/*.dtb /boot/
-sudo cp arch/arm64/boot/dts/overlays/*.dtb* /boot/overlays/
-sudo cp arch/arm64/boot/dts/overlays/README /boot/overlays/
-sudo cp arch/arm64/boot/Image /boot/$KERNEL.img
-
-# Reboot the system
-reboot
-```
-
-Further detailed instructions and discussion can be found on Jeff Geerling's [PCI device guide on GitHub](https://github.com/geerlingguy/raspberry-pi-pcie-devices/issues/1#issuecomment-717578358)
-
 ## Dedicating an SSD to Kubernetes
 
 <!-- prettier-ignore -->
@@ -77,6 +19,8 @@ Further detailed instructions and discussion can be found on Jeff Geerling's [PC
 <!-- prettier-ignore -->
 !!! danger
     If you've already installed k3s, please first uninstall with `/usr/local/bin/k3s-uninstall.sh`
+
+Take a look to see if your disks have been detected: `lsblk | fgrep disk` - if not, try updating the OS with `apt update && apt upgrade` and restart. If you still don't see your disks, see the "Enabling the SATA Kernel Module" section below.
 
 ```bash
 # Format the entire /dev/sda disk (WARNING! This will wipe data!)
@@ -120,11 +64,71 @@ curl -s https://raw.githubusercontent.com/kubesail/pibox-os/main/agent-installer
 
 After a few minutes, your cluster will appear in the [clusters](https://kubesail.com/clusters) tab of the KubeSail dashboard.
 
+## Enabling PWM Fan Support
+
+To make the fan quiet and only spin as fast as necessary, we install a service that sends the correct signal to the fan using the Pi's hardware PWM controller. This code can be found in [our fork](https://github.com/kubesail/pibox-os/tree/main/pwm-fan) of `alwynallan`'s original gist on GitHub.
+
+```bash
+git clone https://github.com/kubesail/pibox-os.git
+cd pibox-os/pwm-fan
+tar zxvf bcm2835-1.68.tar.gz
+cd bcm2835-1.68
+./configure && make && sudo make install
+cd ..
+make && sudo make install
+```
+
+Further detailed instructions and discussion can be found on Jeff Geerling's [PCI device guide on GitHub](https://github.com/geerlingguy/raspberry-pi-pcie-devices/issues/1#issuecomment-717578358)
+
 ## Enable USB (Raspberry Pi OS only)
 
 If you are using Raspberry Pi OS, you will need to enable the USB 2.0 ports on the Compute Module 4. Edit the boot config file at `/boot/config.txt` and add:
 
     dtoverlay=dwc2,dr_mode=host
+
+## Enabling the SATA Kernel Module
+
+<!-- prettier-ignore -->
+!!! important
+    64-bit Pi OS will soon ship the SATA modules by default. Use `apt update && apt upgrade` to upgrade!
+
+You may want to see if your disks are already detected (`lsblk | fgrep disk`) before building these modules, which can take some time. Instructions for Compiling the Ubuntu-raspi kernel can be found at https://askubuntu.com/a/1242267 and cross-compilation instructions can be found at https://github.com/carlonluca/docker-rpi-ubuntu-kernel
+
+Enabling the SATA ports requires compiling the SATA modules into the kernel.
+
+```bash
+# Install dependencies
+sudo apt install -y git bc bison flex libssl-dev make libncurses5-dev
+
+# Clone source
+git clone --depth=1 https://github.com/raspberrypi/linux
+
+# Apply default configuration
+cd linux
+export KERNEL=kernel8 # use kernel8 for 64-bit, or kernel7l for 32-bit
+make bcm2711_defconfig
+
+# Customize the .config further with menuconfig
+make menuconfig
+# Enable the following:
+# Device Drivers:
+#   -> Serial ATA and Parallel ATA drivers (libata)
+#     -> AHCI SATA support
+
+nano .config
+# (edit CONFIG_LOCALVERSION and add a suffix that helps you identify your build)
+
+# Build the kernel and copy everything into place
+make -j4 Image modules dtbs # 'zImage' on 32-bit
+sudo make modules_install
+sudo cp arch/arm64/boot/dts/*.dtb /boot/
+sudo cp arch/arm64/boot/dts/overlays/*.dtb* /boot/overlays/
+sudo cp arch/arm64/boot/dts/overlays/README /boot/overlays/
+sudo cp arch/arm64/boot/Image /boot/$KERNEL.img
+
+# Reboot the system
+reboot
+```
 
 ## Enabling the 1.3" LCD display
 
