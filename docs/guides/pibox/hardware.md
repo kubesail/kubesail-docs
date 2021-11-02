@@ -10,11 +10,11 @@ The PiBox hardware components can be purchased individually and assembled as a D
 
 If you choose to 3D print your case, you can download the latest version of STL print files from the [PrusaPrinters community](https://www.prusaprinters.org/prints/82471-pibox-clamshells/files).
 
-We are currently getting a large quantity of metal cases manufactured, and will be making our metal available for sale individually on [pibox.io](https://pibox.io) once we have inventory.
+We are currently manufacturing a large quantity of metal cases, and will be making our these available for sale individually on [pibox.io](https://pibox.io) once we have adequate inventory.
 
 ## 1.3" LCD Screen
 
-Currently, you can buy the 1.3" LCD screen [from Adafruit](https://www.adafruit.com/product/4520). We will start shipping the LCD screen from [pibox.io](https://pibox.io) in the near future.
+For now, you can buy the 1.3" LCD screen [from Adafruit](https://www.adafruit.com/product/4520). We will start shipping the LCD screen from [pibox.io](https://pibox.io) in the near future.
 
 ## Backplane and Carrier boards & Power Supply
 
