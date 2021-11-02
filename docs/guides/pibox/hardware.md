@@ -6,6 +6,8 @@ The PiBox hardware components can be purchased individually and assembled as a D
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kOxS-WSTDSs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+After assembly, follow the [rpiboot flashing instructions](/guides/pibox/rpiboot)
+
 ## Choosing a Metal or 3D Printed Case
 
 If you choose to 3D print your case, you can download the latest version of STL print files from the [PrusaPrinters community](https://www.prusaprinters.org/prints/82471-pibox-clamshells/files).
