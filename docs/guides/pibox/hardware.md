@@ -1,15 +1,27 @@
-# PiBox Hardware
+# Hacker Bundle Guide & Hardware List
 
-The PiBox hardware can be purchased as a complete plug-and-play bundle, or components can be purchased individually and assembled as a DIY kit.
-
-## Metal Case
-
-More information about the industrial style, powder coated steel case is coming soon. It will be available for sale individually on [pibox.io](https://pibox.io)
-
-## Backplane and Carrier boards
-
-To purchase the Backplane and Carrier boards, visit our [Kickstarter campaign](https://www.kickstarter.com/projects/pastudan/pibox-a-modular-raspberry-pi-storage-server). Once the campaign is over, we will be fullfiling orders for the boards via [pibox.io](https://pibox.io) and on Amazon.
+The PiBox hardware components can be purchased individually and assembled as a DIY kit. This page will help you source components if you decide to purchase the "Hacker Bundle".
 
 ## Assembly Video
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kOxS-WSTDSs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Choosing a Metal or 3D Printed Case
+
+If you choose to 3D print your case, you can download the latest version of STL print files from the [PrusaPrinters community](https://www.prusaprinters.org/prints/82471-pibox-clamshells/files).
+
+We are currently getting a large quantity of metal cases manufactured, and will be making our metal available for sale individually on [pibox.io](https://pibox.io) once we have inventory.
+
+## 1.3" LCD Screen
+
+Currently, you can buy the 1.3" LCD screen [from Adafruit](https://www.adafruit.com/product/4520). We will start shipping the LCD screen from [pibox.io](https://pibox.io) in the near future.
+
+## Backplane and Carrier boards & Power Supply
+
+To purchase the Backplane and Carrier boards, visit our [Kickstarter campaign](https://www.kickstarter.com/projects/pastudan/pibox-a-modular-raspberry-pi-storage-server). Once the campaign is over, we will be fullfiling orders for the boards via [pibox.io](https://pibox.io) and on Amazon.
+
+Its important to use a 15 watt or higher power supply to ensure your Raspberry Pi and drives receive enough power. We ship a 17.5W USB-C power supply with all our bundles, and additional units can be purchased [on Amazon](https://amzn.to/3mAahEu)
+
+## SSDs
+
+Crucial offers affordable solid state drives in [1TB](https://amzn.to/3CEE3NY) and [2TB](https://amzn.to/3EyBAoY) capacities. Drives up to [4TB](https://amzn.to/3mCRvwA) and [8TB](https://amzn.to/3CFLwfK) are also available from Samsung.
