@@ -22,6 +22,10 @@ To purchase the Backplane and Carrier boards, visit our [Kickstarter campaign](h
 
 Its important to use a 15 watt or higher power supply to ensure your Raspberry Pi and drives receive enough power. We ship a 17.5W USB-C power supply with all our bundles, and additional units can be purchased [on Amazon](https://amzn.to/3mAahEu)
 
+## WiFi Antenna
+
+The official CM4 antenna can be purchased for [$5 from CanaKit](https://www.canakit.com/raspberry-pi-compute-module-cm4-antenna-kit.html) or [PiShop](https://www.pishop.us/product/2-4ghz-5-8ghz-antenna-kit-for-cm4/) but may require expensive shipping. Unofficial antennas can also be purchased from [Amazon](https://amzn.to/3mDzTRb) with free shipping.
+
 ## SSDs
 
 Crucial offers affordable solid state drives in [1TB](https://amzn.to/3CEE3NY) and [2TB](https://amzn.to/3EyBAoY) capacities. Drives up to [4TB](https://amzn.to/3mCRvwA) and [8TB](https://amzn.to/3CFLwfK) are also available from Samsung.
