@@ -88,7 +88,7 @@ If you are using Raspberry Pi OS, you will need to enable the USB 2.0 ports on t
 
 <!-- prettier-ignore -->
 !!! important
-    64-bit Pi OS will soon ship the SATA modules by default. Use `apt update && apt upgrade` to upgrade!
+    Raspberry Pi OS will soon ship the SATA modules by default. Use `apt update && apt upgrade` to upgrade!
 
 You may want to see if your disks are already detected (`lsblk | fgrep disk`) before building these modules, which can take some time. Instructions for Compiling the Ubuntu-raspi kernel can be found at https://askubuntu.com/a/1242267 and cross-compilation instructions can be found at https://github.com/carlonluca/docker-rpi-ubuntu-kernel
 
