@@ -78,8 +78,6 @@ cd ..
 make && sudo make install
 ```
 
-Further detailed instructions and discussion can be found on Jeff Geerling's [PCI device guide on GitHub](https://github.com/geerlingguy/raspberry-pi-pcie-devices/issues/1#issuecomment-717578358)
-
 ## Enable USB (Raspberry Pi OS only)
 
 If you are using Raspberry Pi OS, you will need to enable the USB 2.0 ports on the Compute Module 4. Edit the boot config file at `/boot/config.txt` and add:
@@ -129,6 +127,8 @@ sudo cp arch/arm64/boot/Image /boot/$KERNEL.img
 # Reboot the system
 reboot
 ```
+
+Further detailed instructions and discussion can be found on Jeff Geerling's [PCI device guide on GitHub](https://github.com/geerlingguy/raspberry-pi-pcie-devices/issues/1#issuecomment-717578358)
 
 ## Enabling the 1.3" LCD display
 
