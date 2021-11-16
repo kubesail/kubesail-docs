@@ -19,6 +19,10 @@ KubeSail is built around [Kubernetes](https://kubernetes.io/) and works with any
 
 The KubeSail Agent is a small [open-source agent](https://github.com/kubesail/kubesail-agent) which runs on your cluster and enables the features listed above. Once installed, visit the [KubeSail Dashboard](https://kubesail.com/clusters) to verify and attach your cluster.
 
+<!-- prettier-ignore -->
+!!! note
+    On Ubuntu 21.04 and above on Raspberry Pis, you may need to install the `linux-modules-extra-raspi` package before Microk8s or K3s will work properly!
+
 ## Getting a cluster
 
 #### KubeSail Managed
