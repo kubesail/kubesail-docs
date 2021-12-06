@@ -1,6 +1,6 @@
-# KubeSail Docs
+# KubeSail, the self hosting company
 
-**KubeSail** (_cube-sail_) helps developers ship software to their customers. Build a SaaS in minutes with KubeSail Platform, ship software and hardware with PiBox, tunnel traffic and manage on-prem installations with KubeSail Agent, and much more!
+**KubeSail** (_cube-sail_) builds tools to make self-hosting fun, easy, and effective! Kube is a reference to [Kubernetes](https://kubernetes.io/), which KubeSail is built on-top of, and Sail refers to how easy we make it!
 
 ## Features
 
