@@ -230,6 +230,11 @@ dphys-swapfile swapoff
 sysctl -w vm.swappiness=1
 sed -i 's/vm.swappiness=.*/vm.swappiness=1/' /etc/sysctl.conf
 
+# Install k3s
+if [[ ! -d /var/lib/rancher/k3s/data ]]; then
+  curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL=latest sh
+fi
+
 # Install helm
 curl -sLo helm.tar.gz https://get.helm.sh/helm-v3.7.2-linux-arm64.tar.gz
 tar zxf helm.tar.gz
@@ -237,18 +242,10 @@ mv linux-arm64/helm /usr/local/bin/
 chmod +x /usr/local/bin/helm
 rm -rf linux-arm64
 
-# Pibox Disk Provisioner
-cd /root
+# Pibox Disk Provisioner - Note, this script will potentially format attached disks. Careful!
 curl -sLo pibox-disk-provisioner.sh https://docs.kubesail.com/static/pibox-disk-provisioner.sh
 chmod +x pibox-disk-provisioner.sh
-# Note, this script will potentially format attached disks. Careful!
 ./pibox-disk-provisioner.sh
-
-# Install k3s
-if [[ ! -d /var/lib/rancher/k3s/data ]]; then
-  curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL=latest sh
-fi
-
 # Run disk provisioner before k3s starts
 sed -i '/^\[Service\]/a ExecStartPre=/root/pibox-disk-provisioner.sh' /etc/systemd/system/k3s.service
 systemctl daemon-reload
