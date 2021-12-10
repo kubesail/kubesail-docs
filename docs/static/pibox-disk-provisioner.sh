@@ -14,7 +14,7 @@ for DISK in /dev/sda /dev/sdb /dev/sdc /dev/sdd /dev/sde; do
       echo "${DISK} is not partitioned and has no filesystem signature, adding to volume group"
       # Format the disk as one large Linux partition and create the PV
       echo 'type=83' | sfdisk "${DISK}"
-      echo n | pvcreate -q "${DISK}" && {
+      echo n | pvcreate -q "${DISK}1" && {
         DISKS_TO_ADD="${DISKS_TO_ADD} ${DISK}1"
       }
     fi
@@ -45,9 +45,9 @@ if [[ "$(vgdisplay ${VG_GROUP_NAME})" == "" && "${DISKS_TO_ADD}" != "" ]]; then
     mount /dev/${VG_GROUP_NAME}/k3s /var/lib/rancher-ssd
     # Copy k3s into temp dir
     rsync -aqxP /var/lib/rancher/* /var/lib/rancher-ssd && rm -rf /var/lib/rancher
-    # Move directories back inti place and cleanup
-    umount -l /var/lib/rancher-ssdw
-    mkdir /var/lib/rancherw
+    # Move directories back into place and cleanup
+    umount -l /var/lib/rancher-ssd
+    mkdir /var/lib/rancher
     mount /dev/${VG_GROUP_NAME}/k3s
     rm -rf /var/lib/rancher-ssd
   else
@@ -57,6 +57,8 @@ if [[ "$(vgdisplay ${VG_GROUP_NAME})" == "" && "${DISKS_TO_ADD}" != "" ]]; then
 elif [[ "${DISKS_TO_ADD}" != "" ]]; then
   echo "Extending disk array, adding: ${DISKS_TO_ADD}"
   vgextend "${VG_GROUP_NAME}" "${DISKS_TO_ADD}"
+  lvextend -L100%FREE /dev/${VG_GROUP_NAME}/k3s
+  resize2fs /dev/${VG_GROUP_NAME}/k3s
 else
   echo "No disks to format, continuing"
 fi
