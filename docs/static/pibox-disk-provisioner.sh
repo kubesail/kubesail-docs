@@ -39,7 +39,7 @@ if [[ "$(vgdisplay ${VG_GROUP_NAME})" == "" && "${DISKS_TO_ADD}" != "" ]]; then
 
   # Migrate K3S if it exists (move /var/lib/rancher onto new LVM group)
   if [[ -d "/var/lib/rancher" ]]; then
-    service k3s stop
+    pgrep k3s && service k3s stop
     # Create a temporary directory
     mkdir -p /var/lib/rancher-ssd
     mount /dev/${VG_GROUP_NAME}/k3s /var/lib/rancher-ssd
@@ -57,9 +57,7 @@ if [[ "$(vgdisplay ${VG_GROUP_NAME})" == "" && "${DISKS_TO_ADD}" != "" ]]; then
 elif [[ "${DISKS_TO_ADD}" != "" ]]; then
   echo "Extending disk array, adding: ${DISKS_TO_ADD}"
   vgextend "${VG_GROUP_NAME}" "${DISKS_TO_ADD}"
+else
+  echo "No disks to format, continuing"
 fi
 
-# Install k3s
-if [[ ! -d /var/lib/rancher/k3s/data ]]; then
-  curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL=latest sh
-fi
