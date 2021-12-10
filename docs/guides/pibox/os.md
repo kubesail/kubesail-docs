@@ -206,7 +206,6 @@ sed -i "s/#Storage.*/Storage=volatile/" /etc/systemd/journald.conf
 systemctl restart systemd-journald.service
 
 # Add tmpfs at /tmp to reduce EMMC wear
-echo "tmpfs /tmp tmpfs defaults,noatime,nosuid,nodev,noexec,mode=0755,size=10M 0 0" >> /etc/fstab
 echo "tmpfs /var/tmp tmpfs defaults,noatime,nosuid,nodev,noexec,mode=0755,size=1M 0 0" >> /etc/fstab
 
 # Enable Fan Support
@@ -222,8 +221,8 @@ service sshd restart
 
 # Kernel settings
 grep -qxF 'cgroup_enable=memory cgroup_memory=1' /boot/cmdline.txt || sed -i 's/$/ cgroup_enable=memory cgroup_memory=1/' /boot/cmdline.txt
-echo "dtoverlay=spi0-1cs" >> /boot/config.txt:
-echo "dtoverlay=dwc2,dr_mode=host" >> /boot/config.txt:
+echo "dtoverlay=spi0-1cs" >> /boot/config.txt
+echo "dtoverlay=dwc2,dr_mode=host" >> /boot/config.txt
 
 # Swap
 swapoff -a
