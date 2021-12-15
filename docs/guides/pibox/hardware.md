@@ -10,13 +10,13 @@ After assembly, follow the [rpiboot flashing instructions](/guides/pibox/rpiboot
 
 ## Choosing a Metal or 3D Printed Case
 
-If you choose to 3D print your case, you can download the latest version of STL print files from the [PrusaPrinters community](https://www.prusaprinters.org/prints/82471-pibox-clamshells/files).
+If you choose to 3D print your case, you can download the latest version of STL print files from [GitHub](https://github.com/kubesail/pibox-case).
 
 We are currently manufacturing a large quantity of metal cases, and will be making our these available for sale individually on [pibox.io](https://pibox.io) once we have adequate inventory.
 
 ## 1.3" LCD Screen
 
-For now, you can buy the 1.3" LCD screen [from Adafruit](https://www.adafruit.com/product/4520). We will start shipping the LCD screen from [pibox.io](https://pibox.io) in the near future.
+LCD screens are included in every bundle. If you need a replacement, you can buy a bare screen [from Adafruit](https://www.adafruit.com/product/4520).
 
 ## Backplane and Carrier boards & Power Supply
 
@@ -26,7 +26,7 @@ Its important to use a 15 watt or higher power supply to ensure your Raspberry P
 
 ## WiFi Antenna
 
-The official CM4 antenna can be purchased for [$5 from CanaKit](https://www.canakit.com/raspberry-pi-compute-module-cm4-antenna-kit.html) or [PiShop](https://www.pishop.us/product/2-4ghz-5-8ghz-antenna-kit-for-cm4/) but may require expensive shipping. Unofficial antennas can also be purchased from [Amazon](https://amzn.to/3mDzTRb) with free shipping.
+The official CM4 antenna can be purchased for [$5 from CanaKit](https://www.canakit.com/raspberry-pi-compute-module-cm4-antenna-kit.html) or [PiShop](https://www.pishop.us/product/2-4ghz-5-8ghz-antenna-kit-for-cm4/), but may require expensive shipping. Unofficial antennas can also be purchased from [Amazon](https://amzn.to/3mDzTRb) with free shipping.
 
 ## SSDs
 
