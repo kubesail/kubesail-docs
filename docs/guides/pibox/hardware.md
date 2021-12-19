@@ -14,6 +14,10 @@ If you choose to 3D print your case, you can download the latest version of STL 
 
 We are currently manufacturing a large quantity of metal cases, and will be making our these available for sale individually on [pibox.io](https://pibox.io) once we have adequate inventory.
 
+# 5V PWM Fan
+
+https://amzn.to/32eDmOcFor best results, we recommend using a 40mm 5V PWM fan, such as the [Noctua NF-A4x10](). Any 40mm x 40mm x 10mm fan will work, although 12v fans will likely not spin at high enough RPMs to keep your Pi adequetly cool, and your CPU may throttle down. PWM is not necessary, but if you do use a PWM fan, it will stay much quieter since your Pi typically does not need much cooling.
+
 ## 1.3" LCD Screen
 
 LCD screens are included in every bundle. If you need a replacement, you can buy a bare screen [from Adafruit](https://www.adafruit.com/product/4520).
