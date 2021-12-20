@@ -16,7 +16,7 @@ We are currently manufacturing a large quantity of metal cases, and will be maki
 
 ## 5V PWM Fan
 
-For best results, we recommend using a 40mm 5V PWM fan, such as the [Noctua NF-A4x10](). Any 40x40x10mm fan will work, although 12v fans will likely not spin at high enough RPMs to keep your Pi adequetly cool, and your CPU may throttle down. PWM is not necessary, but if you do use a PWM fan, it will stay much quieter since your Pi typically does not need much cooling.
+For best results, we recommend using a 40mm 5V PWM fan, such as the [Noctua NF-A4x10](https://amzn.to/32eDmOc). Any 40x40x10mm fan will work, although 12v fans will likely not spin at high enough RPMs to keep your Pi adequetly cool, and your CPU may throttle down. PWM is not necessary, but if you do use a PWM fan, it will stay much quieter since your Pi typically does not need much cooling.
 
 ## 1.3" LCD Screen
 
