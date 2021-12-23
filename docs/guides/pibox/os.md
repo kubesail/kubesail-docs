@@ -4,7 +4,7 @@ We [maintain and distribute a modified 64-bit Raspberry Pi OS image](https://git
 
 -   Fan support (PWM) for quiet fan operation
 -   SATA Kernel modules
--   Install Kubernetes (via [k3s](https://k3s.io/))
+-   Install Kubernetes (via [K3s](https://k3s.io/))
 -   Tweaks for stability and performance
 -   Display kernel modules for the 1.3" front panel display
 
@@ -18,7 +18,7 @@ If you're using our OS Image, this guide has already been completed for you! You
 
 <!-- prettier-ignore -->
 !!! danger
-    If you've already installed k3s, please first uninstall with `/usr/local/bin/k3s-uninstall.sh`
+    If you've already installed K3s, please first uninstall with `/usr/local/bin/k3s-uninstall.sh`
 
 Take a look to see if your disks have been detected: `lsblk | fgrep disk` - if not, try updating the OS with `apt update && apt upgrade` and restart. If you still don't see your disks, see the "Enabling the SATA Kernel Module" section below.
 
@@ -34,9 +34,9 @@ sudo mkdir -p /var/lib/rancher
 sudo bash -c "echo '/dev/sda1 /var/lib/rancher ext4 defaults,nofail,noatime,discard,errors=remount-ro 0 0' >> /etc/fstab"
 ```
 
-## Install K3S
+## Install K3s
 
-[K3S](https://k3s.io/) is our preferred Kubernetes distribution. It's maintained by Rancher, is updated regularly, and performs well on low-power devices, such as Raspberry Pis. Other distributions of Kubernetes should work fine on the PiBox and with KubeSail.com, but this guide focuses on k3s. We recommend k3s over Microk8s because of its dramatically reduced resource requirements as of the time of writing (11/1/2021)
+[K3s](https://k3s.io/) is our preferred Kubernetes distribution. It's maintained by Rancher, is updated regularly, and performs well on low-power devices, such as Raspberry Pis. Other distributions of Kubernetes should work fine on the PiBox and with KubeSail.com, but this guide focuses on K3s. We recommend K3s over Microk8s because of its dramatically reduced resource requirements as of the time of writing (11/1/2021)
 
 ```bash
 # On Raspberry PI OS, the path is /boot/cmdline.txt, on Ubuntu it's /boot/firmware/cmdline.txt
@@ -44,7 +44,7 @@ sudo bash -c "echo '/dev/sda1 /var/lib/rancher ext4 defaults,nofail,noatime,disc
 sudo bash -c "grep -qxF 'cgroup_enable=memory cgroup_memory=1' /boot/cmdline.txt || sed -i 's/$/ cgroup_enable=memory cgroup_memory=1/' /boot/cmdline.txt"
 sudo reboot
 
-# Install k3s - see https://k3s.io/ for more
+# Install K3s - see https://k3s.io/ for more
 curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL=latest sh -
 ```
 
@@ -232,7 +232,7 @@ dphys-swapfile swapoff
 sysctl -w vm.swappiness=1
 sed -i 's/vm.swappiness=.*/vm.swappiness=1/' /etc/sysctl.conf
 
-# Install k3s
+# Install K3s
 if [[ ! -d /var/lib/rancher/k3s/data ]]; then
   curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL=latest sh
 fi
@@ -248,7 +248,7 @@ rm -rf linux-arm64
 curl -sLo pibox-disk-provisioner.sh https://docs.kubesail.com/static/pibox-disk-provisioner.sh
 chmod +x pibox-disk-provisioner.sh
 ./pibox-disk-provisioner.sh
-# Run disk provisioner before k3s starts
+# Run disk provisioner before K3s starts
 sed -i '/^\[Service\]/a ExecStartPre=/root/pibox-disk-provisioner.sh' /etc/systemd/system/k3s.service
 systemctl daemon-reload
 ```
