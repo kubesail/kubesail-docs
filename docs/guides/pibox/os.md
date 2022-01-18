@@ -50,19 +50,21 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL=latest sh -
 
 ## Install KubeSail
 
-KubeSail helps you manage software on your PiBox, or any other computer running Kubernetes. If you don't yet have a KubeSail account, creating one is as easy as [signing up with GitHub](https://kubesail.com/). Once you've done that, simply replace your username in the following command and run it:
+KubeSail helps you manage software on your PiBox, or any other computer running Kubernetes. If you don't yet have a KubeSail account, creating one is as easy as [signing up with GitHub](https://kubesail.com/). Once you've done that, install the setup script:
 
 ```bash
-sudo bash -c "echo YOUR_KUBESAIL_USERNAME > /boot/kubesail-username.txt"
+curl -s https://raw.githubusercontent.com/kubesail/pibox-os/main/setup.sh | sudo bash
 ```
 
-Then install the KubeSail agent:
+Then run
 
 ```bash
-curl -s https://raw.githubusercontent.com/kubesail/pibox-os/main/agent-installer.sh | sudo bash
+sudo kubesail
 ```
 
-After a few minutes, your cluster will appear in the [clusters](https://kubesail.com/clusters) tab of the KubeSail dashboard.
+to set up KubeSail and installs your SSH keys.
+
+After a few minutes, your PiBox will appear in the [clusters](https://kubesail.com/clusters) tab of the KubeSail dashboard.
 
 ## Enabling PWM Fan Support
 
