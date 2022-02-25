@@ -5,84 +5,85 @@ repo_url: https://github.com/kubesail/docs
 repo_name: kubesail/docs
 google_analytics: ["UA-131519845-2", "docs.kubesail.com"]
 nav:
-      - Home: README.md
-      - FAQ.md
-      - Features:
-              - Templates: templates.md
-              - Tunneling & DNS: tunneling.md
-              - Platform: platform.md
-              - Builder: builder.md
-              - Backups: backups.md
-      - Getting a Cluster:
-              - Local / Bare Metal: guides/bare-metal.md
-              - Digital Ocean: guides/digital-ocean.md
-              - Google Cloud: guides/gke.md
-              - Amazon Web Services: guides/aws.md
-      - PiBox:
-              - Overview: pibox.md
-              - Flashing with rpiboot: guides/pibox/rpiboot.md
-              - Operating System: guides/pibox/os.md
-              - GPIO / LED Control: guides/pibox/gpio.md
-              - Hardware: guides/pibox/hardware.md
-      - Miscellaneous:
-              - Changelog: https://kubesail.com/changelog
-              - KubeSail Blog: https://kubesail.com/blog
-              - Support Chat: https://discord.gg/N3zNdp7jHc
+        - Home: README.md
+        - FAQ.md
+        - Features:
+                  - Templates: templates.md
+                  - Tunneling & DNS: tunneling.md
+                  - Platform: platform.md
+                  - Builder: builder.md
+                  - Backups: backups.md
+        - Getting a Cluster:
+                  - Local / Bare Metal: guides/bare-metal.md
+                  - Digital Ocean: guides/digital-ocean.md
+                  - Google Cloud: guides/gke.md
+                  - Amazon Web Services: guides/aws.md
+        - PiBox:
+                  - Overview: pibox.md
+                  - Flashing with rpiboot: guides/pibox/rpiboot.md
+                  - Operating System: guides/pibox/os.md
+                  - GPIO / LED Control: guides/pibox/gpio.md
+                  - Hardware: guides/pibox/hardware.md
+                  - Install KubeSail: guides/pibox/kubesail.md
+        - Miscellaneous:
+                  - Changelog: https://kubesail.com/changelog
+                  - KubeSail Blog: https://kubesail.com/blog
+                  - Support Chat: https://discord.gg/N3zNdp7jHc
 theme:
-      name: material
-      highlightjs: true
-      hljs_languages:
-            - yaml
-      icon:
-            repo: fontawesome/brands/github
-      navigation_depth: 6
-      titles_only: false
-      favicon: /static/favicon.png
-      logo: /static/logo.svg
-      features:
-            - navigation.instant
-      palette:
-            - media: "(prefers-color-scheme: light)"
-              scheme: default
-              toggle:
-                    icon: material/weather-sunny
-                    name: Switch to dark mode
-            - media: "(prefers-color-scheme: dark)"
-              scheme: slate
-              primary: red
-              toggle:
-                    icon: material/weather-night
-                    name: Switch to light mode
+        name: material
+        highlightjs: true
+        hljs_languages:
+                - yaml
+        icon:
+                repo: fontawesome/brands/github
+        navigation_depth: 6
+        titles_only: false
+        favicon: /static/favicon.png
+        logo: /static/logo.svg
+        features:
+                - navigation.instant
+        palette:
+                - media: "(prefers-color-scheme: light)"
+                  scheme: default
+                  toggle:
+                          icon: material/weather-sunny
+                          name: Switch to dark mode
+                - media: "(prefers-color-scheme: dark)"
+                  scheme: slate
+                  primary: red
+                  toggle:
+                          icon: material/weather-night
+                          name: Switch to light mode
 markdown_extensions:
-      - toc:
-              permalink: "#"
-      - smarty
-      - admonition
-      - footnotes
-      - codehilite
-      - pymdownx.arithmatex
-      - pymdownx.betterem:
-              smart_enable: all
-      - pymdownx.caret
-      - pymdownx.critic
-      - pymdownx.details
-      - pymdownx.emoji:
-              emoji_generator: !!python/name:pymdownx.emoji.to_svg
-      - pymdownx.inlinehilite
-      - pymdownx.magiclink
-      - pymdownx.mark
-      - pymdownx.smartsymbols
-      - pymdownx.superfences
-      - pymdownx.tasklist:
-              custom_checkbox: true
-      - pymdownx.tilde
-      - fontawesome_markdown
+        - toc:
+                  permalink: "#"
+        - smarty
+        - admonition
+        - footnotes
+        - codehilite
+        - pymdownx.arithmatex
+        - pymdownx.betterem:
+                  smart_enable: all
+        - pymdownx.caret
+        - pymdownx.critic
+        - pymdownx.details
+        - pymdownx.emoji:
+                  emoji_generator: !!python/name:pymdownx.emoji.to_svg
+        - pymdownx.inlinehilite
+        - pymdownx.magiclink
+        - pymdownx.mark
+        - pymdownx.smartsymbols
+        - pymdownx.superfences
+        - pymdownx.tasklist:
+                  custom_checkbox: true
+        - pymdownx.tilde
+        - fontawesome_markdown
 extra:
-      social:
-            - icon: fontawesome/brands/github
-              link: "https://github.com/kubesail"
-            - icon: fontawesome/brands/twitter
-              link: "https://twitter.com/kubesail"
-            - icon: fontawesome/brands/linkedin
-              link: "https://www.linkedin.com/company/kubesail"
-      manifest: "static/site.webmanifest"
+        social:
+                - icon: fontawesome/brands/github
+                  link: "https://github.com/kubesail"
+                - icon: fontawesome/brands/twitter
+                  link: "https://twitter.com/kubesail"
+                - icon: fontawesome/brands/linkedin
+                  link: "https://www.linkedin.com/company/kubesail"
+        manifest: "static/site.webmanifest"

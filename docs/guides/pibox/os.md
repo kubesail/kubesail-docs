@@ -8,7 +8,7 @@ We [maintain and distribute a modified 64-bit Raspberry Pi OS image](https://git
 -   Tweaks for stability and performance
 -   Display kernel modules for the 1.3" front panel display
 
-If you're using our OS Image, this guide has already been completed for you! You can also start with the base 64-bit Raspberry Pi image from https://downloads.raspberrypi.org/raspios_arm64
+If you're using our OS Image, **this guide has already been completed for you**! You can also start with the base 64-bit Raspberry Pi image from https://downloads.raspberrypi.org/raspios_arm64
 
 ## Dedicating an SSD to Kubernetes
 
@@ -47,24 +47,6 @@ sudo reboot
 # Install K3s - see https://k3s.io/ for more
 curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL=latest sh -
 ```
-
-## Install KubeSail
-
-KubeSail helps you manage software on your PiBox, or any other computer running Kubernetes. If you don't yet have a KubeSail account, creating one is as easy as [signing up with GitHub](https://kubesail.com/). Once you've done that, install the setup script:
-
-```bash
-curl -s https://raw.githubusercontent.com/kubesail/pibox-os/main/setup.sh | sudo bash
-```
-
-Then run
-
-```bash
-sudo kubesail
-```
-
-to set up KubeSail and install your SSH keys.
-
-After a few minutes, your PiBox will appear in the [clusters](https://kubesail.com/clusters) tab of the KubeSail dashboard.
 
 ## Enabling PWM Fan Support
 
