@@ -1,45 +1,43 @@
-# KubeSail, the self hosting company
+# The Self Hosting Company
 
-**KubeSail** (_cube-sail_) builds tools to make self-hosting fun, easy, and effective! Kube is a reference to [Kubernetes](https://kubernetes.io/), which KubeSail is built on-top of, and Sail refers to how easy we make it!
+**KubeSail** makes self-hosting easy.
 
-## Features
+Self-hosting means running internet software on computers you own. Attach any computer for free or [buy one from us](https://pibox.io). Own your own data, keep your photos private & fix the internet!
+<br /><br />
 
-- [**Templates**](/templates): Easily install and share complex software
-- [**Tunneling & DNS**](/tunneling): Route traffic from the internet to your machines
-- [**Platform**](/platform): Enable customers to pay for your software
-- [**Builder**](/builder): Build and deploy GitHub repos on your own hardware or at the edge
+- [**Get Started**](/getting-started): I want to self-host, let's go!
+- [**Pibox**](/pibox): Our custom home-hosting hardware
+- [**Templates**](/templates): Easily install self-hosted apps
 - [**Backups**](/backups): Encrypted backups of your (or your customers) volumes
-- [**Pibox**](/pibox): A shippable, deploy-ready, cluster-in-a-box
+- [**Remote Access**](/tunneling): Access your server & apps over the internet
+- [**FAQ**](/FAQ): Frequently Asked Questions
 
-## Attaching a Cluster
+## For developers
 
-KubeSail is built around [Kubernetes](https://kubernetes.io/) and works with any cluster. If you already have a Kubernetes cluster, you can install the **KubeSail Agent** with the following command:
+- [**Builder**](/builder): Deploy your code at home
+- [**Platform**](/platform): Sell self-hosted software
+- [**API Docs**](/api-docs): KubeSail API Documentation
 
-    kubectl create -f https://byoc.kubesail.com/USERNAME.yaml
+<br />
 
-The KubeSail Agent is a small [open-source agent](https://github.com/kubesail/kubesail-agent) which runs on your cluster and enables the features listed above. Once installed, visit the [KubeSail Dashboard](https://kubesail.com/clusters) to verify and attach your cluster.
+### Isn't a Self-Hosting Service kind of a contradiction in terms?
 
-<!-- prettier-ignore -->
-!!! note
-    On Ubuntu 21.04 and above on Raspberry Pis, you may need to install the `linux-modules-extra-raspi` package before Microk8s or K3s will work properly!
+If self-hosting is all about breaking free from subscription services, owning your own data, and taking back ownership on the internet, why the heck would anyone sign up for a subscription to self-host!?
 
-## Getting a cluster
+This is a fantastic question, and one that answers itself as your self-hosting journey unfolds:
 
-#### KubeSail Managed
 
-We specialize in managing Kubernetes clusters and offering expert DevOps support on dedicated hardware, on-prem installations, any major cloud provider. Reach out to us at support@kubesail.com or [book some time to chat](https://calendly.com/kubesail).
+- Fighting Google Photos with Photostructure feels great - but what if your [hard drive dies](/backups)?
 
-#### Cloud Provider guides
+- Each self-hosted app has different install instructions. We [standardize and secure it](/templates).
 
-- [**Digital Ocean**](/guides/digital-ocean)
-- [**Google Cloud**](/guides/gke)
-- [**Amazon Web Services**](/guides/aws)
+- Okay, your apps are installed - now how do you get [valid and secure encryption](/tunneling#certificates)?
 
-#### Dedicated hardware guides
+- Hosting apps on the internet isn't too hard - but what if your ISP blocks [web-serving](/tunneling)?
 
-- [**Hetzner**](https://kubesail.com/blog/dedicated-kubernetes-on-hetzner) (instructions work well for most dedicated hardware providers)
+- Clicking install on other peoples apps is fun and all, but [how do I deploy my own code](/builder)?
 
-#### Local, embedded or development cluster guides
+Our service aims to provide everything home-hosting is missing.
 
-- [**k3s**](https://kubesail.com/blog/k3s-raspberry-pi)
-- [**MicroK8s**](https://kubesail.com/blog/microk8s-raspberry-pi)
+We're a small startup: your support means the world to us! Checkout our [plans and pricing](https://kubesail.com/pricing).
+<br />
