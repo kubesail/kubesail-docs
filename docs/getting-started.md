@@ -9,7 +9,7 @@ The first question when self-hosting is: What computer am I going to use as my s
 ### I'll use...
 
 === "A PiBox"
-    [The PiBox](https://pibox.io) is our custom-designed self-hosting hardware. Order a PiBox at [pibox.io](https://pibox.io), plug it in, scan the QR code on the screen, and start self-hosting! See [the PiBox documentation](/pibox) for more details!
+[The PiBox](https://pibox.io) is our custom-designed self-hosting hardware. Order a PiBox at [pibox.io](https://pibox.io), plug it in, scan the QR code on the screen, and start self-hosting! See [the PiBox documentation](/pibox) for more details!
 
     <img src="/img/pibox.png" width="50%" title="PiBox 2 Mini" /><img src="/img/pibox-ssd-removal.png" width="50%" title="PiBox SSD Removal" />
 
@@ -26,7 +26,7 @@ The first question when self-hosting is: What computer am I going to use as my s
     If for some reason setup fails, please let us know! You can toggle the power to the PiBox in order to get a new QR code.
 
 === "A spare PC I own"
-    KubeSail works on almost any PC, but we recommend a computer with at least the following:
+KubeSail works on almost any PC, but we recommend a computer with at least the following:
 
     - **4GB RAM** (8GB recommended)
     - **40GB disk space** (80GB+ recommended)
@@ -48,9 +48,8 @@ The first question when self-hosting is: What computer am I going to use as my s
 
     Visit [the KubeSail Dashboard](https://kubesail.com/dashboard), click "Clusters", then **Add Cluster**. Choose "Bring your Own" and run the command that begins with `kubectl create -f`. Your new cluster should appear on the dashboard in a few moments!
 
-
 === "A Cloud Provider"
-    We have a few guides for various popular cloud providers:
+We have a few guides for various popular cloud providers:
 
     - [AWS](/guides/aws)
     - [Digital Ocean](/guides/digital-ocean)
@@ -86,21 +85,20 @@ There are more apps available in the [Template Store](https://kubesail.com/templ
 
 ## 4. Congratulations!
 
-
 <img src="/img/its-working.gif" title="It's working!!!" />
 
-Forgive us the prequel meme. Still - we've gotten a lot working under the hood! You now have:
+Forgive us for the prequel meme. Still - we've gotten a lot working under the hood! You now have:
 
-- A working Google Photos alternative
-- A way to forward internet traffic to your device
-- A platform for hosting websites and apps from home
+-   A working Google Photos alternative
+-   A way to forward internet traffic to your device
+-   A platform for hosting websites and apps from home
 
 More technically:
 
-- A valid SSL certificate for your built-in `k8g8.com` addresses
-- Automatic dynamic DNS via built-in `ksdns.io`
-- A full Kubernetes cluster
+-   A valid SSL certificate for your built-in `k8g8.com` addresses
+-   Automatic dynamic DNS via built-in `ksdns.io`
+-   A full Kubernetes cluster
 
 If you've made it this far, we'd love it if you'd join our [community chat on Discord](https://discord.gg/N3zNdp7jHc). If discord isn't your style, your feedback would still be greatly appreciated at support@kubesail.com.
 
-We're a small startup with big plans. Hosting your own photos or recipes or blogs is a small bug meaningful step towards repairing the way the internet operates, and we're truly thankful that you've joined us on this journey!
+We're a small startup with big plans. Hosting your own photos or recipes or blogs is a small but meaningful step towards repairing the way the internet operates, and we're truly thankful that you've joined us on this journey!
