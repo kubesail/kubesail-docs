@@ -23,7 +23,7 @@ Raspberry Pi maintains an excellent utility for flashing devices on every OS. Do
 1. Disconnect the PiBox's Carrier board from the Backplane.
 1. Switch the "Boot Mode" switch on the Carrier to "**rpiboot**".
 1. Connect a USB-C cable to the USB-C port on the backplane, and to your PC.
-1. Run `sudo ./rpiboot` (Mac / Linux) or the `RpiBoot` executable at `C:\Program Files (x86)\Raspberry Pi\RPiBoot.exe` (Windows). This will turn your Pi's eMMC into a mass storage device, enabling your
+1. Run `sudo ./rpiboot` (Mac / Linux) or the `RpiBoot` executable at `C:\Program Files (x86)\Raspberry Pi\RPiBoot.exe` (Windows). This will turn your Pi's eMMC into a mass storage device, allowing you to write the OS directly to the eMMC.
 1. Open the Raspberry Pi Imager
     - Select an OS
         - Download our latest OS image [from GitHub](https://github.com/kubesail/pibox-os/releases)
