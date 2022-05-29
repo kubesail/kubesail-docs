@@ -16,10 +16,10 @@ You can restore this backup to any other volume on any other attached cluster, o
 
 ### Pricing
 
-The number of allows backups is based on the subscription level of the cluster. See [our Pricing page](https://kubesail.com/pricing) for details.
+The number of allowed backups is based on the subscription level of the cluster. See [our Pricing page](https://kubesail.com/pricing) for details.
 
-- 1 backup is allowed for free
-- 10 backups allowed for "Starter"
-- 30 backups allowed for "Teams"
+-   1 backup is allowed for free
+-   10 backups allowed for "Starter"
+-   30 backups allowed for "Teams"
 
 For Scheduled backups and API Documentation are on our roadmap, but please [join us in chat](https://discord.gg/N3zNdp7jHc) if you have any feedback or need a more customized installation
