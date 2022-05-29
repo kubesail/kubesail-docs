@@ -22,4 +22,4 @@ The number of allowed backups is based on the subscription level of the cluster.
 -   10 backups allowed for "Starter"
 -   30 backups allowed for "Teams"
 
-For Scheduled backups and API Documentation are on our roadmap, but please [join us in chat](https://discord.gg/N3zNdp7jHc) if you have any feedback or need a more customized installation
+Scheduled backups and API Documentation are on our roadmap, but please [join us in chat](https://discord.gg/N3zNdp7jHc) if you have any feedback or need a more customized installation
