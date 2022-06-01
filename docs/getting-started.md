@@ -9,7 +9,7 @@ The first question when self-hosting is: What computer am I going to use as my s
 ### I'll use...
 
 === "A PiBox"
-[The PiBox](https://pibox.io) is our custom-designed self-hosting hardware. Order a PiBox at [pibox.io](https://pibox.io), plug it in, scan the QR code on the screen, and start self-hosting! See [the PiBox documentation](/pibox) for more details!
+    [The PiBox](https://pibox.io) is our custom-designed self-hosting hardware. Order a PiBox at [pibox.io](https://pibox.io), plug it in, scan the QR code on the screen, and start self-hosting! See [the PiBox documentation](/pibox) for more details!
 
     <img src="/img/pibox.png" width="50%" title="PiBox 2 Mini" /><img src="/img/pibox-ssd-removal.png" width="50%" title="PiBox SSD Removal" />
 
@@ -26,7 +26,7 @@ The first question when self-hosting is: What computer am I going to use as my s
     If for some reason setup fails, please let us know! You can toggle the power to the PiBox in order to get a new QR code.
 
 === "A spare PC I own"
-KubeSail works on almost any PC, but we recommend a computer with at least the following:
+    KubeSail works on almost any PC, but we recommend a computer with at least the following:
 
     - **4GB RAM** (8GB recommended)
     - **40GB disk space** (80GB+ recommended)
@@ -49,7 +49,7 @@ KubeSail works on almost any PC, but we recommend a computer with at least the f
     Visit [the KubeSail Dashboard](https://kubesail.com/dashboard), click "Clusters", then **Add Cluster**. Choose "Bring your Own" and run the command that begins with `kubectl create -f`. Your new cluster should appear on the dashboard in a few moments!
 
 === "A Cloud Provider"
-We have a few guides for various popular cloud providers:
+    We have a few guides for various popular cloud providers:
 
     - [AWS](/guides/aws)
     - [Digital Ocean](/guides/digital-ocean)
