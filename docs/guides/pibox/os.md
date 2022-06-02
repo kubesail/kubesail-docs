@@ -145,17 +145,35 @@ apt install avahi-daemon
 
 ## Enabling the 1.3" LCD display
 
-<!-- prettier-ignore -->
-!!! important
-    **Raspberry Pi OS** only. Ubuntu ships with the SPI interface enabled by default
+You have 2 options for using the 1.3" LCD Display:
 
-To enable the front-panel display, the [SPI interface needs to be turned on](https://blog.stabel.family/raspberry-pi-4-multiple-spis-and-the-device-tree/). Edit the boot config file at `/boot/config.txt` and add:
+1. Use our `pibox-framebuffer` which binary draws basic stats like CPU and Memory info, along with providing a service to draw custom text and images.
+2. Use the [Adafruit Python](https://learn.adafruit.com/adafruit-mini-pitft-135x240-color-tft-add-on-for-raspberry-pi/python-setup) guide, which lets you customize the display with Python. This uses more CPU, but is also more flexible.
 
-    dtoverlay=spi0-1cs
+To install the driver and our `pibox-framebuffer` binary:
 
-After these changes, you will need to `sudo reboot`.
+```bash
+# Clone PiBox OS repo
+git clone https://github.com/kubesail/pibox-os.git
 
-You can then use a Python library or install the kernel module in order to draw images to the display. See below for details.
+# Enable Display Driver
+pushd pibox-os/st7789_module
+make
+mv /lib/modules/"$(uname -r)"/kernel/drivers/staging/fbtft/fb_st7789v.ko /lib/modules/"$(uname -r)"/kernel/drivers/staging/fbtft/fb_st7789v.BACK
+mv fb_st7789v.ko /lib/modules/"$(uname -r)"/kernel/drivers/staging/fbtft/fb_st7789v.ko
+popd
+dtc --warning no-unit_address_vs_reg -I dts -O dtb -o /boot/overlays/drm-minipitft13.dtbo pibox-os/overlays/minipitft13-overlay.dts
+cat <<EOF >> /boot/config.txt
+dtoverlay=spi0-1cs
+dtoverlay=dwc2,dr_mode=host
+hdmi_force_hotplug=1
+dtoverlay=drm-minipitft13,rotate=0,fps=60
+EOF
+```
+
+# Download pibox-framebuffer binary
+
+curl -s https://raw.githubusercontent.com/kubesail/pibox-os/main/setup.sh | sudo bash
 
 ## Modifying the image / stats shown on the display
 
