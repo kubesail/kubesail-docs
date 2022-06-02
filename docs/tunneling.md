@@ -20,7 +20,7 @@ An address like "mycluster.username.region.**ksdns.io**" will resolve to your cl
 
 ### Direct Access
 
-For heavier traffic situations, or for example when using a Cloud Provider. You may want to directly access your cluster via a Load Balancer - This works normally and would bypass the KubeSail agent and connect directly to your Ingress controller. [Schedule a chat with us](https://calendly.com/kubesail/15min) and we can help design a solution!
+For heavier traffic situations or when using a Cloud Provider, you may want to directly access your cluster via a Load Balancer - This works normally and would bypass the KubeSail agent and connect directly to your Ingress controller. [Schedule a chat with us](https://calendly.com/kubesail/15min) and we can help design a solution!
 
 ### Custom domains
 
@@ -56,17 +56,17 @@ Also note the `tls` section, which will cause a `Certificate` to be created auto
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: domain-ingress
+    name: domain-ingress
 spec:
-  rules:
-  - host: test.mywebsite.com
-    http:
-      paths:
-      - backend:
-          serviceName: my-app
-          servicePort: 8080
-  tls:
-  - hosts:
-    - test.mywebsite.com
-    secretName: mywebsite-cerfificate
+    rules:
+        - host: test.mywebsite.com
+          http:
+              paths:
+                  - backend:
+                        serviceName: my-app
+                        servicePort: 8080
+    tls:
+        - hosts:
+              - test.mywebsite.com
+          secretName: mywebsite-cerfificate
 ```

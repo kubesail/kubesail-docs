@@ -22,11 +22,9 @@ For best results, we recommend using a 40mm 5V PWM fan, such as the [Noctua NF-A
 
 LCD screens are included in every bundle. If you need a replacement, you can buy a bare screen [from Adafruit](https://www.adafruit.com/product/4520).
 
-## Backplane and Carrier boards & Power Supply
+## Backplane and Carrier Boards & Power Supply
 
-To purchase the Backplane and Carrier boards, visit our [Kickstarter campaign](https://www.kickstarter.com/projects/pastudan/pibox-a-modular-raspberry-pi-storage-server). Once the campaign is over, we will be fullfiling orders for the boards via [pibox.io](https://pibox.io) and on Amazon.
-
-Its important to use a 15 watt or higher power supply to ensure your Raspberry Pi and drives receive enough power. We ship a 17.5W USB-C power supply with all our bundles, and additional units can be purchased [on Amazon](https://amzn.to/3mAahEu)
+The Backplane and Carrier boards are now available on [pibox.io](https://pibox.io) as the "Hacker PiBox". This kit includes a metal case and the correct 17.5W Power Supply for your country.
 
 ## WiFi Antenna
 
