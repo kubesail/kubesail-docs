@@ -64,7 +64,7 @@ make && sudo make install
 
 ### Stress Test Data
 
-![Stress Test](img/pwm-chart.png)
+![Stress Test](/img/pwm-chart.png)
 
 ## Enable USB (Raspberry Pi OS only)
 
