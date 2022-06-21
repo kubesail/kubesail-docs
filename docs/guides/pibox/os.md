@@ -50,7 +50,7 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_CHANNEL=latest sh -
 
 ## Enabling PWM Fan Support
 
-To make the fan quiet and only spin as fast as necessary, we install a service that sends the correct signal to the fan using the Pi's hardware PWM controller. This code can be found in [our fork](https://github.com/kubesail/pibox-os/tree/main/pwm-fan) of `alwynallan`'s original gist on GitHub.
+The PiBox emits a PWM control signal so the fan only spins as fast as necessary. This makes it quieter than even the Official Raspberry Pi Case fan, and keeps the CPU from experiencing large temperature swings, which should lead to longer CPU life for your Pi. Typically this is done via a dedicated controller chip, however due to the ongoing chip shortage these chips are not possible to source. But thanks to some clever code from `alwynallan` on GitHub, we are able to ship a silent PiBox now, with no delays. This code can be found in [our fork](https://github.com/kubesail/pibox-os/tree/main/pwm-fan) of `alwynallan`'s original gist on GitHub.
 
 ```bash
 git clone https://github.com/kubesail/pibox-os.git
@@ -61,6 +61,10 @@ cd bcm2835-1.68
 cd ..
 make && sudo make install
 ```
+
+### Stress Test Data
+
+![Stress Test](img/pwm-chart.png)
 
 ## Enable USB (Raspberry Pi OS only)
 
