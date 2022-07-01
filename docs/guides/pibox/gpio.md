@@ -1,6 +1,6 @@
 # GPIO / LED control
 
-The PiBox has 3 user-controllable LEDs on the front panel that can be controlled via the Pi's GPIO pins using a variety of languages.
+The PiBox has a single RGB LED on the front panel (the top unlabeled LED) that is user controllable via 3 separate GPIO using a variety of languages.
 
 <!-- GPIO pin 16 can be used to turn off all of the system LEDs (the lower 3 LEDs on the front panel) -->
 
