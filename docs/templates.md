@@ -6,16 +6,19 @@ Templates can be shared with others, re-used on your clusters, and used to creat
 
 ### Creating a new Template
 
-Visit [kubesail.com/template](https://kubesail.com/template) and Choose a **public** or **private** template
-
-- Public templates are visible to everyone - Be careful not to include sensitive information!
-- Private templates are only visible to you and members of your organization
+Visit [https://kubesail.com/template/new](https://kubesail.com//template/new).
 
 ### Getting started
 
 - Choose **"Start with a Docker image"** if you have a public Docker image you'd like to use - we'll automatically generate most of the Kubernetes configuration you'll need!
 - Choose **"Add a Deployment"** to see a minimal example of a Kubernetes Deployment
 - Choose **"Edit YAML"** to open the built-in YAML Editor
+
+### Public / Private
+When you first save your new template, you can choose **public** or **private**.
+
+- Public templates are visible to everyone - Be careful not to include sensitive information!
+- Private templates are only visible to you and members of your organization
 
 ### Adding resources
 
