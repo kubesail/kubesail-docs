@@ -55,3 +55,11 @@ As always, please let us know [in our discord channel](https://discord.gg/N3zNdp
 ### Special Variables
 
 `KS_NAMESPACE` will be replaced with the name of the namespace this template is launched in. This is useful for `Ingress` names for apps which may be installed in many namespaces. For example `{{ KS_NAMESPACE }}.mycluster.myapp.com` is useful for user-installations of templates, including [Platform](/platform).
+
+### Variable Table
+|Variable| Function |
+|--|--|
+| {{ CLUSTER_ADDRESS }} | Will Use the Cluster Address for the URL. Can be used in environment variables. |
+| RANDOM(x) | Will Return a Random Generated String. Can be Used for Passwords, Keys, ETC. Can be used in environment variables. |
+| {{ TZ() }} | Used for Timezone Funtions in a Template, can be used as a default. Ex: {{ TIMEZONE|TZ() }}|
+
