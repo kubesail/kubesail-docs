@@ -57,9 +57,10 @@ As always, please let us know [in our discord channel](https://discord.gg/N3zNdp
 `KS_NAMESPACE` will be replaced with the name of the namespace this template is launched in. This is useful for `Ingress` names for apps which may be installed in many namespaces. For example `{{ KS_NAMESPACE }}.mycluster.myapp.com` is useful for user-installations of templates, including [Platform](/platform).
 
 ### Variable Table
-|Variable| Function |
-|--|--|
-| {{ CLUSTER_ADDRESS }} | Will Use the Cluster Address for the URL. Can be used in environment variables. |
-| RANDOM(x) | Will Return a Random Generated String. Can be Used for Passwords, Keys, ETC. Can be used in environment variables. |
-| {{ TZ() }} | Used for Timezone Funtions in a Template, can be used as a default. Ex: {{ TIMEZONE|TZ() }}|
+|Variable| Function | Example
+|--|--|--|
+| {{ CLUSTER_ADDRESS }} | Will Use the Cluster Address for the URL. | pibox.erulabs.use1.k8g8.com |
+| RANDOM(x) | Will Return a Random Generated String. Can be Used for Passwords, Keys, ETC. |RANDOM(18) = `gPDs9y3zh7QYkq3FCU` |
+| SRANDOM(x) |  Will Return a Random Generated String. | Ex: SRANDOM(18) = `&K9W28*5S!bG4Pu%*b`|
+| {{ TZ() }} | Used for Timezone Funtions in a Template, can be used as a default. |Ex: {{ TIMEZONE|TZ() }}|
 
