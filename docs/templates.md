@@ -59,8 +59,8 @@ As always, please let us know [in our discord channel](https://discord.gg/N3zNdp
 ### Variable Table
 |Variable| Function | Example
 |--|--|--|
-| {{ CLUSTER_ADDRESS }} | Will Use the Cluster Address for the URL. | pibox.erulabs.use1.k8g8.com |
-| RANDOM(x) | Will Return a Random Generated String. Can be Used for Passwords, Keys, ETC. |RANDOM(18) = `gPDs9y3zh7QYkq3FCU` |
-| SRANDOM(x) |  Will Return a Random Generated String. | SRANDOM(18) = `&K9W28*5S!bG4Pu%*b`|
-| {{ TZ() }} | Used for Timezone Funtions in a Template, can be used as a default. | {{ TIMEZONE|TZ() }} = America/New_York |
+| `{{ CLUSTER_ADDRESS }}` | Will Use the Cluster Address for the URL. | pibox.erulabs.use1.k8g8.com |
+| `RANDOM(x)` | Will Return a Random Generated String. Can be Used for Passwords, Keys, ETC. |`RANDOM(18)` = `gPDs9y3zh7QYkq3FCU` |
+| `SRANDOM(x)` |  Will Return a Random Generated String. | `SRANDOM(18)` = `&K9W28*5S!bG4Pu%*b`|
+| `{{ TZ() }}` | Used for Timezone Funtions in a Template, can be used as a default. | `{{ TIMEZONE|TZ() }}` = `America/New_York` |
 
