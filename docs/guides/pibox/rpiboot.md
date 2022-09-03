@@ -4,7 +4,7 @@ The PiBox is built around the [Raspberry Pi 4 Compute Module](https://datasheets
 
 <!-- prettier-ignore -->
 !!! note
-    Unless you ordered your PiBox with no Compute Module (advanced users), then you received a PiBox with eMMC, and will need to use this guide to re-flash it. We only ship modules with onboard flash due to its substantially faster performance.
+    Unless you ordered your PiBox with no Compute Module (advanced users), then you received a PiBox with eMMC and an OS pre-installed. You can use to use this guide to re-flash it. We only ship modules with onboard flash due to its substantially faster performance.
 
 ## Installing the `rpiboot` tool
 
