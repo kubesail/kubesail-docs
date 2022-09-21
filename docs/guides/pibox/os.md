@@ -177,7 +177,7 @@ EOF
 
 # Download pibox-framebuffer binary
 
-curl -s https://raw.githubusercontent.com/kubesail/pibox-os/main/setup.sh | sudo bash
+curl -s https://raw.githubusercontent.com/kubesail/pibox-os/main/update-framebuffer.sh | sudo bash
 
 ## Modifying the image / stats shown on the display
 
