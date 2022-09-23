@@ -56,25 +56,25 @@ As always, please let us know [in our discord channel](https://discord.gg/N3zNdp
 
 Several variables, like `{{ CLUSTER_ADDRESS }}` are automatically replaced with contextual information that can be useful when creating well formed templates. For example, official templates typically include an `Ingress` which uses a default address like `app-name.{{ CLUSTER_ADDRESS }}`. Some others are available:
 
-| Variable          | Replaced With                                                                                                                                     |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NAMESPACE         | The name of the users current namespace, ie: 'default'                                                                                            |
-| USERNAME          | The KubeSail user's username                                                                                                                      |
-| CLUSTER_ADDRESS   | The address of the current cluster, ie: 'pasadena.erulabs.usw1.k8g8.com'                                                                          |
-| TZ                | The timezone of the users browser                                                                                                                 |
-| HTACCESS_USERNAME | Used as a special input variable for the HTACCESS_AUTH() function. See [deluge](https://kubesail.com/template/erulabs/deluge-vpn) for an example. |
-| HTACCESS_PASSWORD | Same as HTACCESS_USERNAME, but, the password.                                                                                                     |
+| Variable            | Replaced With                                                                                                                                     |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `NAMESPACE`         | The name of the users current namespace, ie: 'default'                                                                                            |
+| `USERNAME`          | The KubeSail user's username                                                                                                                      |
+| `CLUSTER_ADDRESS`   | The address of the current cluster, ie: 'pasadena.erulabs.usw1.k8g8.com'                                                                          |
+| `TZ`                | The timezone of the users browser                                                                                                                 |
+| `HTACCESS_USERNAME` | Used as a special input variable for the HTACCESS_AUTH() function. See [deluge](https://kubesail.com/template/erulabs/deluge-vpn) for an example. |
+| `HTACCESS_PASSWORD` | Same as HTACCESS_USERNAME, but, the password.                                                                                                     |
 
 ### Variable Functions
 
-Like special variables, variable functions can be used to create healthy defaults for users. The most commonly used is `{{ RANDOM(32) }}, which generates a random 32-character string, useful for passwords and tokens. Others are available:
+Like special variables, variable functions can be used to create healthy defaults for users. The most commonly used is `{{ RANDOM(32) }}`, which generates a random 32-character string, useful for passwords and tokens. Others are available:
 
 
-| Variable        | Replaced With                                                                                                              |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| RANDOM(length)  | Random, url-safe string of size 'length'                                                                                   |
-| SRANDOM(length) | Random, json-safe string of size 'length'                                                                                  |
-| HEX(length)     | Random, hex-encoded string of size 'length'                                                                                |
-| HTACCESS_AUTH   | Used to generate a valid htaccess document. See [deluge](https://kubesail.com/template/erulabs/deluge-vpn) for an example. |
+| Variable          | Replaced With                                                                                                              |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `RANDOM(length)`  | Random, url-safe string of size 'length'                                                                                   |
+| `SRANDOM(length)` | Random, json-safe string of size 'length'                                                                                  |
+| `HEX(length)`     | Random, hex-encoded string of size 'length'                                                                                |
+| `HTACCESS_AUTH`   | Used to generate a valid htaccess document. See [deluge](https://kubesail.com/template/erulabs/deluge-vpn) for an example. |
 
 Many of these functions have been added by request. Please let us know in discord if you have an idea for another useful one!
