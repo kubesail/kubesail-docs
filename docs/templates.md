@@ -42,7 +42,7 @@ Creating a variable will automatically add the "Environment Variable" panel to t
 
 Environment variables can also be upgraded a bit to help users by giving them defaults and descriptions about how they should be used. The format is:
 
-    `"{{ VARIABLE_NAME|default value|Description }}"`
+    "{{ VARIABLE_NAME|default value or function|Description|Friendly name }}"
 
 You can also use `RANDOM(length)` as a default value to generate random strings such as passwords:
 
