@@ -161,9 +161,10 @@ To install the driver and our `pibox-framebuffer` binary:
 git clone https://github.com/kubesail/pibox-os.git
 
 # Enable Display Driver
+apt-get install raspberrypi-kernel-headers # For Raspbian / Pibox-OS, we need some additional drivers.
 pushd pibox-os/st7789_module
 make
-mv /lib/modules/"$(uname -r)"/kernel/drivers/staging/fbtft/fb_st7789v.ko /lib/modules/"$(uname -r)"/kernel/drivers/staging/fbtft/fb_st7789v.BACK
+# If this command fails with "/lib/modules/kernel-version not found", please try rebooting to activate your current kernel!
 mv fb_st7789v.ko /lib/modules/"$(uname -r)"/kernel/drivers/staging/fbtft/fb_st7789v.ko
 popd
 dtc --warning no-unit_address_vs_reg -I dts -O dtb -o /boot/overlays/drm-minipitft13.dtbo pibox-os/overlays/minipitft13-overlay.dts
