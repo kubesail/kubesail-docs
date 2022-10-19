@@ -21,7 +21,7 @@ Raspberry Pi maintains an excellent utility for flashing devices on every OS. Do
 
 1. Open the PiBox using the two screws on the back. The top clamshell case slides back and lifts up to reveal the Carrier board (large horizontal PCB) and the Backplane (small vertical PCB in front)
 1. Disconnect the PiBox's Carrier board from the Backplane.
-   <img src="/img/removal-instructions.png" width="60%" title="Removal instructions" />
+   <img src="/img/removal-instructions.jpg" width="60%" title="Removal instructions" />
 
     1. Push up in the middle & bottom side of the SSD tray. This relieves the pressure on the circuit board from the side tabs.
     1. Push up on either side of the circuit board to wiggle it free from the tabs.
