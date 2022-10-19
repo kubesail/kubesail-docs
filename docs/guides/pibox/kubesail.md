@@ -6,12 +6,9 @@ KubeSail helps you manage software on your PiBox, or any other computer running 
 curl -s https://raw.githubusercontent.com/kubesail/pibox-os/main/setup.sh | sudo bash
 ```
 
-Then run
+Then scan the QR code on the screen or checkout the kubesail-agent logs for the verification link! If checking the PiBox screen isn't easy, you can use:
 
-```bash
-sudo kubesail
 ```
-
-to set up KubeSail and install your SSH keys.
-
-After a few minutes, your PiBox will appear in the [clusters](https://kubesail.com/clusters) tab of the KubeSail dashboard.
+sudo kubectl -n kubesail-agent logs -l app=kubesail-agent
+```
+to look for the verification link as well.
