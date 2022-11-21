@@ -1,5 +1,12 @@
 # Factory Reset
 
+## Reset containerd
+
+Ocassionally, k3s can get into a state where it is not in sync with the underlying container system (containerd). This is the first and least obtrusive debugging step.
+
+    for i in $(sudo k3s ctr c ls | awk '{print $1}'); do sudo k3s ctr c rm $i; done
+    sudo service k3s restart
+
 ## Reset Kubernetes (most common)
 
 You can use these commands to reset your Kubernetes (K3s) installation to the factory defaults:
