@@ -13,7 +13,7 @@ You can use these commands to reset your Kubernetes (K3s) installation to the fa
 
 ```bash
 /usr/local/bin/k3s-uninstall.sh
-curl -L https://get.k3s.io | INSTALL_K3S_CHANNEL=stable INSTALL_K3S_EXEC="server --cluster-cidr=172.31.10.0/24 --service-cidr=172.31.11.0/24 --no-deploy traefik --disable=traefik --kubelet-arg container-log-max-files=3 --kubelet-arg container-log-max-size=10Mi --disable-network-policy" sh
+curl --connect-timeout 10 --retry 5 --retry-delay 3 -L https://get.k3s.io | INSTALL_K3S_CHANNEL=stable INSTALL_K3S_EXEC="server --cluster-cidr=172.30.0.0/16 --service-cidr=172.31.0.0/16 --disable=traefik --kubelet-arg container-log-max-files=3 --kubelet-arg container-log-max-size=10Mi --disable-network-policy" sh
 sudo kubectl create -f https://api.kubesail.com/byoc
 ```
 
