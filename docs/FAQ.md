@@ -66,3 +66,7 @@ One of the major features of our “Standard” plan is that it includes backups
 ### Electricity cost is annoying in the EU now, how much is the power consumption of PiBox per month with 2 drives?
 
 Max power even under load with 2 drives is 15W, and normally half that while idle. We designed this to be always on and super efficient!
+
+### How do I check the agent logs if something isn't working?
+
+On your system, you can checkout the `kubesail-agent` namespace which contains the agent. You can view the logs with: `sudo kubectl -n kubesail-agent logs -l app=kubesail-agent`. You might also try running `curl -sL https://pibox.io/help.sh | sudo bash` to submit a help request.
