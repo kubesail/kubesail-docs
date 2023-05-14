@@ -20,7 +20,11 @@ An address like "mycluster.username.region.**ksdns.io**" will resolve to your cl
 
 ### Direct Access
 
+If you're a home user, make sure to set or correct your PiBoxes local address at https://kubesail.com/clusters/ under "settings". Our agent will try its best to automatically set that value, otherwise you can set it yourself. This address will be used to set DNS records automatically for `*.cluster_name.user_name.region.k8g8.com`. When you're accessing the dashboard from the same network as your cluster, the Launch button will automatically direct you to the local version of your app!
+
 For heavier traffic situations or when using a Cloud Provider, you may want to directly access your cluster via a Load Balancer - This works normally and would bypass the KubeSail agent and connect directly to your Ingress controller. [Schedule a chat with us](https://calendly.com/kubesail/15min) and we can help design a solution!
+
+Assuming the dashboard is totally offline, you can also access your applications directly via their service address and port. You can use `kubectl get services` to see these addresses. Warning: Your firewall configuration may not allow you to reach these addresses! You may need to use a command like `kubectl port-forward` to export the port.
 
 ### Custom domains
 
