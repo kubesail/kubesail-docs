@@ -9,11 +9,11 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-python@v2
+            - uses: actions/checkout@v3
+            - uses: actions/setup-python@v4
               with:
                   python-version: 3.x
-            - uses: abatilo/actions-poetry@v2.0.0
+            - uses: abatilo/actions-poetry@v2
             - name: Install dependencies
               run: poetry install
             - name: Build docs
