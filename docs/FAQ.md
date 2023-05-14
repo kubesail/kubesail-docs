@@ -70,3 +70,15 @@ Max power even under load with 2 drives is 15W, and normally half that while idl
 ### How do I check the agent logs if something isn't working?
 
 On your system, you can checkout the `kubesail-agent` namespace which contains the agent. You can view the logs with: `sudo kubectl -n kubesail-agent logs -l app=kubesail-agent`. You might also try running `curl -sL https://pibox.io/help.sh | sudo bash` to submit a help request.
+
+### How do I find where my "KubeSail Apps" store data on my pibox?
+
+All KubeSail apps are really Kubernetes apps, an open source tool for which there is a lot of documentation available! We use "k3s", which stores all of its data at `/var/lib/rancher/k3s/storage`. In that directory, you'll find directories that end with titles like "default_deluge-config" - which means a disk in the "default" namespace named "deluge-config". K3s can also be configured to use any other type of disk, but we use simple directories at `/var/lib/rancher/k3s/storage` by default.
+
+### What do I do if my certificate isn't working?
+
+First, check that there aren't any updates available at https://kubesail.com/clusters. If not, you can try restarting the agent with: `sudo kubectl -n kubesail-agent delete pods --all`, which should reverify your local certificates.
+
+### How do I get the PiBox screen working?
+
+See the [PiBox docs](https://docs.kubesail.com/guides/pibox/kubesail/). If you're more advanced, you can view all of our "Pibox OS" scripts at https://github.com/kubesail/pibox-os/
