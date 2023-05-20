@@ -82,3 +82,7 @@ First, check that there aren't any updates available at https://kubesail.com/clu
 ### How do I get the PiBox screen working?
 
 See the [PiBox docs](https://docs.kubesail.com/guides/pibox/kubesail/). If you're more advanced, you can view all of our "Pibox OS" scripts at https://github.com/kubesail/pibox-os/
+
+### My ".local." domains are not working, please help!
+
+Some ISPs, namely Comcast/XFinity, block our "local.k8g8.com" domains because they're public DNS names that point at private IP addresses. For more reasons than just to make our domains work, we highly suggest you do not use these DNS providers! Change your workstation or (even better) your Routers DNS configuration to use [CloudFlare's DNS (1.1.1.1)](https://www.cloudflare.com/dns/) or [Google's DNS (8.8.8.8)](https://developers.google.com/speed/public-dns). This will both fix our domains, as well as speeding up your browsing and increasing your privacy.
