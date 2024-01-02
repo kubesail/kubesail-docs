@@ -23,7 +23,11 @@ The first question when self-hosting is: What computer am I going to use as my s
 
     <img src="/img/display-qr2.png" width="50%" title="PiBox 2 QR Code setup" />
 
-    If for some reason setup fails, please let us know! You can toggle the power to the PiBox in order to get a new QR code.
+    If for some reason setup fails, please let us know! You can toggle the power to the PiBox in order to get a new QR code. If you're setting up from a custom OS and have installed Kubernetes, you'll need to manually install our agent:
+
+    ```
+    kubectl create -f https://byoc.kubesail.com/<USERNAME>.yaml
+    ```
 
 === "A spare PC I own"
     KubeSail works on almost any PC, but we recommend a computer with at least the following:
