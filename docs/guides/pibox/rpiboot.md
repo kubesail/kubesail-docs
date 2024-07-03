@@ -33,7 +33,7 @@ Raspberry Pi maintains an excellent utility for flashing devices on every OS. Do
 1. Run `sudo ./rpiboot` (Mac / Linux) or the `RpiBoot` executable at `C:\Program Files (x86)\Raspberry Pi\RPiBoot.exe` (Windows). This will turn your Pi's eMMC into a mass storage device, allowing you to write the OS directly to the eMMC.
 1. Open the Raspberry Pi Imager
     - Select an OS
-        - Download our latest OS image [from GitHub](https://github.com/kubesail/pibox-os/releases)
+        - Download our [latest PiBox Host OS image](https://pibox-mirror-us.us-southeast-1.linodeobjects.com/pibox-host-os-v1.39.0.img.gz)
         - Or, flash your own OS. We recommend starting with Raspberry Pi OS 64-bit
     - Choose `RPi-MSD- 0001` as your storage location.
     - Click `Write`.
